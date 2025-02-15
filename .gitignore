@@ -4,7 +4,6 @@ wp-config-local.php
 wp-cli.local.yml
 wp-content/uploads
 wp-content/blogs.dir/
-wp-content/upgrade/
 wp-content/backup-db/
 wp-content/updraft/
 wp-content/backupwordpress-*/
@@ -15,7 +14,7 @@ sitemap.xml
 sitemap.xml.gz
 
 # @TODO writable paths
-wp-content/cache/
+#wp-content/cache/
 wp-content/backups/
 
 # Avoid accidental modification of pantheon.upstream.yml in sites
@@ -55,3 +54,26 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
+
+# Acorn cache
+#/wp-content/cache/
+
+# All themes
+#
+# Note: If you wish to whitelist themes,
+# uncomment the next line
+#/wp-content/themes
+/wp-content/themes/**/package-lock.json
+/wp-content/themes/**/*.lock
+
+# Log files
+*.log
+
+# Example plugin
+/wp-content/plugins/hello.php
+/wp-content/plugins/akismet/
+
+# htaccess
+# /.htaccess
+
+.lando.yml
