@@ -2,6 +2,6 @@
   {% set address_string = map.address.street_address_1 ~ '+' ~ map.address.street_address_2|url_encode ~ '+' ~ map.address.city ~ '+' ~ map.address.state ~ '+' ~ map.address.zipcode %}
   <div class="o-map{{ map.classes ? ' ' ~ map.classes }}">
     {% include "@molecules/maps/map-globals.twig" %}
-    <iframe title="{{ map.address.city ~ ' Map' }}" src="https://www.google.com/maps/embed/v1/place?q={{ address_string }}|&key=AIzaSyCk_yl2lO5EopNajNYJtroMW-uTd9iPot8" width="600" height="400" frameborder="0" allowfullscreen=""></iframe>
+    <iframe title="{{ map.address.city ~ ' Map' }}" src="https://www.google.com/maps/embed/v1/place?q={{ address_string }}" width="600" height="400" frameborder="0" allowfullscreen=""></iframe>
   </div>
 {% endif %}

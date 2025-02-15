@@ -28,7 +28,7 @@
         "type": "borderRadius"
       },
       "input": {
-        "value": "4px",
+        "value": "2px",
         "type": "borderRadius"
       },
       "image": {
@@ -40,7 +40,7 @@
         "type": "borderRadius"
       },
       "button": {
-        "value": "4px",
+        "value": "2px",
         "type": "borderRadius"
       }
     }

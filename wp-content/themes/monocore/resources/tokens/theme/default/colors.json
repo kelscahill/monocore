@@ -2,15 +2,15 @@
   "color": {
     "background": {
       "default-weak": {
-        "value": "{color.neutral.dark.700}",
+        "value": "{color.brand.secondary.400}",
         "type": "color"
       },
       "default": {
-        "value": "{color.neutral.dark.800}",
+        "value": "{color.brand.secondary.500}",
         "type": "color"
       },
       "default-strong": {
-        "value": "{color.neutral.dark.900}",
+        "value": "{color.brand.secondary.600}",
         "type": "color"
       },
       "primary-weak": {
@@ -22,11 +22,11 @@
         "type": "color"
       },
       "secondary-weak": {
-        "value": "{color.brand.secondary.400}",
+        "value": "{color.neutral.light.400}",
         "type": "color"
       },
       "secondary-default": {
-        "value": "{color.brand.secondary.500}",
+        "value": "{color.neutral.light.500}",
         "type": "color"
       },
       "info-default": {
@@ -48,11 +48,11 @@
     },
     "content": {
       "default-weak": {
-        "value": "{color.neutral.light.800}",
+        "value": "{color.neutral.light.500}",
         "type": "color"
       },
       "default": {
-        "value": "{color.neutral.light.200}",
+        "value": "{color.neutral.light.400}",
         "type": "color"
       },
       "primary-weak": {
@@ -98,11 +98,11 @@
     },
     "border": {
       "default-strong": {
-        "value": "{color.neutral.dark.400}",
+        "value": "{color.neutral.light.700}",
         "type": "color"
       },
       "default": {
-        "value": "{color.neutral.dark.300}",
+        "value": "{color.neutral.light.800}",
         "type": "color"
       },
       "default-weak": {
