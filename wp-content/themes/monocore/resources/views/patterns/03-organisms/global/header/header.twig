@@ -1,0 +1,29 @@
+{% if options.header_background == "inverted" and options.logo_horizontal_inverted %}
+  {% set logo = get_image(options.logo_horizontal_inverted) %}
+{% elseif options.logo_horizontal %}
+  {% set logo = get_image(options.logo_horizontal) %}
+  {% if options.header_background == "inverted" %}
+    {% set logo_classes = 'o-logo--inverted' %}
+  {% endif %}
+{% endif %}
+
+<header role="banner" class="c-header{{ header.classes ? " " ~ header.classes }} u-background--{{ options.header_background }} l-wrap c-{{ options.header_type }}">
+  {% if options.header_type == "header-3" %}
+    {% include "@organisms/global/header/top-nav.twig" %}
+  {% endif %}
+  <div class="c-header__main l-container">
+    {% include "@atoms/images/logos/logo.twig" with {
+      "logo": {
+        "image": {
+          "src": logo.src,
+          "alt": logo.alt ? logo.alt : site.name,
+          "width": logo.width,
+          "height": logo.height
+        },
+        "link": site.link,
+        "classes": "c-header__logo " ~ logo_classes
+      }
+    } %}
+    {% include "@molecules/navigation/primary/primary-nav.twig" %}
+  </div>
+</header>

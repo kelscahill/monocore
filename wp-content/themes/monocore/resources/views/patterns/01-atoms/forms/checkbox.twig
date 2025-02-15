@@ -1,0 +1,6 @@
+{% if checkbox.name and checkbox.label %}
+  <div class="o-input{{ checkbox.classes ? ' ' ~ checkbox.classes }}{{ options.inputs != 'squared' ? ' o-input--rounded' }}">
+    <input id="{{ checkbox.name }}" name="{{ checkbox.name }}" type="checkbox"{% if checkbox.checked %} checked="checked"{% endif %}/>
+    <label for="{{ checkbox.name }}">{{ checkbox.label }}</label>
+  </div>
+{% endif %}

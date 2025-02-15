@@ -1,0 +1,21 @@
+{% if link.url %}
+  <a class="o-link{{ link.classes ? ' ' ~ link.classes }}" href="{{ link.url }}"{{ link.target == '_blank' ? ' target="_blank" rel="noreferrer"' : ' target="_self"' }}{{ link.aria_label ? ' aria-label="' ~ link.aria_label ~ '"' }}{{ link.attributes ? ' ' ~ link.attributes }}>
+    {% if (link.icon or link.icon.name) and ((link.icon.name and link.icon.placement != 'after') or link.icon_placement == 'before') %}
+      {% if link.icon.mime_type == 'image/svg+xml' or link.icon.name %}
+        {% include "@atoms/images/icons/icon.twig" with link %}
+      {% else %}
+        <i class="{{ link.icon }}"></i>
+      {% endif %}
+    {% endif %}
+    {% if link.text %}
+      <span>{{ link.text }}</span>
+    {% endif %}
+    {% if (link.icon or link.icon.name) and (link.icon.placement == 'after' or link.icon_placement == 'after') %}
+      {% if link.icon.mime_type == 'image/svg+xml' or link.icon.name %}
+        {% include "@atoms/images/icons/icon.twig" with link %}
+      {% else %}
+        <i class="{{ link.icon }}"></i>
+      {% endif %}
+    {% endif %}
+  </a>
+{% endif %}

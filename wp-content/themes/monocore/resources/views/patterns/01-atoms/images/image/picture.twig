@@ -1,0 +1,10 @@
+{% if image.src %}
+  <picture class="o-picture{{ picture.classes ? ' ' ~ picture.classes }}"{{ picture.attributes ? ' ' ? picture.attributes }}>
+    {% if image.sources %}
+      {% for source in image.sources %}
+        <source media="{{ source.media }}" srcset="{{ source.srcset }}" />
+      {% endfor %}
+    {% endif %}
+    {% include "@atoms/images/image/image.twig" with image %}
+  </picture>
+{% endif %}

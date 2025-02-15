@@ -1,0 +1,201 @@
+{
+    "key": "group_63b45d7c66376",
+    "title": "Media Block",
+    "fields": [
+        {
+            "key": "field_63b45d8aaeb7c",
+            "label": "Media Type",
+            "name": "media_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose between Image, Video, or Lottie Animation.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "image": "Image",
+                "video": "Video",
+                "lottie": "Lottie Animation"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_63b45db7aeb7d",
+            "label": "Image",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Upload or choose an image from the media library.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63b45d8aaeb7c",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_6622b6832a724",
+            "label": "Video Type",
+            "name": "video_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose between URL or Embed.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63b45d8aaeb7c",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "url": "Url",
+                "embed": "Embed"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_63b45dd1aeb7e",
+            "label": "Video Url",
+            "name": "video_url",
+            "aria-label": "",
+            "type": "oembed",
+            "instructions": "Paste the video URL here (supports various video platforms).",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63b45d8aaeb7c",
+                        "operator": "==",
+                        "value": "video"
+                    },
+                    {
+                        "field": "field_6622b6832a724",
+                        "operator": "==",
+                        "value": "url"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
+        },
+        {
+            "key": "field_6622b6402a723",
+            "label": "Video Embed",
+            "name": "video_embed",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Paste the full embed code for the video here.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63b45d8aaeb7c",
+                        "operator": "==",
+                        "value": "video"
+                    },
+                    {
+                        "field": "field_6622b6832a724",
+                        "operator": "==",
+                        "value": "embed"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_65b195472bcec",
+            "label": "Lottie Animation URL",
+            "name": "lottie_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Enter the URL of the Lottie JSON file.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63b45d8aaeb7c",
+                        "operator": "==",
+                        "value": "lottie"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "general_settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1713551089
+}

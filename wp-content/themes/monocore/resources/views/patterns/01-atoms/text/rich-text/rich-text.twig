@@ -1,0 +1,10 @@
+{% if rich_text.text != "" or rich_text.includes %}
+  <div class="o-rich-text{{ rich_text.classes ? ' ' ~ rich_text.classes }}">
+    {{ rich_text.text }}
+    {% if rich_text.includes %}
+      {% for item in rich_text.includes %}
+        {% include item %}
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endif %}

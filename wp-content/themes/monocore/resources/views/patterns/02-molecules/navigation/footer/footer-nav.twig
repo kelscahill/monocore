@@ -1,0 +1,21 @@
+{% if footer_nav.items %}
+  <nav class="c-footer-nav{{ footer_nav.classes ? ' ' ~ footer_nav.classes }}">
+    {% for item in footer_nav.items %}
+      {% if item.link.url %}
+        {% set link = item.link %}
+      {% else %}
+        {% set link = item %}
+      {% endif %}
+      {% include "@atoms/links/link.twig" with {
+        "link": {
+          "text": link.title,
+          "url": link.url,
+          "target": link.target,
+          "icon": item.icon,
+          "icon_placement": "before",
+          "classes": "c-footer-nav__link" ~ link.classes|join(' '),
+        }
+      } %}
+    {% endfor %}
+  </nav>
+{% endif %}

@@ -1,0 +1,21 @@
+<article class="c-content-page{{ content.classes ? ' ' ~ content.classes }} u-spacing--xxl">
+  {% if not is_frontpage %}
+    {% include "@organisms/sections/headers/page-header.twig" with {
+      "page_header": {
+        "kicker": post.post_parent ? function('get_the_title', post.post_parent),
+        "title": post.title,
+        "classes": "c-content-page__header"
+      }
+    } %}
+  {% endif %}
+  {% if password_protected %}
+    {% include "@molecules/forms/password-protected/password-protected.twig" %}
+  {% else %}
+    {% include "@atoms/text/rich-text/rich-text.twig" with {
+      "rich_text": {
+        "text": post.content,
+        "classes": "c-content-page__body l-container--lg"
+      }
+    } %}
+  {% endif %}
+</article>

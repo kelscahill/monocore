@@ -1,0 +1,10 @@
+{% if fieldset.items or fieldset.legend %}
+  <fieldset class="o-fieldset{{ fieldset.classes ? ' ' ~ fieldset.classes }}">
+    {% if fieldset.legend %}
+      <legend>{{ fieldset.legend }}</legend>
+    {% endif %}
+    {% for item in fieldset.items %}
+      {% include "@" ~ item.type with item.value %}
+    {% endfor %}
+  </fieldset>
+{% endif %}

@@ -1,0 +1,8 @@
+{% if input.name and input.type %}
+  <div class="o-input{{ input.classes ? ' ' ~ input.classes }}{{ options.inputs != 'squared' ? ' o-input--rounded' }}">
+    {% if input.label %}
+      <label for="{{ input.name }}" class="is-vishidden">{{ input.label }}</label>
+    {% endif %}
+    <input id="{{ input.name }}" name="{{ input.name }}" type="{{ input.type }}" placeholder="{{ input.label }}"/>
+  </div>
+{% endif %}

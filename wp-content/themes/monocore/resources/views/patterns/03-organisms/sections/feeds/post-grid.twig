@@ -1,0 +1,63 @@
+{% if post_grid.display == "shortcodes" and post_grid.shortcodes %}
+  <section class="c-post-grid{{ post_grid.classes ? ' ' ~ post_grid.classes }} l-container--full l-wrap{{ post_grid.background.background_color ? ' u-background--' ~ post_grid.background.background_color }}">
+    {% include "@atoms/images/image/background.twig" with {
+      "background": post_grid.background
+    } %}
+    <div class="c-post-grid__container l-container u-spacing--xxl">
+      {% include "@organisms/sections/headers/section-header.twig" with {
+        "section_header_classes": "c-post-grid__header"
+      } %}
+      <div class="c-post-grid__content{{ post_grid.shortcodes.sidebar or post_grid.shortcodes.sidebar_button_group ? ' has-sidebar' }}">
+        {% if post_grid.shortcodes.sidebar or post_grid.shortcodes.sidebar_button_group %}
+          <aside class="c-post-grid__sidebar">
+            <div class="c-filter">
+              <div class="c-filter__header js-toggle-parent">
+                {% include "@atoms/text/heading/heading.twig" with {
+                  "heading": {
+                    "level": "2",
+                    "size": "lg",
+                    "text": "Filter",
+                    "classes": "c-filter__title"
+                  }
+                } %}
+              </div>
+              <div class="c-filter__content">
+                {% for item in post_grid.shortcodes.sidebar %}
+                  {% apply shortcodes %}
+                    {{ item.shortcode }}
+                  {% endapply %}
+                {% endfor %}
+                {% if post_grid.shortcodes.sidebar_button_group %}
+                  <div class="o-button-group">
+                    {% for item in post_grid.shortcodes.sidebar_button_group %}
+                      {% apply shortcodes %}
+                        {{ item.shortcode }}
+                      {% endapply %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </aside>
+        {% endif %}
+        {% if post_grid.shortcodes.content %}
+          <article class="c-post-grid__content">
+            {% for item in post_grid.shortcodes.content %}
+              {% apply shortcodes %}
+                {{ item.shortcode }}
+              {% endapply %}
+            {% endfor %}
+          </article>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% else %}
+  {% include "@organisms/sections/feeds/card-grid.twig" with {
+    "card_grid": {
+      "background": post_grid.background,
+      "posts": post_grid.posts
+    }
+  } %}
+{% endif %}
+

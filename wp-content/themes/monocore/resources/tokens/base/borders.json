@@ -1,0 +1,48 @@
+{
+  "border": {
+    "width": {
+      "@": {
+        "value": "1px",
+        "type": "borderWidth"
+      },
+      "md": {
+        "value": "2px",
+        "type": "borderWidth"
+      }
+    },
+    "radius": {
+      "sm": {
+        "value": "4px",
+        "type": "borderRadius"
+      },
+      "@": {
+        "value": "12px",
+        "type": "borderRadius"
+      },
+      "md": {
+        "value": "16px",
+        "type": "borderRadius"
+      },
+      "round": {
+        "value": "48px",
+        "type": "borderRadius"
+      },
+      "input": {
+        "value": "4px",
+        "type": "borderRadius"
+      },
+      "image": {
+        "value": "0",
+        "type": "borderRadius"
+      },
+      "card": {
+        "value": "0",
+        "type": "borderRadius"
+      },
+      "button": {
+        "value": "4px",
+        "type": "borderRadius"
+      }
+    }
+  }
+}

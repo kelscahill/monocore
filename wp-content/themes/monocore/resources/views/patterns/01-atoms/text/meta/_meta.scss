@@ -1,0 +1,25 @@
+/* ------------------------------------ *\
+  $META
+\* ------------------------------------ */
+
+.o-meta {
+  @include o-typography-body--sm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mc-space);
+
+  &__image {
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: var(--mc-color-background-default-weak);
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: var(--mc-space-sm);
+  }
+}

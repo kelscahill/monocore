@@ -1,0 +1,335 @@
+{
+    "key": "group_62fba7aba0382",
+    "title": "Social Proof",
+    "fields": [
+        {
+            "key": "field_642f0b505969e",
+            "label": "Social Proof",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_63d13b4d4c82c",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_66e2f29c6339d",
+            "label": "Section Background",
+            "name": "social_proof_background",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "Choose the background style for the social proof section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_66e1db3e46a7d"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_63d13bc74c82e",
+            "label": "Card Background Color",
+            "name": "social_proof_card_background",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose the background color for the testimonial cards.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "subtle": "Subtle"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_63d13b7b4c82d",
+            "label": "Layout",
+            "name": "social_proof_layout",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Select the layout for displaying testimonials.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "aside": "Aside",
+                "row": "Row"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_645e725f34dd1",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63d13b7b4c82d",
+                        "operator": "==",
+                        "value": "aside"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/social-proof-aside.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_645e729734dd2",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63d13b7b4c82d",
+                        "operator": "==",
+                        "value": "row"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/social-proof-row.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_661d5fbb40fd4",
+            "label": "Section Header",
+            "name": "social_proof_section_header",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_66194d7e20c9b"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_63d13ad84c82a",
+            "label": "Testimonials",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "Add individual testimonials. Click 'Add Testimonial' to include multiple entries.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_63d13af04c82b",
+            "label": "Testimonials",
+            "name": "social_proof_testimonials",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_62fba7c9ac048",
+            "button_label": "Add Testimonial",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_62fba7bbac047",
+                    "label": "Quote",
+                    "name": "quote",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Enter the testimonial text.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_63d13af04c82b"
+                },
+                {
+                    "key": "field_62fba7c9ac048",
+                    "label": "Citation Name",
+                    "name": "citation",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the name of the person giving the testimonial.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_63d13af04c82b"
+                },
+                {
+                    "key": "field_630f6695bf27b",
+                    "label": "Citation Title",
+                    "name": "citation_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the title or position of the person.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_63d13af04c82b"
+                },
+                {
+                    "key": "field_62fba7cfac049",
+                    "label": "Thumbnail",
+                    "name": "thumbnail",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Upload an image for the testimonial (optional).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_63d13af04c82b"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/social-proof"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1726150104
+}

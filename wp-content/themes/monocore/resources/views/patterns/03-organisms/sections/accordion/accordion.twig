@@ -1,0 +1,48 @@
+{% if accordion.heading or accordion.items %}
+  <section{{ accordion.anchor ? ' id="' ~ accordion.anchor ~ '"'}} class="c-accordion{{ accordion.classes ? ' ' ~ accordion.classes }}{{ ' c-accordion--' ~ accordion.style }} l-container--full l-wrap{{ accordion.background.background_color ? ' u-background--' ~ accordion.background.background_color }}">
+    {% include "@atoms/images/image/background.twig" with {
+      "background": accordion.background
+    } %}
+    <div class="c-accordion__container l-container u-spacing--xxl">
+      {% include "@organisms/sections/headers/section-header.twig" with {
+        "section_header_classes": "c-accordion__header"
+      } %}
+      <div class="c-accordion__items u-spacing--sm">
+        {% for item in accordion.items %}
+          <div class="c-accordion__item js-gsap-slide-in-up">
+            <div class="c-accordion__trigger js-toggle-parent">
+              {% include "@atoms/text/heading/heading.twig" with {
+                "heading": {
+                  "level": "3",
+                  "size": "sm",
+                  "text": item.heading,
+                  "classes": "c-accordion__title"
+                }
+              } %}
+              {% include "@atoms/images/icons/icon.twig" with {
+                "icon": {
+                  "name": "plus",
+                  "classes": "c-accordion__icon o-icon"
+                }
+              } %}
+            </div>
+            <div class="c-accordion__panel">
+              <div class="c-accordion__panel-container u-spacing--lg">
+                {% include "@atoms/text/rich-text/rich-text.twig" with {
+                  "rich_text": {
+                    "text": item.content_editor,
+                    "classes": "c-accordion__rich-text"
+                  }
+                } %}
+                {% include "@atoms/buttons/button.twig" with {
+                  "button": item.button,
+                  "button_classes": "c-accordion__button o-button--outlined"
+                } %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

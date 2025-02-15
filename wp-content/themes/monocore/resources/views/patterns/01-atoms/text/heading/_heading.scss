@@ -1,0 +1,48 @@
+/* ------------------------------------ *\
+  $HEADINGS
+\* ------------------------------------ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.o-heading--xxl,
+h1 {
+  @include o-typography-display--lg;
+  font-variation-settings: "wght" 620, "wdth" 150;
+}
+
+.o-heading--xl,
+h2 {
+  @include o-typography-display--md;
+  font-variation-settings: "wght" 620, "wdth" 150;
+}
+
+.o-heading--lg,
+h3 {
+  @include o-typography-display--sm;
+  font-variation-settings: "wght" 620, "wdth" 150;
+}
+
+.o-heading--md,
+h4 {
+  @include o-typography-heading--lg;
+  font-variation-settings: "wght" 620, "wdth" 150;
+}
+
+.o-heading--sm,
+h5 {
+  @include o-typography-heading--md;
+  font-variation-settings: "wght" 620, "wdth" 150;
+}
+
+.o-heading--xs,
+h6 {
+  @include o-typography-heading--sm;
+  font-variation-settings: "wght" 620, "wdth" 150;
+}

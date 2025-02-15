@@ -1,0 +1,46 @@
+/* ------------------------------------*\
+  $COLORS
+\*------------------------------------ */
+
+.u-background--default,
+.u-background--inverted,
+.u-background--subtle {
+  background-color: var(--mc-color-background-default);
+  color: var(--mc-color-content-default);
+}
+
+body .search-filter-base,
+body .search-filter-component-popup {
+  --search-filter-description-background-color: transparent !important;
+  --search-filter-description-color: var(--mc-color-content-default-weak) !important;
+  --search-filter-description-margin: 0 0 var(--mc-space-sm) 0 !important;
+  --search-filter-description-scale: 0 !important;
+  --search-filter-input-active-icon-color: var(--mc-color-content-default-weak) !important;
+  --search-filter-input-background-color: var(--mc-color-background-default) !important;
+  --search-filter-input-border-accent-color: var(--mc-color-border-focus-ring) !important;
+  --search-filter-input-border-color: var(--mc-color-border-default) !important;
+  --search-filter-input-border-focus-color: var(--mc-color-border-default-weak) !important;
+  --search-filter-input-border-hover-color: var(--mc-color-border-default-weak) !important;
+  --search-filter-input-clear-color: var(--mc-color-content-default-weak) !important;
+  --search-filter-input-clear-hover-color: var(--mc-color-content-primary-default) !important;
+  --search-filter-input-color:  var(--mc-color-content-default) !important;
+  --search-filter-input-icon-color: var(--mc-color-content-default-weak) !important;
+  --search-filter-input-inactive-icon-color:  var(--mc-color-content-default-weak) !important;
+  --search-filter-input-interactive-color: var(--mc-color-content-default) !important;
+  --search-filter-input-interactive-hover-color: var(--mc-color-content-default-weak) !important;
+  --search-filter-input-margin-left: 0px !important;
+  --search-filter-input-margin-right: 0px !important;
+  --search-filter-input-placeholder-color: var(--mc-color-content-default-weak) !important;
+  --search-filter-input-scale: 1 !important;
+  --search-filter-input-selected-background-color: var(--mc-color-background-secondary-weak) !important;
+  --search-filter-input-selected-color: var(--mc-color-content-secondary-strong) !important;
+  --search-filter-input-selection-background-color: var(--mc-color-background-secondary-default) !important;
+  --search-filter-input-selection-color: var(--mc-color-content-secondary-strong) !important;
+  --search-filter-label-background-color: transparent !important;
+  --search-filter-label-color: var(--mc-color-content-default) !important;
+  --search-filter-label-icon-color: var(--mc-color-content-default) !important;
+  --search-filter-label-margin: 0 0 var(--mc-space-sm) 0 !important;
+  --search-filter-label-scale: 1 !important;
+  --search-filter-spinner-background-color: transparent !important;
+  --search-filter-spinner-foreground-color: var(--mc-color-content-default-weak) !important;
+}

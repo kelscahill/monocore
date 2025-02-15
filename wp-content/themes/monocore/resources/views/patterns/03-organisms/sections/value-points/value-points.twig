@@ -1,0 +1,38 @@
+{% if (value_points.layout == "cards" and value_points.text_align == "left" and value_points.columns == "3") %}
+  {% set value_points_grid = true %}
+{% else %}
+  {% set value_points_grid = false %}
+{% endif %}
+
+<section{{ value_points.anchor ? ' id="' ~ value_points.anchor ~ '"'}} class="c-value-points{{ value_points.classes ? " " ~ value_points.classes }} l-container--full l-wrap c-value-points--{{ value_points.layout|replace({"_": "-"}) }}{{ value_points.text_align ? " c-value-points--" ~ value_points.text_align }}{{ value_points.columns ? " c-value-points--columns-" ~ value_points.columns }}{{ value_points.background.background_color ? ' u-background--' ~ value_points.background.background_color }}">
+  {% include "@atoms/images/image/background.twig" with {
+    "background": value_points.background
+  } %}
+  <div class="c-value-points__container l-container u-spacing--xxl">
+    <div class="c-value-points__content u-spacing--xxl"{{ value_points_grid ? ' data-grid="grid 6@md 4@lg"' }}>
+      {% include "@organisms/sections/headers/section-header.twig" with {
+        "section_header_alignment": value_points.text_align == "center" ? "center" : null,
+        "section_header_variant": value_points_grid ? "sm" : null,
+        "section_header_classes": "c-value-points__header"
+      } %}
+      {% if value_points_grid == false %}
+        <div class="c-value-points__items"{{ value_points.columns == "3" ? ' data-grid="grid 6@md 4@lg"' }}{{ value_points.columns == "4" ? ' data-grid="grid 6@md 4@lg 3@xl"' }}>
+      {% endif %}
+        {% for block in value_points.items %}
+          {% include "@molecules/blocks/block-value-point.twig" with {
+            "block_variant": value_points.layout|replace({"_": "-"}),
+            "block_align": value_points.text_align,
+            "block_type": value_points.point_type
+          } %}
+        {% endfor %}
+      {% if value_points_grid == false %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="c-value-points__footer">
+      {% include "@atoms/buttons/button.twig" with {
+        "button": value_points.button
+      } %}
+    </div>
+  </div>
+</section>

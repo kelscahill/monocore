@@ -1,0 +1,81 @@
+{% if primary_nav.items %}
+  <nav role="navigation" class="c-primary-nav{{ primary_nav.classes ? ' ' ~ primary_nav.classes }}">
+    <div class="c-primary-nav__menu-toggle js-toggle" data-toggled="body" data-prefix="primary-nav" aria-label="Menu" role="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="c-primary-nav__container">
+      <ul class="c-primary-nav__parent-list {{ not options.header_button.link.url ? 'u-align--right' }}">
+        {% for item in primary_nav.get_items %}
+          <li class="c-primary-nav__parent-list-item js-this">
+            <div class="c-primary-nav__link-wrap">
+              {% if item.title == 'Search' %}
+                {% include "@molecules/forms/search-form/search-form.twig" with {
+                  "search_form": {
+                    "classes": "c-primary-nav__search-form"
+                  }
+                } %}
+                {% include "@atoms/links/link.twig" with {
+                  "link": {
+                    "url": item.url,
+                    "icon": item.icon,
+                    "icon_placement": "before",
+                    "aria_label": "Search",
+                    "classes": "c-primary-nav__parent-list-link c-primary-nav__link c-primary-nav__link--search js-toggle " ~ item.classes|join(' '),
+                    "attributes": "data-toggled='body' data-prefix='primary-nav-search-form'"
+                  }
+                } %}
+              {% else %}
+                {% include "@atoms/links/link.twig" with {
+                  "link": {
+                    "text": item.title,
+                    "url": item.url,
+                    "target": item.target,
+                    "icon": item.icon,
+                    "icon_placement": "before",
+                    "classes": "c-primary-nav__parent-list-link c-primary-nav__link " ~ item.classes|join(' ')
+                  }
+                } %}
+              {% endif %}
+              {% if item.children %}
+                {% include "@atoms/images/icons/icon.twig" with {
+                  "icon": {
+                    "title": "chevron-down",
+                    "name": "chevron-down",
+                    "classes": "c-primary-nav__link-toggle js-toggle o-icon--xs",
+                    "attributes": "data-toggled='this' data-prefix='this'"
+                  }
+                } %}
+              </div>
+              <ul class="c-primary-nav__child-list">
+                {% for item in item.children %}
+                  <li class="c-primary-nav__child-list-item">
+                    {% include "@atoms/links/link.twig" with {
+                      "link": {
+                        "text": item.title,
+                        "url": item.url,
+                        "target": item.target,
+                        "icon": item.icon,
+                        "icon_placement": "before",
+                        "classes": "c-primary-nav__child-list-link c-primary-nav__link " ~ item.classes|join(' '),
+                      }
+                    } %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      {% include "@atoms/buttons/button.twig" with {
+        "button" : {
+          "url" : options.header_button.link.url,
+          "text" : options.header_button.link.title,
+          "icon": options.header_button.link.icon,
+          "classes": "c-primary-nav__button"
+        }
+      } %}
+    </div>
+  </nav>
+{% endif %}

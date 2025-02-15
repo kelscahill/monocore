@@ -1,0 +1,46 @@
+{
+  "layout": {
+    "max-width": {
+      "xs": {
+        "value": "440px",
+        "type": "sizing"
+      },
+      "sm": {
+        "value": "600px",
+        "type": "sizing"
+      },
+      "md": {
+        "value": "800px",
+        "type": "sizing"
+      },
+      "lg": {
+        "value": "1000px",
+        "type": "sizing"
+      },
+      "@": {
+        "value": "1260px",
+        "type": "sizing"
+      },
+      "xxl": {
+        "value": "1440px",
+        "type": "sizing"
+      }
+    },
+    "width": {
+      "container": {
+        "value": "1260px",
+        "type": "sizing"
+      },
+      "sidebar": {
+        "value": "320px",
+        "type": "sizing"
+      }
+    },
+    "height": {
+      "header": {
+        "value": "80px",
+        "type": "sizing"
+      }
+    }
+  }
+}

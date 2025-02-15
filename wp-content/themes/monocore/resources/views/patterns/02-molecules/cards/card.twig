@@ -1,0 +1,40 @@
+<div class="c-card{{ card.classes ? ' ' ~ card.classes }} u-spacing--lg js-gsap-fade-in">
+  {% include "@atoms/images/image/figure.twig" with {
+    "figure": {
+      "link": {
+        "url": card.link
+      },
+      "image": {
+        "src": get_image(card.thumbnail).src|towebp|resize(300, 300, 'center'),
+        "alt": get_image(card.thumbnail).alt,
+        "classes": "c-card__image"
+      }
+    }
+  } %}
+  <div class="c-card__content u-spacing">
+    {% include "@atoms/text/tag/tag.twig" with {
+      "tag": {
+        "text": card.category.name,
+        "link": card.category.link,
+        "classes": "c-card__tag"
+      }
+    } %}
+    {% include "@atoms/text/heading/heading.twig" with {
+      "heading": {
+        "level": "3",
+        "size": "sm",
+        "text": card.title,
+        "link": {
+          "url": card.link
+        },
+        "classes": "c-card__heading"
+      }
+    } %}
+    {% include "@atoms/text/meta/meta.twig" with {
+      "meta": {
+        "date": card.date,
+        "classes": "c-card__meta"
+      }
+    } %}
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{% if kicker.text %}
+  <span class="o-kicker{{ kicker.classes ? ' ' ~ kicker.classes }}{{ kicker.variant == 'alt' ? ' o-kicker--alt' }}">
+    {% if kicker.link %}
+      <a class="o-kicker__link" href="{{ kicker.link }}">
+        {{ kicker.text }}
+      </a>
+    {% else %}
+      {{ kicker.text }}
+    {% endif %}
+  </span>
+{% endif %}

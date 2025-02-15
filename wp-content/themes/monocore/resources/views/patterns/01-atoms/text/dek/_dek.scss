@@ -1,0 +1,8 @@
+/* ------------------------------------ *\
+  $DEK
+\* ------------------------------------ */
+
+.o-dek {
+  @include o-typography-body--lg;
+  color: var(--mc-color-content-default-weak);
+}

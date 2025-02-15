@@ -1,0 +1,12 @@
+{% if select.options %}
+  <div class="o-input{{ select.classes ? ' ' ~ select.classes }}{{ options.inputs != 'squared' ? ' o-input--rounded' }}">
+    {% if select.label %}
+      <label for="{{ select.name }}" class="is-vishidden">{{ select.label }}</label>
+    {% endif %}
+    <select id="{{ select.name }}" name="{{ select.name }}">
+      {% for option in select.options %}
+        <option value="{{ option.value|lower|replace({' ':'-'}) }}">{{ option.text }}</option>
+      {% endfor %}
+    </select>
+  </div>
+{% endif %}

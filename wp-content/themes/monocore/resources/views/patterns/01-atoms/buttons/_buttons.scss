@@ -1,0 +1,39 @@
+/* ------------------------------------ *\
+  $BUTTONS
+\* ------------------------------------ */
+
+button,
+input[type="submit"],
+.o-button {
+  @include o-button;
+}
+
+.o-button--secondary {
+  @include o-button--secondary;
+}
+
+.o-button--outlined {
+  @include o-button--outlined;
+}
+
+.o-button--rounded {
+  border-radius: var(--mc-border-radius-round);
+}
+
+.o-button--icon {
+  @include o-button--icon;
+}
+
+.o-button-group,
+.wp-block-buttons {
+  display: flex;
+  gap: var(--mc-space);
+}
+
+.wp-block-button__link {
+  @include o-button;
+
+  .is-style-outline & {
+    @include o-button--outlined;
+  }
+}

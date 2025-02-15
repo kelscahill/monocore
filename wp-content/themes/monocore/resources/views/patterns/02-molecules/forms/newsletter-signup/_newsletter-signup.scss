@@ -1,0 +1,59 @@
+/* ------------------------------------ *\
+  $NEWSLETTER SIGNUP
+\* ------------------------------------ */
+
+.c-newsletter-signup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mc-space);
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mc-space-xs);
+  }
+
+  &__description {
+    @include o-typography-body--sm;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+
+    input[type="email"] {
+      padding-right: var(--mc-space-xl);
+      border-radius: var(--mc-border-radius-input);
+    }
+
+    button.o-button {
+      @include o-button;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      overflow: hidden;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      border-radius: var(--mc-border-radius-input);
+
+      &:focus,
+      &:hover {
+        transform: translateY(0) !important;
+      }
+    }
+  }
+
+  &--inline {
+    align-items: center;
+
+    @include media(">medium") {
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<section{{ table.anchor ? ' id="' ~ table.anchor ~ '"'}} class="c-table{{ table.classes ? ' ' ~ table.classes }} l-container--full l-wrap{{ table.row_striping == 'yes' ? ' c-table--row-striping' }}{{ table.column_striping == 'yes' ? ' c-table--column-striping' }}{{ table.background.background_color ? ' u-background--' ~ table.background.background_color }}">
+  {% include "@atoms/images/image/background.twig" with {
+    "background": table.background
+  } %}
+  <div class="c-table__container l-container">
+    {% include "@organisms/sections/headers/section-header.twig" with {
+      "section_header_classes": "c-table__header"
+    } %}
+    {% include "@atoms/tables/table.twig" with {
+      "table": table.content
+    } %}
+  </div>
+</section>

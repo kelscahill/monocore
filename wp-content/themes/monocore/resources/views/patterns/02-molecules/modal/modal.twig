@@ -1,0 +1,17 @@
+<div id="{{ modal.id }}" class="c-modal{{ modal.classes ? ' ' ~ modal.classes }}"{{ modal.attributes ? ' ' ~ modal.attributes }}>
+  {% include "@atoms/buttons/button.twig" with {
+    "button": {
+      "url": "#",
+      "classes": "c-modal__close o-button--icon js-toggle",
+      "icon": "fa-solid fa-close",
+      "icon_placement": "before",
+      "aria_label": "Close",
+      "attributes": "data-toggled='body' data-prefix='modal'"
+    }
+  } %}
+  <div class="c-modal__content u-spacing--half">
+    <div class="c-modal__body">
+      {% block modal_body %}{% endblock %}
+    </div>
+  </div>
+</div>

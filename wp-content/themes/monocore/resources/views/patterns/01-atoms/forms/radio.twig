@@ -1,0 +1,6 @@
+{% if radio.name and radio.label %}
+  <div class="o-input{{ radio.classes ? ' ' ~ radio.classes }}">
+    <input id="{{ radio.name }}" name="{{ radio.name }}" type="radio"{% if radio.checked %} checked="checked"{% endif %}/>
+    <label for="{{ radio.name }}">{{ radio.label }}</label>
+  </div>
+{% endif %}

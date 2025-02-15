@@ -1,0 +1,25 @@
+<article class="c-content{{ content.classes ? ' ' ~ content.classes }} u-spacing--xxl">
+  {% include "@organisms/sections/headers/page-header.twig" with {
+    "page_header": {
+      "kicker": post.kicker,
+      "title": post.title,
+      "dek": post.dek,
+      "classes": "c-content__header"
+    }
+  } %}
+  {% if password_protected %}
+    {% include "@molecules/forms/password-protected/password-protected.twig" %}
+  {% else %}
+    {% include "@atoms/text/rich-text/rich-text.twig" with {
+      "rich_text": {
+        "text": post.content,
+        "classes": "c-content__body l-container--lg"
+      }
+    } %}
+    {% include "@organisms/sections/feeds/card-grid.twig" with {
+      "card_grid": {
+        "posts": posts
+      }
+    } %}
+  {% endif %}
+</article>

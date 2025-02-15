@@ -1,0 +1,15 @@
+/* ------------------------------------ *\
+  $LINKS
+\* ------------------------------------ */
+
+.o-link {
+  @include o-link;
+}
+
+.o-link--secondary {
+  @include o-link--secondary;
+}
+
+.o-link--tertiary {
+  @include o-link--tertiary;
+}

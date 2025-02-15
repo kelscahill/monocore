@@ -1,0 +1,40 @@
+{% if card_grid.posts|length > 0 %}
+  <section class="c-card-grid{{ card_grid.classes ? ' ' ~ card_grid.classes }} l-container--full l-wrap{{ card_grid.background.background_color ? ' u-background--' ~ card_grid.background.background_color }}">
+    {% include "@atoms/images/image/background.twig" with {
+      "background": card_grid.background
+    } %}
+    <div class="c-card-grid__container l-container--xl u-spacing">
+      {% if card_grid.title or card_grid.dek %}
+        <div class="c-card-grid__header l-conatiner--m u-spacing--sm">
+          {% include "@atoms/text/heading/heading.twig" with {
+            "heading": {
+              "level": "2",
+              "size": "xl",
+              "text": card_grid.title,
+              "classes": "c-card-grid__heading"
+            }
+          } %}
+          {% include "@atoms/text/dek/dek.twig" with {
+            "dek": {
+              "text": card_grid.dek,
+              "classes": "c-card-grid__dek"
+            }
+          } %}
+        </div>
+      {% endif %}
+      {% if card_grid.posts %}
+        <div class="c-card-grid__posts" data-grid="grid 6 4@md 3@lg">
+          {% for block in card_grid.posts %}
+            {% include [
+              '@molecules/blocks/block-' ~ block.post_type|replace({'_': '-'}) ~ '.twig',
+              '@molecules/blocks/block.twig'
+            ] %}
+          {% endfor %}
+        </div>
+        {% include "@molecules/navigation/pagination/pagination.twig" with card_grid %}
+      {% else %}
+        <p>Sorry, there are no posts at this time.</p>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

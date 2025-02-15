@@ -1,0 +1,260 @@
+{% if feature.layout == 'carousel' or feature.layout == 'full-width' or feature.layout == 'stacked' or feature.layout == 'cards' or feature.layout == 'text' %}
+  {% set feature_container = ' l-container' %}
+{% elseif feature.layout == 'fixed' %}
+  {% set feature_container = ' l-container--xxl l-wrap' %}
+{% endif %}
+
+{% if (feature.layout == 'fixed' or feature.layout == 'full-width') and get_image(feature.media.image).src %}
+  <style>
+    .o-background-image--{{ get_image(feature.media.image).id }} {
+      background-image: url('{{ get_image(feature.media.image).src|towebp|resize(768, 432, 'center') }}');
+    }
+    @media(min-width: 768px) {
+      .o-background-image--{{ get_image(feature.media.image).id }} {
+        background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1024, 576, 'center') }}');
+      }
+    }
+    @media(min-width: 1024px) {
+      .o-background-image--{{ get_image(feature.media.image).id }} {
+        background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1260, 709, 'center') }}');
+      }
+    }
+    {% if feature.layout == 'full-width' %}
+      @media(min-width: 1260px) {
+        .o-background-image--{{ get_image(feature.media.image).id }} {
+          background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1260, 709, 'center') }}');
+        }
+      }
+      @media(min-width: 1440px) {
+        .o-background-image--{{ get_image(feature.media.image).id }} {
+          background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1440, 810, 'center') }}');
+        }
+      }
+    {% endif %}
+  </style>
+{% endif %}
+
+<section {{ feature.anchor ? 'id="' ~ feature.anchor ~ '"' }} class="c-feature{{ feature.classes ? ' ' ~ feature.classes }} l-container--full l-wrap c-feature--{{ feature.layout|replace({"_":"-"}) }}{{ feature.text_position ? " c-feature--align-content-" ~ feature.text_position|replace({"_":"-"}) }}{{ feature.background.background_color ? ' u-background--' ~ feature.background.background_color }}">
+  {% include "@atoms/images/image/background.twig" with {
+    "background": feature.background
+  } %}
+  <div class="c-feature__container{{ feature_container }} u-spacing--xxl">
+    {% if (feature.layout == 'fixed' or feature.layout == 'full-width') and (feature.media.video_embed or feature.media.video_url or get_image(feature.media.image).src) %}
+      <div class="c-feature__image{{ get_image(feature.media.image).id ? ' o-background-image--' ~ get_image(feature.media.image).id }}">
+        {% if feature.media.media_type == "video" and (feature.media.video_embed or feature.media.video_url) %}
+          {% include "@atoms/videos/video.twig" with {
+            "video": {
+              "embed": feature.media.video_type == 'embed' ? feature.media.video_embed : feature.media.video_url,
+              "classes": "c-feature__video"
+            }
+          } %}
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if feature.kicker or feature.title or feature.description or feature.button.link.url %}
+      <div class="c-feature__header">
+        <div class="c-feature__content u-spacing--lg">
+          {% if feature.kicker or feature.title %}
+            <div class="c-feature__title u-spacing">
+              {% include "@atoms/text/kicker/kicker.twig" with {
+                "kicker": {
+                  "text": feature.kicker,
+                  "classes": "c-feature__kicker o-kicker--alt"
+                }
+              } %}
+              {% include "@atoms/text/heading/heading.twig" with {
+                "heading": {
+                  "level": "1",
+                  "size": "xxl",
+                  "text": feature.title,
+                  "classes": "c-feature__heading" ~ (feature.layout == "text" ? " js-gsap-shrink-text")
+                }
+              } %}
+            </div>
+          {% endif %}
+          {% if feature.description or feature.button.link.url %}
+            <div class="c-feature__body u-spacing--lg">
+              {% include "@atoms/text/dek/dek.twig" with {
+                "dek": {
+                  "text": feature.description,
+                  "classes": "c-feature__dek"
+                }
+              } %}
+              {% include "@atoms/buttons/button.twig" with {
+                "button": feature.button,
+                "button_classes": "c-feature__button"
+              } %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    {% if feature.layout == 'stacked' and (feature.media.video_embed or feature.media.video_url or get_image(feature.media.image).src) %}
+      <div class="c-feature__media js-gsap-scale-down">
+        {% if feature.media.media_type == "video" and (feature.media.video_embed or feature.media.video_url)  %}
+          {% include "@atoms/videos/video.twig" with {
+            "video": {
+              "embed": feature.media.video_type == 'embed' ? feature.media.video_embed : feature.media.video_url,
+              "classes": "c-feature__video"
+            }
+          } %}
+        {% elseif get_image(feature.media.image).src %}
+          {% include "@atoms/images/image/responsive-image.twig" with {
+            "image": {
+             "sources": [
+                {
+                  "media": "(min-width: 1260)",
+                  "srcset": get_image(feature.media.image).src|resize(1600, 800, 'center')
+                },
+                {
+                  "media": "(min-width: 1024px)",
+                  "srcset": get_image(feature.media.image).src|resize(1260, 709, 'center')
+                },
+                {
+                  "media": "(min-width: 768px)",
+                  "srcset": get_image(feature.media.image).src|resize(1024, 576, 'center')
+                },
+                {
+                  "media": "(min-width: 480px)",
+                  "srcset": get_image(feature.media.image).src|resize(768, 432, 'center')
+                },
+              ],
+              "src": get_image(feature.media.image).src|resize(480, 270, 'center'),
+              "alt": get_image(feature.media.image).alt
+            },
+            "picture": {
+              "classes": "c-feature__image"
+            }
+          } %}
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if feature.layout == 'carousel' and feature.carousel %}
+      <div class="c-feature__carousel" data-glide-el="track">
+        <div class="c-feature__carousel-track">
+          {% for item in feature.carousel %}
+            {% include "@atoms/images/image/responsive-image.twig" with {
+              "image": {
+                "sources": [
+                  {
+                    "media": "(min-width: 768px)",
+                    "srcset": get_image(item).src|resize(1024, 576, 'center')
+                  },
+                  {
+                    "media": "(min-width: 480px)",
+                    "srcset": get_image(item).src|resize(768, 432, 'center')
+                  },
+                ],
+                "src": get_image(item).src|resize(480, 270, 'center'),
+                "alt": get_image(item).alt
+              }
+            } %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="c-feature__footer">
+        {% if feature.layout == 'carousel' %}
+          {% include "@molecules/components/glide-arrows/glide-arrows.twig" with {
+            "glide_arrows": {
+              "classes": "c-feature__carousel-arrows"
+            }
+          } %}
+          <div class="c-feature__carousel-count">
+            <span class="c-feature__carousel-count-active">01</span>
+            <span>/</span>
+            <span class="c-feature__carousel-count-total">
+              {{ "%02d"|format(feature.carousel|length) }}
+            </span>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if feature.layout == 'cards' and feature.cards %}
+      <div class="c-feature__cards u-spacing--lg">
+        {% for card in feature.cards %}
+          <div class="c-card-feature" data-grid="grid">
+            <div class="c-card-feature__media {{ loop.index is odd ? 'js-gsap-slide-in-left' : 'js-gsap-slide-in-right'}}" data-grid="12 6@lg 8@xl">
+              {% if card.media.media_type == "video" and (card.media.video_embed or card.media.video_url) %}
+                {% include "@atoms/videos/video.twig" with {
+                  "video": {
+                    "embed": card.media.video_type == 'embed' ? card.media.video_embed : card.media.video_url,
+                    "classes": "c-card-feature__video"
+                  }
+                } %}
+              {% elseif get_image(card.media.image).src %}
+                {% include "@atoms/images/image/responsive-image.twig" with {
+                  "image": {
+                    "sources": [
+                      {
+                        "media": "(min-width: 960px)",
+                        "srcset": get_image(card.media.image).src|resize(1200, 675, 'center')
+                      },
+                      {
+                        "media": "(min-width: 768px)",
+                        "srcset": get_image(card.media.image).src|resize(960, 540, 'center')
+                      },
+                      {
+                        "media": "(min-width: 480px)",
+                        "srcset": get_image(card.media.image).src|resize(768, 432, 'center')
+                      },
+                    ],
+                    "src": get_image(card.media.image).src|resize(480, 270, 'center'),
+                    "alt": get_image(card.media.image).alt,
+                    "classes": "c-card-feature__image"
+                  }
+                } %}
+              {% endif %}
+            </div>
+            {% if card.content or card.icon %}
+              <div class="c-card-feature__content u-spacing--lg {{ loop.index is odd ? 'js-gsap-slide-in-right' : 'js-gsap-slide-in-left'}}{{ card.button.link.url ? ' js-custom-hover-cursor' }}" data-grid="12 6@lg 4@xl">
+                {% if card.icon_type == "icon" and card.icon %}
+                  <i class="c-card-feature__icon {{ card.icon }}"></i>
+                {% elseif card.icon_type == "logo" and card.logo %}
+                  {% include "@atoms/images/image/responsive-image.twig" with {
+                    "image": {
+                      "src": get_image(card.logo).src|towebp|resize(500, auto),
+                      "alt": get_image(card.logo).alt
+                    },
+                    "picture": {
+                      "classes": "c-feature__logo"
+                    }
+                  } %}
+                {% endif %}
+                <div class="c-card-feature__text u-spacing--lg">
+                  {% include "@atoms/text/heading/heading.twig" with {
+                    "heading": {
+                      "level": "3",
+                      "size": "sm",
+                      "text": card.title,
+                      "classes": "c-card-feature__heading"
+                    }
+                  } %}
+                  {% include "@atoms/text/dek/dek.twig" with {
+                    "dek": {
+                      "text": card.content,
+                      "classes": "c-card-feature__dek"
+                    }
+                  } %}
+                  {% include "@atoms/links/link.twig" with {
+                    "link": {
+                      "url": card.button.link.url,
+                      "text": card.button.link.title,
+                      "icon": card.button.icon ? card.button.icon : {
+                        "name": "arrow",
+                        "classes": "o-icon--sm",
+                        "placement": "after"
+                      },
+                      "icon_placement": card.button.icon ? card.button.icon_placement,
+                      "classes": "c-card-feature__link o-link--tertiary"
+                    }
+                  } %}
+                </div>
+                {% if card.button.link.url %}<a class="c-card-feature__link-block" href="{{ card.button.link.url }}" aria-label="{{ card.button.link.title }}"></a>{% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

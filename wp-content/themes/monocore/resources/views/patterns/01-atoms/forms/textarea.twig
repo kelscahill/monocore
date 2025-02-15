@@ -1,0 +1,8 @@
+{% if textarea.name %}
+  <div class="o-input{{ textarea.classes ? ' ' ~ textarea.classes }}{{ options.inputs != 'squared' ? ' o-input--rounded' }}">
+    {% if textarea.label %}
+      <label for="{{ textarea.name }}" class="is-vishidden">{{ textarea.label }}</label>
+    {% endif %}
+    <textarea id="{{ textarea.name }}" name="{{ textarea.name }}" rows="{{ textarea.rows }}" cols="{{ textarea.cols }}" placeholder="{{ textarea.label }}"></textarea>
+  </div>
+{% endif %}

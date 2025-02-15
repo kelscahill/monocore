@@ -1,0 +1,18 @@
+{
+  "tokenSetOrder": [
+    "base/animations",
+    "base/borders",
+    "base/breakpoints",
+    "base/colors",
+    "base/icons",
+    "base/layout",
+    "base/opacity",
+    "base/shadows",
+    "base/spacing",
+    "base/typography",
+    "base/z-index",
+    "theme/default/colors",
+    "theme/inverted/colors",
+    "theme/subtle/colors"
+  ]
+}

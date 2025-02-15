@@ -1,0 +1,8 @@
+{% extends "@templates/layout.twig" %}
+
+{% block content %}
+  {% include [
+    '@organisms/content/content-archive-' ~ post.taxonomy|replace({'_': '-'}) ~ '.twig',
+    '@organisms/content/content.twig'
+  ] %}
+{% endblock %}

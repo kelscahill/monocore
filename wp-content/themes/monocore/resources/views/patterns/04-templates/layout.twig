@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTDXHTML1.0Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"?>
+
+<html {{ function('language_attributes') }}>
+  {% include "@templates/head.twig" %}
+  <body class="l-body {{ body_class }}{{ body.classes ? ' ' ~ body.classes }}{{ options.container_width ? ' u-max-width--' ~ options.container_width }}">
+    {{ function('wp_body_open') }}
+    {% include "@organisms/global/header/header.twig" %}
+    {% block sections_before %}{% endblock %}
+    <main class="l-main{{ main.classes ? ' ' ~ main.classes }} l-wrap">
+      {% block content %}{% endblock %}
+      {% block sidebar %}{% endblock %}
+    </main>
+    {% block sections_after %}{% endblock %}
+    {% include "@organisms/global/footer/footer.twig" %}
+    {{ function('wp_footer') }}
+  </body>
+</html>

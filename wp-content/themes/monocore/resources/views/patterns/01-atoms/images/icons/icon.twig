@@ -1,0 +1,5 @@
+{% if icon.name %}
+  <span class="o-icon{{ icon.classes ? ' ' ~ icon.classes }}"{{ icon.attributes ? " " ~ icon.attributes }}>
+    {% include '@atoms/images/icons/icon-' ~ icon.name ~ '.twig' %}
+  </span>
+{% endif %}

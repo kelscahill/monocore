@@ -1,0 +1,8 @@
+/* ------------------------------------ *\
+  $CAPTION
+\* ------------------------------------ */
+
+.o-caption,
+figcaption {
+  @include o-typography-body--sm;
+}

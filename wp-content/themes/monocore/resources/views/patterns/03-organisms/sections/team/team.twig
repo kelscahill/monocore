@@ -1,0 +1,24 @@
+<section{{ team.anchor ? ' id="' ~ team.anchor ~ '"'}} class="c-team{{ team.classes ? ' ' ~ team.classes }} l-container--full l-wrap {{ team.layout == 'top' ? 'c-team--top' : 'c-team--next' }}{{ team.background.background_color ? ' u-background--' ~ team.background.background_color }}">
+  {% include "@atoms/images/image/background.twig" with {
+    "background": team.background
+  } %}
+  <div class="c-team__container l-container" data-grid="grid{{ team.layout == 'top' ? ' 12"' }}">
+    {% include "@organisms/sections/headers/section-header.twig" with {
+      "section_header_classes": "c-team__header",
+      "section_header_alignment": team.layout == 'top' ? 'center',
+      "section_header_variant": team.layout == 'next' ? 'sm',
+      "section_header_attributes": team.layout == 'next' ? ' data-grid="3@lg"'
+    } %}
+    <div class="c-team__members"{{ team.layout == 'next' and section_header ? ' data-grid="9@lg"' : team.layout == 'next' and section_header == null ? ' data-grid="10@lg offset-2@lg"' }}>
+      {% if team.members %}
+        <div class="c-team__grid" data-grid="grid {{ team.layout == 'next' ? '6@sm 4@md"' : '4@md' }}">
+          {% for card in team.members %}
+            {% include "@molecules/cards/card-team.twig" with {
+              "card_variant": team.layout
+            } %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

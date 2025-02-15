@@ -1,0 +1,29 @@
+{% if section_header %}
+  <div class="c-section-header{{ section_header_classes ? " " ~ section_header_classes }} u-spacing--lg {{ section_header_alignment == 'center' ? "l-container--md c-section-header--align-center" : "l-container--sm" }} js-gsap-fade-in"{{ section_header_attributes ? ' ' ~ section_header_attributes}}>
+    <div class="c-section-header__title u-spacing">
+      {% include "@atoms/text/kicker/kicker.twig" with {
+        "kicker": {
+          "text": section_header.kicker,
+          "classes": "c-section-header__kicker o-kicker--alt"
+        }
+      } %}
+      {% include "@atoms/text/heading/heading.twig" with {
+        "heading": {
+          "level": "2",
+          "size": section_header_variant == "sm" ? "lg" : "xl",
+          "text": section_header.heading,
+          "classes": "c-section-header__heading"
+        }
+      } %}
+    </div>
+    {% include "@atoms/text/dek/dek.twig" with {
+      "dek": {
+        "text": section_header.description,
+        "classes": "c-section-header__dek"
+      }
+    } %}
+    {% include "@atoms/buttons/button.twig" with {
+      "button": section_header.button
+    } %}
+  </div>
+{% endif %}

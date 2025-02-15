@@ -1,0 +1,13 @@
+/* ------------------------------------ *\
+  $SOCIAL-PROOF
+\* ------------------------------------ */
+
+.c-social-proof {
+  &__container[data-grid~="grid"] {
+    row-gap: var(--mc-space-xxl);
+
+    @include media("<=medium") {
+      column-gap: 0;
+    }
+  }
+}

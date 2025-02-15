@@ -1,0 +1,102 @@
+<section{{ contact.anchor ? ' id="' ~ contact.anchor ~ '"'}} class="c-contact{{ contact.classes ? ' ' ~ contact.classes }} c-contact--{{ contact.layout|replace({"_": "-"}) }} l-container--full l-wrap{{ contact.background.background_color ? ' u-background--' ~ contact.background.background_color }}">
+  {% include "@atoms/images/image/background.twig" with {
+    "background": contact.background
+  } %}
+  <div class="c-contact__container l-container">
+    <div class="c-contact__content">
+      <div class="c-contact__content--inner u-spacing--lg"{% if contact.layout == 'split' %} data-grid="grid 6@md"{% endif %}>
+        <div class="c-contact__body u-spacing--xl l-container--md">
+          {% include "@organisms/sections/headers/section-header.twig" with {
+            "section_header_classes": "c-contact__header",
+            "section_header_variant": contact.layout != 'top' ? 'sm': null,
+            "section_header_alignment": contact.layout == 'top' ? 'center': null
+          } %}
+          {% if contact.address or contact.phone or contact.email %}
+            <div class="c-contact__details">
+              {% if contact.email %}
+                {% include "@atoms/links/link.twig" with {
+                  "link": {
+                    "url": "mailto: " ~ contact.email,
+                    "text": contact.email,
+                    "target": "_blank",
+                    "icon": {
+                      "title": "Email",
+                      "name": "envelope"
+                    }
+                  }
+                } %}
+              {% endif %}
+              {% if contact.phone %}
+                {% include "@atoms/links/link.twig" with {
+                  "link": {
+                    "url": "tel:" ~ contact.phone,
+                    "text": contact.phone,
+                    "target": "_blank",
+                    "icon": {
+                      "title": "Phone",
+                      "name": "phone"
+                    }
+                  }
+                } %}
+              {% endif %}
+              {% if contact.address.street_address_1 %}
+                {% set address_string = contact.address.street_address_1 ~ '+' ~ contact.address.street_address_2|url_encode ~ '+' ~ contact.address.city ~ '+' ~ contact.address.state ~ '+' ~ contact.address.zipcode %}
+                {% include "@atoms/links/link.twig" with {
+                  "link": {
+                    "url": "https://www.google.com/maps/place/" ~ address_string,
+                    "text": contact.address.street_address_1,
+                    "target": "_blank",
+                    "icon": {
+                      "title": "Address",
+                      "name": "marker"
+                    }
+                  }
+                } %}
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+        {% include "@atoms/text/rich-text/rich-text.twig" with {
+          "rich_text": {
+            "text": contact.content_editor,
+            "classes": "c-contact__content-editor l-container--md"
+          }
+        } %}
+      </div>
+    </div>
+    {% if contact.image or contact.map %}
+      <div class="c-contact__media">
+        {% if contact.media_type == 'image' %}
+          {% include "@atoms/images/image/responsive-image.twig" with {
+            "image": {
+              "sources": [
+                {
+                  "media": "(min-width: 1200px)",
+                  "srcset": get_image(contact.image).src|resize(1440, auto, 'center')
+                },
+                {
+                  "media": "(min-width: 960px)",
+                  "srcset": get_image(contact.image).src|resize(1200, auto, 'center')
+                },
+                {
+                  "media": "(min-width: 768px)",
+                  "srcset": get_image(contact.image).src|resize(960, auto, 'center')
+                },
+              ],
+              "src": contact.image_mobile ? get_image(contact.image_mobile).src|resize(768, auto, 'center') : get_image(contact.image).src|resize(768, auto, 'center'),
+              "alt": get_image(contact.image).alt,
+              "classes": "c-contact__image"
+            }
+          } %}
+        {% elseif contact.media_type == 'map' %}
+          {% include "@molecules/maps/map.twig" with {
+            "map": {
+              "address": contact.map,
+              "classes": "c-contact__map"
+            }
+          } %}
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>

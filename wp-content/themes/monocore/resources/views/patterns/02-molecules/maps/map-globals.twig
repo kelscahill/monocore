@@ -1,0 +1,47 @@
+{# Google Maps API Scripts #}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCk_yl2lO5EopNajNYJtroMW-uTd9iPot8&callback=initMap&v=weekly" defer></script>
+
+<script>
+// Variables
+let map;
+
+// Map Styling
+let stylesArray = [
+  {
+    "featureType": "all",
+    "stylers": [
+      {
+        "visibility": "simplified"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "hue": "#52647D"
+      },
+      {
+        "saturation": "-50"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "stylers": [
+      {
+        "color": "#DBE2EA"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+];
+</script>

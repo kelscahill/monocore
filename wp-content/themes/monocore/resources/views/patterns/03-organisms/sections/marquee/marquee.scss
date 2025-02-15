@@ -1,0 +1,19 @@
+.c-marquee {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: var(--mc-space-md);
+  padding-bottom: var(--mc-space-md);
+  white-space: nowrap;
+  overflow: hidden;
+
+  &__container {
+    @include o-typography-display--md('bold');
+    line-height: 1;
+
+    .c-marquee--small & {
+      @include o-typography-heading--md('bold');
+      line-height: 1;
+    }
+  }
+}

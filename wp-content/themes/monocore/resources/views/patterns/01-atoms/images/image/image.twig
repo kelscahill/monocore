@@ -1,0 +1,24 @@
+{% if image.src %}
+  <img class="o-image{{ image.classes ? ' ' ~ image.classes }}{{ image.lazy == false ? ' no-lazy' }}"
+    {% if image.lazy != false %}
+      loading="lazy"
+    {% endif %}
+    {% if image.srcset %}
+      srcset="{{ image.srcset }}"
+    {% endif %}
+    {% if image.sizes %}
+      sizes="{{ image.sizes }}"
+    {% endif %}
+    src="{{ image.src }}"
+    alt="{{ image.alt ? image.alt : "Image" }}"
+    {% if image.title %}
+      title="{{ image.title }}"
+    {% endif %}
+    {% if image.width %}
+      width="{{ image.width }}"
+    {% endif %}
+    {% if image.height %}
+      height="{{ image.height }}"
+    {% endif %}
+  />
+{% endif %}

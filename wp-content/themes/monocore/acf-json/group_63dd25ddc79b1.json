@@ -1,0 +1,607 @@
+{
+    "key": "group_63dd25ddc79b1",
+    "title": "Contact",
+    "fields": [
+        {
+            "key": "field_642f0ad4ae882",
+            "label": "Contact",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_63dd25ddcc510",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_66e2e2ff9ee1d",
+            "label": "Background",
+            "name": "contact_background",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "Choose a background style for the contact section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_66e1db3e46a7d"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_63dd25ddcc5c7",
+            "label": "Layout",
+            "name": "contact_layout",
+            "aria-label": "Select the layout style (Content Top, Content Right, or Content Split).",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top": "Content Top",
+                "next": "Content Right",
+                "split": "Content Split"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_645e758ade7d7",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63dd25ddcc5c7",
+                        "operator": "==",
+                        "value": "top"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/contact-top.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_645e7669de7d8",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63dd25ddcc5c7",
+                        "operator": "==",
+                        "value": "next"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/contact-next.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_661d7ffd8d7aa",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63dd25ddcc5c7",
+                        "operator": "==",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/contact-split.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_661d73695b966",
+            "label": "Section Header",
+            "name": "contact_section_header",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_66194dc693789",
+                "field_66194d7f93786",
+                "field_66194d8a93787",
+                "field_66194d9493788"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_63dd25ddcc1ff",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_646248f4f82b9",
+            "label": "Address",
+            "name": "contact_address",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "Enter the company's address details (street address, city, state, zipcode).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_64624900f82ba",
+                    "label": "Street Address 1",
+                    "name": "street_address_1",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_64624922f82bb",
+                    "label": "Street Address 2",
+                    "name": "street_address_2",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6462492bf82bc",
+                    "label": "City",
+                    "name": "city",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_64624940f82bd",
+                    "label": "State",
+                    "name": "state",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "Select State",
+                        "AL": "Alabama",
+                        "AK": "Alaska",
+                        "AZ": "Arizona",
+                        "AR": "Arkansas",
+                        "CA": "California",
+                        "CO": "Colorado",
+                        "CT": "Connecticut",
+                        "DE": "Delaware",
+                        "DC": "District of Colombia",
+                        "FL": "Florida",
+                        "GA": "Georgia",
+                        "HI": "Hawaii",
+                        "ID": "Idaho",
+                        "IL": "Illinois",
+                        "IN": "Indiana",
+                        "IA": "Iowa",
+                        "KS": "Kansas",
+                        "KY": "Kentucky",
+                        "LA": "Louisiana",
+                        "ME": "Maine",
+                        "MD": "Maryland",
+                        "MA": "Massachusetts",
+                        "MI": "Michigan",
+                        "MN": "Minnesota",
+                        "MS": "Mississippi",
+                        "MO": "Missouri",
+                        "MT": "Montana",
+                        "NE": "Nebraska",
+                        "NV": "Nevada",
+                        "NH": "New Hampshire",
+                        "NJ": "New Jersey",
+                        "NM": "New Mexico",
+                        "NY": "New York",
+                        "NC": "North Carolina",
+                        "ND": "North Dakota",
+                        "OH": "Ohio",
+                        "OK": "Oklahoma",
+                        "OR": "Oregon",
+                        "PA": "Pennsylvania",
+                        "PR": "Puerto Rico",
+                        "RI": "Rhode Island",
+                        "SC": "South Carolina",
+                        "SD": "South Dakota",
+                        "TN": "Tennessee",
+                        "TX": "Texas",
+                        "UT": "Utah",
+                        "VT": "Vermont",
+                        "VA": "Virginia",
+                        "WA": "Washington",
+                        "WV": "West Virginia",
+                        "WI": "Wisconsin",
+                        "WY": "Wyoming"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_646249a1f82be",
+                    "label": "Zipcode",
+                    "name": "zipcode",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_63dd264b95e3f",
+            "label": "Phone",
+            "name": "contact_phone",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the contact phone number.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63dd267495e41",
+            "label": "Email",
+            "name": "contact_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "Enter the contact email address.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_661545783d07e",
+            "label": "Content Editor",
+            "name": "contact_content_editor",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Add any additional content or information for the contact section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_64624d51b103b",
+            "label": "Media Type",
+            "name": "contact_media_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose between displaying an image or a map (Map requires Google Maps API key).",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63dd25ddcc5c7",
+                        "operator": "!=",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "image": "Image",
+                "map": "Map"
+            },
+            "default_value": "image",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_646249c6d9dee",
+            "label": "Image",
+            "name": "contact_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Upload an image to display.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64624d51b103b",
+                        "operator": "==",
+                        "value": "image"
+                    },
+                    {
+                        "field": "field_63dd25ddcc5c7",
+                        "operator": "!=",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_64628aab9cce6",
+            "label": "Image Mobile",
+            "name": "contact_image_mobile",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "For 'Content Right' layout, optionally upload a separate image for mobile devices.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63dd25ddcc5c7",
+                        "operator": "==",
+                        "value": "next"
+                    },
+                    {
+                        "field": "field_64624d51b103b",
+                        "operator": "==",
+                        "value": "image"
+                    },
+                    {
+                        "field": "field_63dd25ddcc5c7",
+                        "operator": "!=",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_64624d97b103c",
+            "label": "Map",
+            "name": "contact_map",
+            "aria-label": "",
+            "type": "google_map",
+            "instructions": "Enter the location for the Google Map.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64624d51b103b",
+                        "operator": "==",
+                        "value": "map"
+                    },
+                    {
+                        "field": "field_63dd25ddcc5c7",
+                        "operator": "!=",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "",
+            "center_lng": "",
+            "zoom": "",
+            "height": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/contact"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1726145583
+}

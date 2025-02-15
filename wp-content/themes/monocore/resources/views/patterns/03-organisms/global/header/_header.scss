@@ -1,0 +1,63 @@
+/* ------------------------------------ *\
+  $HEADER
+\* ------------------------------------ */
+
+.c-header {
+  background-color: var(--mc-color-body-background);
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: var(--mc-layout-height-header, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  z-index: 9999;
+
+  @include media(">large") {
+    --mc-layout-height-header: 80px;
+  }
+
+  &.c-header-3 {
+    --mc-layout-height-header: 60px;
+
+    @include media(">large") {
+      --mc-layout-height-header: 110px;
+    }
+  }
+
+  &__logo {
+    padding: var(--mc-space-sm) 0;
+  }
+
+  &__main {
+    width: 100%;
+    height: 100%;
+    position: unset;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--mc-space-xl);
+    align-items: center;
+  }
+}
+
+.c-top-nav {
+  width: 100%;
+  min-height: 30px;
+  border-bottom: var(--mc-border-width) solid var(--mc-color-border-default-strong);
+  display: none;
+
+  @include media(">large") {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__contact {
+    display: flex;
+    gap: var(--mc-space-md);
+
+    .o-link {
+      @include o-typography-body--sm;
+    }
+  }
+}

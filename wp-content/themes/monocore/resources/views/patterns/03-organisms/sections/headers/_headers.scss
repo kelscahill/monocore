@@ -1,0 +1,21 @@
+/* ------------------------------------ *\
+  $HEADERS
+\* ------------------------------------ */
+
+.c-section-header {
+  margin-left: 0;
+  text-align: left;
+
+  &--align-center {
+    margin-left: auto;
+    text-align: center;
+  }
+}
+
+.c-page-header {
+  padding-top: var(--mc-space-xxl);
+
+  &__container {
+    margin-left: 0 !important;
+  }
+}

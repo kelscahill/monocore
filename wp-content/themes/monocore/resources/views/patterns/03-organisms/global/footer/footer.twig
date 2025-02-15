@@ -1,0 +1,167 @@
+{% if options.footer_background == "inverted" and options.logo_horizontal_inverted %}
+  {% set logo = get_image(options.logo_horizontal_inverted) %}
+{% elseif options.logo_horizontal %}
+  {% set logo = get_image(options.logo_horizontal) %}
+  {% if options.footer_background == "inverted" %}
+    {% set logo_classes = 'o-logo--inverted' %}
+  {% endif %}
+{% endif %}
+
+<footer class="c-footer u-background--{{ options.footer_background }} l-container--full l-wrap" role="contentinfo">
+  <div class="c-footer__main l-container">
+    <div class="c-footer__branding l-container--md u-spacing--lg">
+      {% include "@atoms/images/logos/logo.twig" with {
+        "logo": {
+          "image": {
+            "src": logo.src,
+            "alt": logo.alt ? logo.alt : site.name,
+            "width": logo.width,
+            "height": logo.height
+          },
+          "link": site.link,
+          "classes": "c-footer__logo " ~ logo_classes
+        }
+      } %}
+      {% if options.footer_content.footer_text_block %}
+        <div class="c-footer__text-block l-container--sm">
+          {{ options.footer_content.footer_text_block }}
+        </div>
+      {% endif %}
+      {% include "@molecules/components/social-links/social-links.twig" with {
+        "social_links": {
+          "classes": "c-footer__social-links",
+          "items": [
+            {
+              "name": "facebook",
+              "url": options.facebook_url
+            },
+            {
+              "name": "instagram",
+              "url": options.instagram_url
+            },
+            {
+              "name": "twitter",
+              "url": options.twitter_url
+            },
+            {
+              "name": "linkedin",
+              "url": options.linkedin_url
+            },
+            {
+              "name": "pinterest",
+              "url": options.pinterest_url
+            },
+            {
+              "name": "youtube",
+              "url": options.youtube_url
+            },
+            {
+              "name": "spotify",
+              "url": options.spotify_url
+            },
+            {
+              "name": "soundcloud",
+              "url": options.soundcloud_url
+            },
+            {
+              "name": "blog",
+              "url": options.blog_url
+            }
+          ]
+        }
+      } %}
+    </div>
+    <div class="c-footer__columns">
+      {% if options.footer_content.footer_column_1_links %}
+        <div class="c-footer__column c-footer__column--1 u-spacing">
+          {% include "@atoms/text/heading/heading.twig" with {
+            "heading": {
+              "level": "4",
+              "size": "xs",
+              "text": options.footer_content.footer_column_1_heading,
+              "classes": "c-footer__column__heading"
+            }
+          } %}
+          {% include "@molecules/navigation/footer/footer-nav.twig" with {
+            "footer_nav": {
+              "items": options.footer_content.footer_column_1_links
+            }
+          } %}
+        </div>
+      {% endif %}
+      {% if options.footer_content.footer_column_2_links %}
+        <div class="c-footer__column c-footer__column--2 u-spacing">
+          {% include "@atoms/text/heading/heading.twig" with {
+            "heading": {
+              "level": "4",
+              "size": "xs",
+              "text": options.footer_content.footer_column_2_heading,
+              "classes": "c-footer__column__heading"
+            }
+          } %}
+          {% include "@molecules/navigation/footer/footer-nav.twig" with {
+            "footer_nav": {
+              "items": options.footer_content.footer_column_2_links
+            }
+          } %}
+        </div>
+      {% endif %}
+      {% if options.phone or options.email %}
+        <div class="c-footer__column c-footer__column--3 u-spacing">
+          {% include "@atoms/text/heading/heading.twig" with {
+            "heading": {
+              "level": "4",
+              "size": "xs",
+              "text": "Contact",
+              "classes": "c-footer__column__heading"
+            }
+          } %}
+          {% include "@molecules/navigation/footer/footer-nav.twig" with {
+            "footer_nav": {
+              "items": [
+                {
+                  "title": options.phone,
+                  "url": "tel:+1" ~ options.phone
+                },
+                {
+                  "title": options.email,
+                  "url": "mailto:" ~ options.email
+                }
+              ]
+            }
+          } %}
+          {% include "@atoms/text/rich-text/rich-text.twig" with {
+            "rich_text": {
+              "text": options.address,
+              "classes": "o-small"
+            }
+          } %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% if options.newsletter_signup_url %}
+    <div class="c-footer__newsletter l-container">
+      {% include "@molecules/forms/newsletter-signup/newsletter-signup.twig" with {
+        "newsletter_signup": {
+          "classes": "c-newsletter-signup--inline"
+        }
+      } %}
+    </div>
+  {% endif %}
+  <div class="c-footer__legal l-container">
+    {% if footer_nav.items %}
+      <div class="c-footer__legal-left">
+        {% include "@molecules/navigation/footer/footer-nav.twig" with {
+          "footer_nav": {
+            "items": footer_nav.items,
+            "classes": "c-footer-nav--inline"
+          }
+        } %}
+      </div>
+    {% endif %}
+    <div class="c-footer__legal-right">
+      © {{ "now" | date("Y") }} {{ site.name }} | All Rights Reserved
+    </div>
+  </div>
+</footer>

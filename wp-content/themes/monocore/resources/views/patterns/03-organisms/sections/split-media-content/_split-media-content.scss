@@ -1,0 +1,124 @@
+/* ------------------------------------ *\
+  $SPLIT-MEDIA-CONTENT
+\* ------------------------------------ */
+
+.c-split-media-content {
+  &__container[data-grid~="grid"] {
+    column-gap: var(--mc-space-xxl);
+    row-gap: var(--mc-space-xxl);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    @include media(">medium") {
+      max-width: var(--mc-layout-max-width-md);
+      margin: var(--mc-space-xl) 0;
+      padding-top: var(--mc-space-xl);
+      padding-bottom: var(--mc-space-xl);
+    }
+
+    .has-cards & {
+      margin: 0;
+    }
+  }
+
+  &__media {
+    border-radius: var(--mc-border-radius-image);
+    overflow: hidden;
+
+    picture {
+      height: 100%;
+    }
+
+    picture img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  &--media-right {
+    .c-split-media-content__media {
+      @include media(">medium") {
+        order: 1;
+      }
+    }
+
+    .c-split-media-content__content {
+      @include media(">medium") {
+        order: 0;
+      }
+    }
+  }
+}
+
+.c-split-media-content--full-bleed {
+  @include media(">medium") {
+    padding: 0;
+  }
+
+  .c-split-media-content__container[data-grid~="grid"] {
+    @include media(">medium") {
+      column-gap: 0;
+    }
+  }
+
+  .c-split-media-content__content {
+    @include media(">medium") {
+      padding-left: var(--mc-space-lg);
+      padding-right: var(--mc-space-lg);
+      justify-self: center;
+      max-width: calc(var(--mc-layout-max-width-xs) + (var(--mc-space-lg) * 2));
+    }
+  }
+
+  .c-split-media-content__image,
+  .c-split-media-content__media {
+    @include media(">medium") {
+      border-radius: 0;
+    }
+  }
+
+  .c-split-media-content__video {
+    @include media(">medium") {
+      aspect-ratio: 4/3;
+    }
+  }
+}
+
+.c-split-media-content--compact {
+  &.c-split-media-content--media-left {
+    .c-split-media-content__content {
+      @include media(">medium") {
+        justify-self: flex-end;
+      }
+    }
+  }
+}
+
+.c-split-media-content--carousel {
+  .c-split-media-content__media {
+    position: relative;
+
+    @include media("<=medium") {
+      aspect-ratio: 4/3;
+    }
+  }
+
+  .c-split-media-content__image {
+    transition: all var(--mc-animation-duration) var(--mc-animation-timing);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
+}

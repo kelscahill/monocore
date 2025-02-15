@@ -1,0 +1,34 @@
+/* ------------------------------------ *\
+  $VALUE-POINTS
+\* ------------------------------------ */
+
+.c-value-points {
+  &__footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--columns {
+    .c-value-points__items {
+      &[data-grid] {
+        row-gap: var(--mc-space-xl);
+      }
+    }
+  }
+}
+
+.c-value-points--cards.c-value-points--left.c-value-points--columns-3 {
+  .c-value-points__header {
+    align-content: center;
+  }
+
+  .c-value-points__items {
+    margin-top: 0;
+  }
+
+  .c-block-value-point {
+    margin-top: 0;
+  }
+}

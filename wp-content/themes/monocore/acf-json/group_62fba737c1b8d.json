@@ -1,0 +1,737 @@
+{
+    "key": "group_62fba737c1b8d",
+    "title": "Grid",
+    "fields": [
+        {
+            "key": "field_642f0b0ee445d",
+            "label": "Grid",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_63c174c6ad674",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_66e2f2660254b",
+            "label": "Background",
+            "name": "grid_background",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "Choose a background style for the grid section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_66e1db3e46a7d"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_63c174d0ad675",
+            "label": "Layout",
+            "name": "grid_layout",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Select the layout style for your grid (Grid, Horizontal Carousel, Vertical Stack, Masonry, or Slider).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "grid": "Grid",
+                "horizontal_carousel_3up": "Horizontal Carousel (3up)",
+                "horizontal_carousel_4up": "Horizontal Carousel (4up)",
+                "vertical_stack_offset_left": "Vertical Stack (Offset Left)",
+                "vertical_stack_full_width": "Vertical Stack (Full Width)",
+                "masonry": "Masonry",
+                "slider": "Slider"
+            },
+            "default_value": "grid",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_642c875d1900b",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "==",
+                        "value": "grid"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/grid.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_642c87831900c",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "==",
+                        "value": "horizontal_carousel_3up"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/grid-horizontal-carousel-3up.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_642c87b31900d",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "==",
+                        "value": "horizontal_carousel_4up"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/grid-horizontal-carousel-4up.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_642c862d1900a",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "==",
+                        "value": "vertical_stack_offset_left"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/grid-vertical-stack-offset-left.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_6436dbcf25aff",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "==",
+                        "value": "vertical_stack_full_width"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/grid-vertical-stack-full-width.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_642c85c119008",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "==",
+                        "value": "masonry"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/grid-masonry.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_6626cfd15ef25",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "==",
+                        "value": "slider"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/grid-slider.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_661d622df4902",
+            "label": "Section Header",
+            "name": "grid_section_header",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_66194d7e20c9b"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_63c175d3ad67a",
+            "label": "Posts",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_63c175ecad67b",
+            "label": "Posts Type",
+            "name": "grid_posts_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose how you want to populate your grid.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "latest": "Latest Posts",
+                "custom": "Custom Post Selection",
+                "shortcode": "Search & Filter Shortcode",
+                "manual": "Manual"
+            },
+            "default_value": "latest",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_6436dfba24b3b",
+            "label": "Posts Latest",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c175ecad67b",
+                        "operator": "==",
+                        "value": "latest"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Displays the latest posts ordered by date.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_6724f83e0322b",
+            "label": "Posts Post Type",
+            "name": "grid_posts_post_type",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "If you would like to display the latest posts of a different post type, enter the post type slug. Defaults to `post`.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c175ecad67b",
+                        "operator": "==",
+                        "value": "latest"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "post",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63c17642ad67c",
+            "label": "Posts Custom",
+            "name": "grid_posts_custom",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Manually select specific posts to display.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c175ecad67b",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 1,
+            "elements": "",
+            "bidirectional": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_6436d17753e80",
+            "label": "Posts Filter Shortcode",
+            "name": "grid_posts_filter_shortcode",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "The shortcode from the Search & Filter settings which displays the post filter.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c175ecad67b",
+                        "operator": "==",
+                        "value": "shortcode"
+                    },
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "!=",
+                        "value": "horizontal_carousel_3up"
+                    },
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "!=",
+                        "value": "horizontal_carousel_4up"
+                    },
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "!=",
+                        "value": "slider"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "[searchandfilter field=\"Field Name\"]",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6436d1a953e81",
+            "label": "Posts Results Shortcode",
+            "name": "grid_posts_results_shortcode",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "The shortcode from the Search & Filter settings which displays the post results.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c175ecad67b",
+                        "operator": "==",
+                        "value": "shortcode"
+                    },
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "!=",
+                        "value": "horizontal_carousel_3up"
+                    },
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "!=",
+                        "value": "horizontal_carousel_4up"
+                    },
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "!=",
+                        "value": "slider"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "[searchandfilter query=\"#\" action=\"show-results\"]",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_643d5fd00ecdb",
+            "label": "Posts Shortcode",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c175ecad67b",
+                        "operator": "==",
+                        "value": "shortcode"
+                    },
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "==",
+                        "value": "horizontal_carousel_3up"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_63c175ecad67b",
+                        "operator": "==",
+                        "value": "shortcode"
+                    },
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "==",
+                        "value": "horizontal_carousel_4up"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_63c175ecad67b",
+                        "operator": "==",
+                        "value": "shortcode"
+                    },
+                    {
+                        "field": "field_63c174d0ad675",
+                        "operator": "==",
+                        "value": "slider"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Using a shortcode is only recommended for the following layouts: Grid, Vertical Stack (Offset Left), Vertical Stack (Full Width), Masonry. Please use Latest or Custom.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_662c01f995eac",
+            "label": "Posts Manual",
+            "name": "grid_posts_manual",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Manually enter content for each grid item.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c175ecad67b",
+                        "operator": "==",
+                        "value": "manual"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_662c024195ead",
+            "button_label": "Add Item",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_662c027995eb0",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_662c01f995eac"
+                },
+                {
+                    "key": "field_662c024195ead",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_662c01f995eac"
+                },
+                {
+                    "key": "field_662c026995eaf",
+                    "label": "Description",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_662c01f995eac"
+                },
+                {
+                    "key": "field_662c04250575b",
+                    "label": "Content",
+                    "name": "content",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_662c01f995eac"
+                },
+                {
+                    "key": "field_662c03eddabb2",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "parent_repeater": "field_662c01f995eac"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/grid"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1732106355
+}

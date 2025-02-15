@@ -1,0 +1,19 @@
+/* ------------------------------------ *\
+  $FOOTER NAV
+\* ------------------------------------ */
+
+.c-footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mc-space-sm);
+  align-items: center;
+
+  @include media(">large") {
+    align-items: flex-start;
+  }
+
+  &--inline {
+    flex-direction: row;
+    gap: var(--mc-space);
+  }
+}

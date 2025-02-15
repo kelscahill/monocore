@@ -1,0 +1,5 @@
+{% if tag.text and tag.link %}
+  <a href="{{ tag.link }}" class="o-tag{{ tag.classes ? ' ' ~ tag.classes }}">
+    {{ tag.text }}
+  </a>
+{% endif %}

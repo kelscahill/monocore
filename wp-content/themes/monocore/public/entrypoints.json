@@ -1,0 +1,24 @@
+{
+  "app": {
+    "js": [
+      "js/runtime.fed613.js",
+      "js/app.ddeda4.js"
+    ],
+    "css": [
+      "css/app.a4a7f2.css"
+    ],
+    "dependencies": []
+  },
+  "editor": {
+    "js": [
+      "js/runtime.fed613.js",
+      "js/editor.d02d6f.js"
+    ],
+    "css": [
+      "css/editor.ee76be.css"
+    ],
+    "dependencies": [
+      "wp-blocks"
+    ]
+  }
+}

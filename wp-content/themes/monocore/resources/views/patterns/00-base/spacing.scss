@@ -1,0 +1,52 @@
+/* ------------------------------------*\
+    $SPACING
+\*------------------------------------ */
+
+$sizes: (
+  "": var(--mc-space),
+  --xxs: var(--mc-space-xxs),
+  --xs: var(--mc-space-xs),
+  --sm: var(--mc-space-sm),
+  --md: var(--mc-space-md),
+  --lg: var(--mc-space-lg),
+  --xl: var(--mc-space-xl),
+  --xxl: var(--mc-space-xxl),
+  --super: var(--mc-space-super),
+  --zero: 0
+);
+
+$sides: (
+  "": "",
+  --top: "-top",
+  --bottom: "-bottom",
+  --left: "-left",
+  --right: "-right"
+);
+
+@each $size_key, $size_value in $sizes {
+  .u-spacing#{$size_key} {
+    & > * + * {
+      margin-top: #{$size_value};
+    }
+  }
+
+  .u-gap#{$size_key} {
+    gap: #{$size_value};
+  }
+
+  @each $side_key, $side_value in $sides {
+    .u-padding#{$size_key}#{$side_key} {
+      padding#{$side_value}: #{$size_value};
+    }
+
+    .u-space#{$size_key}#{$side_key} {
+      margin#{$side_value}: #{$size_value};
+    }
+  }
+}
+
+.u-spacing--left {
+  & > * + * {
+    margin-left: var(--mc-space);
+  }
+}

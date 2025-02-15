@@ -1,0 +1,14 @@
+{% if figure.image.src %}
+  <figure class="o-figure{{ figure.classes ? ' ' ~ figure.classes }}">
+    {% if figure.link.url %}
+      <a class="o-figure__link" href="{{ figure.link.url }}"{{ figure.link.target == '_blank' ? ' target="_blank" rel="noreferrer"' : ' target="_self"' }}{{ figure.link.aria_label ? ' aria-label="' ~ figure.link.aria_label ~ '"' }}>
+    {% endif %}
+      {% include "@atoms/images/image/responsive-image.twig" with figure %}
+    {% if figure.link.url %}
+      </a>
+    {% endif %}
+    {% if figure.image.caption %}
+      <figcaption class="o-figure__caption o-small u-space--sm--top">{{ figure.image.caption }}</figcaption>
+    {% endif %}
+  </figure>
+{% endif %}

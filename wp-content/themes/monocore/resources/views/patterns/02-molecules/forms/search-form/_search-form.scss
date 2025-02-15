@@ -1,0 +1,46 @@
+/* ------------------------------------ *\
+  $SEARCH-FORM
+\* ------------------------------------ */
+
+.c-search-form {
+  &__form {
+    gap: 0;
+
+    &:focus-within {
+      border-radius: var(--mc-border-radius-input);
+
+      @include o-focus-visible;
+    }
+  }
+
+  input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    max-height: 48px;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: var(--mc-border-radius-input);
+    border-bottom-right-radius: var(--mc-border-radius-input);
+    min-height: 48px;
+    max-height: 48px;
+    border: var(--mc-border-width) solid var(--mc-color-background-primary-default);
+
+    &:hover:not(:disabled),
+    &:focus {
+      transform: translateX(0);
+      border-color: var(--mc-color-background-primary-weak);
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{% if heading.level and heading.text %}
+  <h{{ heading.level }} class="o-heading{{ heading.size ? ' o-heading--' ~ heading.size }}{{ heading.classes ? ' ' ~ heading.classes }}">
+    {% if heading.link.url %}
+      <a class="o-heading__link" href="{{ heading.link.url }}"{{ heading.link.target == '_blank' ? ' target="_blank" rel="noreferrer"' : ' target="_self"' }}>
+        {{ heading.text }}
+      </a>
+    {% else %}
+      {{ heading.text }}
+    {% endif %}
+  </h{{ heading.level }}>
+{% endif %}

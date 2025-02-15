@@ -1,0 +1,24 @@
+<section{{ cta.anchor ? ' id="' ~ cta.anchor ~ '"'}} class="c-cta{{ cta.classes ? ' ' ~ cta.classes }} l-container--full l-wrap c-cta--{{ cta.layout|replace({'_': '-'}) }}{{ cta.background.background_color ? ' u-background--' ~ cta.background.background_color }}">
+  {% include "@atoms/images/image/background.twig" with {
+    "background": cta.background
+  } %}
+  <div class="c-cta__container l-container" data-grid="grid {{ cta.layout == 'inline' ? '6@md' : '12' }}">
+    {% include "@organisms/sections/headers/section-header.twig" with {
+      "section_header_classes": "c-cta__header",
+      "section_header_variant": cta.layout == 'inline' ? 'sm' : null,
+      "section_header_alignment": cta.layout != 'inline' ? 'center': null
+    } %}
+    <div class="c-cta__content l-container--sm u-spacing--lg">
+      {% include "@atoms/text/rich-text/rich-text.twig" with {
+        "rich_text": {
+          "text": cta.content_editor,
+          "classes": "c-cta__body"
+        }
+      } %}
+      {% include "@atoms/buttons/button.twig" with {
+        "button": cta.button,
+        "button_classes": "c-cta__button"
+      } %}
+    </div>
+  </div>
+</section>

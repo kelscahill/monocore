@@ -1,0 +1,112 @@
+/* ------------------------------------ *\
+  $TABLES
+\* ------------------------------------ */
+
+table,
+.wp-block-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+  width: 100%;
+  overflow: auto;
+
+  th,
+  td {
+    text-align: left;
+    padding: var(--mc-space-sm);
+    border: var(--mc-border-width) solid var(--mc-color-border-default);
+  }
+
+  th {
+    vertical-align: bottom;
+    font-weight: var(--mc-font-weight-bold);
+    background-color: var(--mc-color-background-default-weak);
+  }
+
+  tr {
+    &:nth-child(even) {
+      background-color: var(--mc-color-background-default);
+    }
+  }
+}
+
+/**
+ * Responsive Table
+ */
+.o-table--responsive {
+  th {
+    @include o-typography-body--sm('bold');
+    border: none;
+  }
+
+  tr th:not(:first-child),
+  tr td:not(:first-child) {
+    text-align: center;
+  }
+
+  th,
+  td {
+    background-color: transparent;
+    padding: var(--mc-space-lg);
+  }
+
+  td {
+    border-top: var(--mc-border-width) solid var(--mc-color-border-default);
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+  }
+
+  tr:nth-child(even) {
+    background-color: transparent;
+  }
+
+  @include media("<=medium") {
+    display: flex;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: block;
+      width: 100%;
+    }
+
+    tr {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      &:not(:first-child) td:first-child {
+        margin-top: var(--mc-space-md);
+      }
+
+      &:first-child td:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+    }
+
+    td {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--mc-space-xs) 0;
+      gap: var(--mc-space);
+
+      &:not(:first-child) {
+        border: none;
+      }
+
+      &:first-child {
+        padding-top: var(--mc-space-md);
+      }
+
+      &::before {
+        content: attr(data-label);
+        @include o-typography-body--sm('bold');
+      }
+    }
+  }
+}

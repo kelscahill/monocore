@@ -1,0 +1,41 @@
+<div class="c-card c-card-testimonial{{ card.classes ? ' ' ~ card.classes }} js-gsap-swing-in">
+  <div class="c-card-testimonial__quote u-spacing--lg">
+    {% include "@atoms/images/icons/icon.twig" with {
+      "icon": {
+        "name": card.icon == "alt" ? "quotes-alt" : "quotes",
+        "classes": "c-card-testimonial__icon o-icon--lg"
+      }
+    } %}
+    {% include "@atoms/text/rich-text/rich-text.twig" with {
+      "rich_text": {
+        "text":  card.quote,
+        "classes": "c-card-testimonial__quote-text"
+      }
+    } %}
+  </div>
+  <div class="c-card-testimonial__content u-spacing--xs">
+    {% include "@atoms/images/image/responsive-image.twig" with {
+      "image": {
+        "src": get_image(card.thumbnail).src|towebp|resize(48, 48, 'center'),
+        "alt": get_image(card.thumbnail).alt,
+      },
+      "picture": {
+        "classes": "c-card-testimonial__image"
+      }
+    } %}
+    {% include "@atoms/text/heading/heading.twig" with {
+      "heading": {
+        "level": "3",
+        "size": "xs",
+        "text": card.citation,
+        "extra": "c-card-testimonial__name"
+      }
+    } %}
+    {% include "@atoms/text/dek/dek.twig" with {
+      "dek": {
+        "text":  card.citation_title,
+        "classes": "c-card-testimonial__title"
+      }
+    } %}
+  </div>
+</div>

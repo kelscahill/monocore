@@ -1,0 +1,41 @@
+{% if posts.pagination.prev.link or posts.pagination.next.link %}
+  <div class="c-pagination{{ pagination.classes ? ' ' ~ pagination.classes }}">
+    {% include "@atoms/buttons/button.twig" with {
+      "button": {
+        "url": posts.pagination.prev.link,
+        "target": "_self",
+        "attributes": posts.pagination.prev.link == '' ? "disabled",
+        "icon": {
+          "name": "arrow"
+        },
+        "classes": "c-pagination__nav c-pagination__nav--prev"
+      }
+    } %}
+    {% if posts.pagination.pages %}
+      <div class="c-pagination__pages">
+        {% for page in posts.pagination.pages %}
+          {% if page.link %}
+            <a target="_self" href="{{ page.link }}" class="c-pagination__page c-pagination__page--link">{{ page.title }}</a>
+          {% else %}
+            {% if page.title == "&hellip;" %}
+              <span class="c-pagination__page c-pagination__page--hellip">{{ page.title }}</span>
+            {% else %}
+              <span class="c-pagination__page c-pagination__page--current">{{ page.title }}</span>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% include "@atoms/buttons/button.twig" with {
+      "button": {
+        "url": posts.pagination.next.link,
+        "target": "_self",
+        "attributes": posts.pagination.next.link == '' ? "disabled",
+        "icon": {
+          "name": "arrow"
+        },
+        "classes": "c-pagination__nav c-pagination__nav--next js-gsap-arrow-next"
+      }
+    } %}
+  </div>
+{% endif %}

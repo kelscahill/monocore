@@ -1,0 +1,13 @@
+<div class="c-search-form{{ search_form.classes ? ' ' ~ search_form.classes }}">
+  <form class="c-search-form__form o-form--inline l-container--sm" action="{{ site.url }}" method="get" role="search">
+    <label class="o-form-item__label is-vishidden">Search</label>
+    <input class="o-form-item__search" name="s" type="text" placeholder="Search...">
+    {% include "@atoms/buttons/button.twig" with {
+      "button": {
+        "icon": "fa-solid fa-search",
+        "icon_placement": "after",
+        "aria_label": "Search"
+      }
+    } %}
+  </form>
+</div>

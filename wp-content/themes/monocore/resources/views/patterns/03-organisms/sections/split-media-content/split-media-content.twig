@@ -1,0 +1,83 @@
+<section{{ split_media_content.anchor ? ' id="' ~ split_media_content.anchor ~ '"'}} class="c-split-media-content{{ split_media_content.classes ? ' ' ~ split_media_content.classes }} l-container--full l-wrap{{ split_media_content.cards|length > 0 ? ' has-cards' }} c-split-media-content--{{ split_media_content.layout|replace({'_': '-'}) }} c-split-media-content--{{ split_media_content.layout_media|replace({'_': '-'}) }}{{ split_media_content.background.background_color ? ' u-background--' ~ split_media_content.background.background_color }}">
+  {% include "@atoms/images/image/background.twig" with {
+    "background": split_media_content.background
+  } %}
+  <div class="c-split-media-content__container{{ split_media_content.layout != 'full_bleed' ? ' l-container' }}" data-grid="grid 6@md gap-none">
+    <div class="c-split-media-content__media{{ split_media_content.layout == 'full_bleed' and split_media_content.layout_media == 'media_right' ? " js-gsap-image-reveal-right" }}{{ split_media_content.layout == 'full_bleed' and split_media_content.layout_media == 'media_left' ? " js-gsap-image-reveal-left" }}">
+      {% if split_media_content.layout == 'carousel' %}
+        {% for card in split_media_content.cards %}
+          {% include "@atoms/images/image/responsive-image.twig" with {
+            "image": {
+              "srcset": get_image(card.image).src|towebp|resize(800, 600, 'center') ~ ' 768w',
+              "src": get_image(card.image).src|towebp|resize(480, 360, 'center'),
+              "alt": get_image(card.image).alt
+            },
+            "picture": {
+              "attributes": "id='image-"~ loop.index ~"'",
+              "classes": "c-split-media-content__image" ~ (loop.index == 1 ? " is-active"),
+            }
+          } %}
+        {% endfor %}
+      {% else %}
+        {% if split_media_content.media.media_type == "video" %}
+          {% include "@atoms/videos/video.twig" with {
+            "video": {
+              "embed": split_media_content.media.video_type == 'embed' ? split_media_content.media.video_embed : split_media_content.media.video_url,
+              "classes": "c-split-media-content__video"
+            }
+          } %}
+        {% else %}
+          {% include "@atoms/images/image/responsive-image.twig" with {
+            "image": {
+              "srcset": get_image(split_media_content.media.image).src|towebp|resize(800, 600, 'center') ~ ' 768w',
+              "src": get_image(split_media_content.media.image).src|towebp|resize(480, 360, 'center') ,
+              "alt": get_image(split_media_content.media.image).alt
+            },
+            "picture": {
+              "classes": "c-split-media-content__image"
+            }
+          } %}
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="c-split-media-content__content u-spacing--lg js-gsap-fade-in">
+      <div class="c-split-media-content__title u-spacing">
+        {% include "@atoms/text/kicker/kicker.twig" with {
+          "kicker": {
+            "text": split_media_content.kicker,
+            "classes": "c-split-media-content__kicker"
+          }
+        } %}
+        {% include "@atoms/text/heading/heading.twig" with {
+          "heading": {
+            "level": "2",
+            "size": "lg",
+            "text": split_media_content.heading,
+            "classes": "c-split-media-content__heading"
+          }
+        } %}
+      </div>
+      {% include "@atoms/text/dek/dek.twig" with {
+        "dek": {
+          "text": split_media_content.content_editor,
+          "classes": "c-split-media-content__dek"
+        }
+      } %}
+      {% if split_media_content.cards %}
+        <div class="c-split-media-content__cards u-spacing u-space--lg--top {{ split_media_content.layout == 'carousel' ? 'u-spacing--lg' : 'u-spacing' }}">
+          {% for card in split_media_content.cards %}
+            {% include "@molecules/cards/card-media.twig" with {
+              card_variant: split_media_content.layout == 'carousel' ? 'bare',
+              card_classes: (loop.index == 1 ? 'is-active'),
+              card_attributes: 'data-target="image-' ~ loop.index ~ '"'
+            } %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% include "@atoms/buttons/button.twig" with {
+        "button": split_media_content.button,
+        "button_classes": "c-split-media-content__button"
+      } %}
+    </div>
+  </div>
+</section>

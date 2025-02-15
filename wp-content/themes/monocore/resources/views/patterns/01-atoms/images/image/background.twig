@@ -1,0 +1,34 @@
+{% if background.background_image.url %}
+  {% if background.background_image_parallax %}
+    {% set background_parallax_class = " js-gsap-background-image" %}
+  {% endif %}
+  {% if background.background_image_opacity %}
+    {% set background_styles = ' style="opacity: calc('~ background.background_image_opacity ~'/100);"' %}
+  {% endif %}
+  {% set background_class = "o-background-image--" ~ background.background_image.id ~ background_parallax_class %}
+  {% if background.background_image.type != 'video' %}
+    <style>
+      {{ '.o-background-image--' ~ background.background_image.id }} {
+        background-image: url('{{ background.background_image.url|resize(800, 600) }}');
+      }
+      @media(min-width: 700px) {
+        {{ '.o-background-image--' ~ background.background_image.id }} {
+          background-image: url('{{ background.background_image.url|resize(1200) }}');
+        }
+      }
+      @media(min-width: 1200px) {
+        {{ '.o-background-image--' ~ background.background_image.id }} {
+          background-image: url('{{ background.background_image.url|resize(1600) }}');
+        }
+      }
+    </style>
+  {% endif %}
+  <div class="o-background-image {{ background_class }}{{ background.background_image_blend_mode ? ' o-background-image--' ~ background.background_image_blend_mode }}"{{ background_styles }}>
+    {% if background.background_image.type == 'video' %}
+      <video autoplay loop muted playsinline>
+        <source src="{{ background.background_image.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    {% endif %}
+  </div>
+{% endif %}

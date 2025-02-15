@@ -1,0 +1,55 @@
+/* ------------------------------------ *\
+  $ICONS
+\* ------------------------------------ */
+
+.o-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  path {
+    fill: currentcolor;
+  }
+
+  &--xs,
+  &--xs svg {
+    width: var(--mc-icon-sm);
+    height: var(--mc-icon-sm);
+    min-width: var(--mc-icon-sm);
+  }
+
+  &--sm,
+  &--sm svg {
+    width: var(--mc-icon);
+    height: var(--mc-icon);
+    min-width: var(--mc-icon);
+  }
+
+  &--md,
+  &--md svg {
+    width: var(--mc-icon-md);
+    height: var(--mc-icon-md);
+    min-width: var(--mc-icon-md);
+  }
+
+  &--lg,
+  &--lg svg {
+    width: var(--mc-icon-lg);
+    height: var(--mc-icon-lg);
+    min-width: var(--mc-icon-lg);
+  }
+
+  &--xl,
+  &--xl svg {
+    width: var(--mc-icon-xl);
+    height: var(--mc-icon-xl);
+    min-width: var(--mc-icon-xl);
+  }
+
+  &--xxl,
+  &--xxl svg {
+    width: var(--mc-icon-xxl);
+    height: var(--mc-icon-xxl);
+    min-width: var(--mc-icon-xxl);
+  }
+}

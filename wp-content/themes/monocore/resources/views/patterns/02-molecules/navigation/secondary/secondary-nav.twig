@@ -1,0 +1,20 @@
+{% if secondary_nav.items %}
+  <nav class="c-secondary-nav{{ secondary_nav.classes ? ' ' ~ secondary_nav.classes }}">
+    {% for item in secondary_nav.items %}
+      {% if item.url == "#" %}
+        <span class="c-secondary-nav__label">{{ item.title }}</span>
+      {% else %}
+        {% include "@atoms/links/link.twig" with {
+          "link": {
+            "text": item.title,
+            "url": item.url,
+            "target": item.target,
+            "icon": item.icon,
+            "icon_placement": "after",
+            "classes": "c-secondary-nav__link" ~ item.classes|join(' '),
+          }
+        } %}
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}

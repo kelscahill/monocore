@@ -1,0 +1,22 @@
+/* ------------------------------------ *\
+  $SOCIAL LINKS
+\* ------------------------------------ */
+
+.c-social-links {
+  display: flex;
+  flex-direction: row;
+  gap: var(--mc-space);
+
+  &__item {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transform: scale(1);
+    @include o-link;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.2);
+    }
+  }
+}

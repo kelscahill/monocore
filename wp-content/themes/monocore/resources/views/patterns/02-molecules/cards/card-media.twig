@@ -1,0 +1,40 @@
+{% set card_tag = 'div' %}
+{% if card.link.url %}
+  {% set card_tag = 'a' %}
+{% endif %}
+<{{ card_tag }} class="c-card c-card-media{{ card_classes ? ' ' ~ card_classes }}{{ card_variant ? ' c-card-media--' ~ card_variant }}"{{ card.link.url ? ' href="' ~ card.link.url ~ '"' }}{{ card.link.target == '_blank' ? ' target="_blank" rel="noreferrer"' }}{{ card_attributes ? ' ' ~ card_attributes}}>
+  {% if card_variant == "bare" %}
+    {% include "@atoms/images/icons/icon.twig" with {
+      "icon": {
+        "name": "arrow",
+        "classes": "c-card__icon o-icon--sm"
+      }
+    } %}
+  {% else %}
+    {% include "@atoms/images/image/responsive-image.twig" with {
+      "image": {
+        "src": get_image(card.image).src|towebp|resize(80, 80, 'center'),
+        "alt": get_image(card.image).alt
+      },
+      "picture": {
+        "classes": "c-card__image u-border-radius--none"
+      }
+    } %}
+  {% endif %}
+  <div class="c-card__content u-spacing--sm">
+    {% include "@atoms/text/heading/heading.twig" with {
+      "heading": {
+        "level": "4",
+        "size": "sm",
+        "text": card.title,
+        "classes": "c-card__heading"
+      }
+    } %}
+    {% include "@atoms/text/rich-text/rich-text.twig" with {
+      "rich_text": {
+        "text": card.content,
+        "classes": "c-card__text"
+      }
+    } %}
+  </div>
+</{{ card_tag }}>

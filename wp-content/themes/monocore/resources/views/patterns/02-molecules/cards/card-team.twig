@@ -1,0 +1,58 @@
+<div class="c-card-team{{ card.classes ? ' ' ~ card.classes }} c-card-team--{{ card_variant }}{{ card_variant == "top" ? " u-spacing--md" }} js-gsap-fade-in">
+  {% include "@atoms/images/image/responsive-image.twig" with {
+    "image": {
+      "src": card_variant == "next" ? get_image(card.photo).src|towebp|resize(350, 350, 'center') : get_image(card.photo).src|towebp|resize(200, 200, 'center'),
+      "alt": get_image(card.photo).alt
+    },
+    "picture": {
+      "classes": "c-card-team__image"
+    }
+  } %}
+  <div class="c-card-team__content u-spacing--sm">
+    {% include "@atoms/text/heading/heading.twig" with {
+      "heading": {
+        "level": "3",
+        "size": "sm",
+        "text": card.name,
+        "classes": "c-card-team__name"
+      }
+    } %}
+    {% include "@atoms/text/dek/dek.twig" with {
+      "dek": {
+        "text": card.title,
+        "classes": "c-card-team__title"
+      }
+    } %}
+    {% include "@atoms/text/rich-text/rich-text.twig" with {
+    "rich_text": {
+      "text": card.biography,
+      "classes": "c-card-team__biography"
+    }
+    } %}
+    {% if card.social_media %}
+      {% include "@molecules/components/social-links/social-links.twig" with {
+        "social_links": {
+          "classes": "c-card-team__social-media",
+          "items": [
+            {
+              "name": "facebook",
+              "url": card.social_media.facebook
+            },
+            {
+              "name": "instagram",
+              "url": card.social_media.instagram
+            },
+            {
+              "name": "twitter",
+              "url": card.social_media.twitter
+            },
+            {
+              "name": "linkedin",
+              "url": card.social_media.linkedin
+            }
+          ]
+        }
+      } %}
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "icon": {
+    "sm": {
+      "value": "10px",
+      "type": "sizing"
+    },
+    "@": {
+      "value": "16px",
+      "type": "sizing"
+    },
+    "md": {
+      "value": "24px",
+      "type": "sizing"
+    },
+    "lg": {
+      "value": "32px",
+      "type": "sizing"
+    },
+    "xl": {
+      "value": "48px",
+      "type": "sizing"
+    },
+    "xxl": {
+      "value": "64px",
+      "type": "sizing"
+    },
+    "xxxl": {
+      "value": "72px",
+      "type": "sizing"
+    }
+  }
+}

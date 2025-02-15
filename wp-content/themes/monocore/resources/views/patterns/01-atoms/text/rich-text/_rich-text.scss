@@ -1,0 +1,122 @@
+/* ------------------------------------ *\
+  $RICH TEXT
+\* ------------------------------------ */
+
+.o-dek,
+.o-rich-text {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: auto;
+
+  & > * + * {
+    margin-top: var(--mc-space-lg);
+  }
+
+  & > section + section {
+    margin-top: 0;
+  }
+
+  > *:not(section) + section {
+    margin-top: var(--mc-space-super);
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    padding-top: var(--mc-space-lg);
+    margin-bottom: calc(var(--mc-space) * -1);
+  }
+
+  > *:first-child:not(section) {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  > section:last-child {
+    margin-bottom: calc(-1 * var(--mc-space-super));
+  }
+
+  > p + p {
+    margin-top: var(--mc-space-md) !important;
+  }
+
+  > ul li a,
+  > p a,
+  > a {
+    @include o-link--secondary;
+    text-decoration: underline;
+    display: unset;
+  }
+
+  > hr {
+    margin: var(--mc-space-xl) auto;
+
+    + .wp-block-heading {
+      padding-top: 0;
+    }
+  }
+
+  > ul {
+    margin-left: var(--mc-space-lg);
+  }
+
+  > ul ul {
+    margin-left: var(--mc-space-xl);
+    margin-top: var(--mc-space);
+  }
+
+  li:not(:first-child) {
+    margin-top: var(--mc-space-xs);
+  }
+
+  .wp-block-quote,
+  .wp-block-pullquote,
+  blockquote {
+    @include o-blockquote;
+  }
+
+  .wp-block-separator {
+    border-top: none;
+  }
+
+  pre {
+    background-color: var(--mc-color-background-default-weak);
+    padding: var(--mc-space);
+  }
+
+  details {
+    & > * + * {
+      margin-top: var(--mc-space-lg);
+    }
+  }
+
+  > .search-filter-query {
+    @include l-container--full;
+    @include l-wrap;
+
+    .c-posts {
+      @include u-align--center;
+
+      max-width: var(--mc-layout-max-width);
+      display: grid;
+      gap: var(--mc-space-lg);
+      grid-template-columns: 1fr;
+
+      @include media(">small") {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      @include media(">medium") {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include media(">large") {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}

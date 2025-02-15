@@ -1,0 +1,179 @@
+{
+    "key": "group_66e1db3e46a7d",
+    "title": "Section Background",
+    "fields": [
+        {
+            "key": "field_66e1dbd85e235",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose the background color style (Default, Subtle, or Inverted). This also affects the font\/ button colors. (If the background color is set to \"inverted\" then the font color will be reversed.)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "subtle": "Subtle",
+                "inverted": "Inverted"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66e1dbcc5e234",
+            "label": "Background Image",
+            "name": "background_image",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "Upload an image to use as the section background.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 1
+        },
+        {
+            "key": "field_66e2d969452c9",
+            "label": "Background Image Opacity",
+            "name": "background_image_opacity",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Set the opacity of the background image (0-100). The lower the number the less opacity.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66e1dbcc5e234",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 100,
+            "min": 0,
+            "max": 100,
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6724f5017429e",
+            "label": "Background Image Blend Mode",
+            "name": "background_image_blend_mode",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Set the blend mode on the image. Preview the different blend modes <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/CSS\/mix-blend-mode\" target=\"_blank\">here<\/a>.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66e1dbcc5e234",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "normal": "Normal",
+                "multiply": "Multiply",
+                "screen": "Screen",
+                "overlay": "Overlay",
+                "darken": "Darken",
+                "lighten": "Lighten",
+                "color-dodge": "Color Dodge",
+                "color-burn": "Color Burn",
+                "hard-light": "Hard Light",
+                "soft-light": "Soft Light",
+                "difference": "Difference",
+                "exclusion": "Exclusion",
+                "hue": "Hue",
+                "saturation": "Saturation",
+                "color": "Color",
+                "luminosity": "Luminosity",
+                "plus-darker": "Plus Darker",
+                "plus-lighter": "Plus Lighter"
+            },
+            "default_value": "normal",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_66e2d901e4301",
+            "label": "Background Image Parallax",
+            "name": "background_image_parallax",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Enable or disable parallax effect for the background image.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_66e1dbcc5e234",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable a parallax effect on the background image",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1730475892
+}

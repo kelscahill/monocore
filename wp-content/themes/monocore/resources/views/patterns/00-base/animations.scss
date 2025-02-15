@@ -1,0 +1,90 @@
+/* ------------------------------------ *\
+  $ANIMATIONS
+\* ------------------------------------ */
+
+.o-mask {
+  overflow: hidden;
+}
+
+.o-custom-cursor {
+  width: var(--mc-icon-xxxl);
+  height: var(--mc-icon-xxxl);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: var(--mc-z-index-top);
+  transition: all var(--mc-animation-duration) var(--mc-animation-timing);
+  background-color: white;
+  overflow: hidden;
+  scale: 0;
+
+  &::after {
+    content: "";
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: var(--mc-icon) auto;
+    mask-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJiIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNy40NyIgaGVpZ2h0PSIxNy40NyIgdmlld0JveD0iMCAwIDE3LjQ3IDE3LjQ3Ij48ZyBpZD0iYyI+PHBhdGggZD0iTTE3LjQ3LDF2OS45NGMwLC4yOC0uMTEuNTMtLjI5Ljcxcy0uNDMuMjktLjcxLjI5Yy0uNTUsMC0xLS40NS0xLTFWMy40MVMxLjcxLDE3LjE3LDEuNzEsMTcuMTdjLS4zOS4zOS0xLjAyLjM5LTEuNDEsMHMtLjM5LTEuMDIsMC0xLjQxTDE0LjA1LDJoLTcuNTNjLS41NSwwLTEtLjQ1LTEtMVM1Ljk3LDAsNi41MiwwaDkuOTRjLjEzLDAsLjI2LjAzLjM4LjA4LjI0LjEuNDQuMy41NC41NC4wNS4xMi4wOC4yNS4wOC4zOFoiIGZpbGw9IiNmZmYiIHN0cm9rZS13aWR0aD0iMCIvPjwvZz48L3N2Zz4=");
+    background-color: black;
+  }
+}
+
+.js-gsap-fade-in {
+  opacity: 0;
+}
+
+.js-gsap-scale-in {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.js-gsap-slide-in-left {
+  opacity: 0;
+  transform: translateX(-80px);
+}
+
+.js-gsap-slide-in-right {
+  opacity: 0;
+  transform: translateX(80px);
+}
+
+.js-gsap-slide-in-up {
+  opacity: 0;
+  transform: translateY(80px);
+}
+
+.js-gsap-swing-in {
+  opacity: 0;
+  transform: rotate(0deg);
+}
+
+.js-gsap-image-reveal-left {
+  clip-path: inset(0 100% 0 0);
+}
+
+.js-gsap-image-reveal-right {
+  clip-path: inset(0 0 0 100%);
+}
+
+.js-gsap-shrink-text.o-heading {
+  @include media(">medium") {
+    width: 100%;
+    line-height: 1;
+    white-space: nowrap;
+    font-size: 500px;
+  }
+}
+
+.js-gsap-scale-down {
+  @include l-container--full;
+}
+
+.js-gsap-split-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mc-space-sm);
+}

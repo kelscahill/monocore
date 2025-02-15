@@ -1,0 +1,31 @@
+
+{% if social_proof.testimonials %}
+  <section{{ social_proof.anchor ? ' id="' ~ social_proof.anchor ~ '"'}} class="c-social-proof{{ social_proof.classes ? ' ' ~ social_proof.classes }} l-container--full l-wrap{{ social_proof.background.background_color ? ' u-background--' ~ social_proof.background.background_color }}">
+    {% include "@atoms/images/image/background.twig" with {
+      "background": social_proof.background
+    } %}
+    <div class="c-social-proof__container l-container" data-grid="grid">
+      {% include "@organisms/sections/headers/section-header.twig" with {
+        "section_header_classes": "c-social-proof__header",
+        "section_header_variant": social_proof.layout == "aside" ? "sm" : null,
+        "section_header_attributes": 'data-grid="' ~ (social_proof.layout == 'aside' ? '4@lg' : '12') ~ '"'
+      } %}
+      <div class="c-social-proof__cards" data-grid="{{ social_proof.layout == 'aside' and section_header ? '8@lg' : social_proof.layout == 'aside' and section_header == null ? '8@lg offset-3@lg' : '12' }}">
+        <div class="c-social-proof__quote" data-grid="grid {{ social_proof.layout == 'aside' ? '6@md' : '6@md 3@lg' }}">
+          {% for card in social_proof.testimonials %}
+            {% include "@molecules/cards/card-testimonial.twig" with {
+              "card": {
+                "classes": (social_proof.layout != "aside" ? "c-card-testimonial--alt ") ~ " js-gsap-swing-in u-background-card--" ~ social_proof.card_background,
+                "icon": social_proof.layout != "aside" ? "alt",
+                "quote": card.quote,
+                "thumbnail": card.thumbnail,
+                "citation": card.citation,
+                "citation_title": card.citation_title
+              }
+            } %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

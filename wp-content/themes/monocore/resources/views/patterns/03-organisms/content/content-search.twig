@@ -1,0 +1,29 @@
+<article class="c-content-search{{ content.classes ? ' ' ~ content.classes }} u-spacing--xxl">
+  {% include "@organisms/sections/headers/page-header.twig" with {
+    "page_header": {
+      "kicker": "Search",
+      "title": search_query ? "Search Results for '" ~ search_query ~ "'" : "Search Results",
+      "dek": search_found_posts > 24 ? "Showing 24 of " ~ search_found_posts ~ " results" : "Showing " ~ search_found_posts ~ " results",
+      "classes": "c-content-search__header"
+    }
+  } %}
+  {% include "@atoms/text/rich-text/rich-text.twig" with {
+    "rich_text": {
+      "classes": "c-content-search__body l-container--lg",
+      "includes": [
+        { item: "@molecules/forms/search-form/search-form.twig" }
+      ]
+    }
+  } %}
+  {% include "@organisms/sections/feeds/card-grid.twig" with {
+    "card_grid": {
+      "posts": posts,
+      "pagination": {
+        "next": posts.pagination.next,
+        "prev": posts.pagination.prev,
+        "pages": posts.pagination.pages,
+      },
+      "classes": "c-content-search__feed"
+    }
+  } %}
+</article>

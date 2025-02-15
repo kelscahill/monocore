@@ -1,0 +1,35 @@
+{% if meta.author.name or meta.date %}
+  <div class="o-meta{{ meta.classes ? ' ' ~ meta.classes }}">
+    {% if meta.author or meta.image %}
+      <div class="o-meta__author">
+        {% if meta.image.src %}
+          {% if meta.author.link %}
+            <a href="{{ meta.author.link }}" class="o-meta__image-link">
+          {% endif %}
+            <div class="o-meta__image">
+              {% include "@atoms/images/image/responsive-image.twig" with meta %}
+            </div>
+          {% if meta.author.link %}
+            </a>
+          {% endif %}
+        {% endif %}
+        {% if meta.author %}
+          {% if meta.author.link %}
+            <a href="{{ meta.author.link }}" class="o-meta__link">
+          {% endif %}
+          {% if meta.author.name %}
+            <span itemprop="author" itemtype="https://schema.org/Person" class="o-meta__author" >
+              {{ meta.author.name }}
+            </span>
+          {% endif %}
+          {% if meta.author.link %}
+            </a>
+          {% endif %}
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if meta.date %}
+      <time datetime="o-meta__date" >{{ meta.date|date('M j, Y') }}</time>
+    {% endif %}
+  </div>
+{% endif %}

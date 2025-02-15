@@ -1,0 +1,73 @@
+{
+    "key": "group_66f321b485c0d",
+    "title": "Post Options",
+    "fields": [
+        {
+            "key": "field_66f321b5e2e88",
+            "label": "Hide the featured image?",
+            "name": "hide_featured_image",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose whether to hide the featured image (Yes\/No).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yes": "Yes",
+                "no": "No"
+            },
+            "default_value": "no",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_66f407ca37494",
+            "label": "Hide the related posts?",
+            "name": "hide_related_posts",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose whether to hide the related posts (Yes\/No).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yes": "Yes",
+                "no": "No"
+            },
+            "default_value": "no",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1727268937
+}

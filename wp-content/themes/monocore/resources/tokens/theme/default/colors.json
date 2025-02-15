@@ -1,0 +1,132 @@
+{
+  "color": {
+    "background": {
+      "default-weak": {
+        "value": "{color.neutral.dark.700}",
+        "type": "color"
+      },
+      "default": {
+        "value": "{color.neutral.dark.800}",
+        "type": "color"
+      },
+      "default-strong": {
+        "value": "{color.neutral.dark.900}",
+        "type": "color"
+      },
+      "primary-weak": {
+        "value": "{color.brand.primary.400}",
+        "type": "color"
+      },
+      "primary-default": {
+        "value": "{color.brand.primary.500}",
+        "type": "color"
+      },
+      "secondary-weak": {
+        "value": "{color.brand.secondary.400}",
+        "type": "color"
+      },
+      "secondary-default": {
+        "value": "{color.brand.secondary.500}",
+        "type": "color"
+      },
+      "info-default": {
+        "value": "{color.utility.info.500}",
+        "type": "color"
+      },
+      "success-default": {
+        "value": "{color.utility.success.500}",
+        "type": "color"
+      },
+      "warning-default": {
+        "value": "{color.utility.warning.500}",
+        "type": "color"
+      },
+      "danger-default": {
+        "value": "{color.utility.danger.500}",
+        "type": "color"
+      }
+    },
+    "content": {
+      "default-weak": {
+        "value": "{color.neutral.light.800}",
+        "type": "color"
+      },
+      "default": {
+        "value": "{color.neutral.light.200}",
+        "type": "color"
+      },
+      "primary-weak": {
+        "value": "{color.brand.primary.400}",
+        "type": "color"
+      },
+      "primary-default": {
+        "value": "{color.brand.primary.500}",
+        "type": "color"
+      },
+      "primary-strong": {
+        "value": "{color.brand.primary.900}",
+        "type": "color"
+      },
+      "secondary-weak": {
+        "value": "{color.brand.secondary.400}",
+        "type": "color"
+      },
+      "secondary-default": {
+        "value": "{color.brand.secondary.500}",
+        "type": "color"
+      },
+      "secondary-strong": {
+        "value": "{color.brand.secondary.900}",
+        "type": "color"
+      },
+      "info-default": {
+        "value": "{color.utility.info.500}",
+        "type": "color"
+      },
+      "success-default": {
+        "value": "{color.utility.success.500}",
+        "type": "color"
+      },
+      "warning-default": {
+        "value": "{color.utility.warning.500}",
+        "type": "color"
+      },
+      "danger-default": {
+        "value": "{color.utility.danger.500}",
+        "type": "color"
+      }
+    },
+    "border": {
+      "default-strong": {
+        "value": "{color.neutral.dark.400}",
+        "type": "color"
+      },
+      "default": {
+        "value": "{color.neutral.dark.300}",
+        "type": "color"
+      },
+      "default-weak": {
+        "value": "{color.neutral.light.900}",
+        "type": "color"
+      }
+    },
+    "shadow": {
+      "default": {
+        "value": "{color.shadow.dark}",
+        "type": "color"
+      }
+    },
+    "overlay": {
+      "default": {
+        "value": "{color.transparent.60}",
+        "type": "color"
+      }
+    },
+    "body": {
+      "background": {
+        "value": "{color.background.default}",
+        "type": "color"
+      }
+    }
+  }
+}

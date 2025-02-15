@@ -1,0 +1,54 @@
+{% set terms = [] %}
+{% if post.terms('category') %}
+  {% for term in post.terms('category') %}
+    {% set terms = terms|merge([term.id]) %}
+  {% endfor %}
+{% endif %}
+
+{% set posts = function([
+    'Timber', 'get_posts'
+  ], {
+    'post_type': related_posts.post_type ? related_posts.post_type : 'post',
+    'post_status': 'publish',
+    'order': 'DESC',
+    'posts_per_page': 8,
+    'category': terms|join(','),
+    'post__not_in': [post.id]
+  })
+%}
+
+{% if posts|length > 0 and post.hide_related_posts != "yes" %}
+  <section class="c-related-posts{{ related_posts.classes ? ' ' ~ related_posts.classes }} l-container--full l-wrap js-glide-4up{{ related_posts.background.background_color ? ' u-background--' ~ related_posts.background.background_color }}">
+    <div class="c-related-posts__container l-container u-spacing--xxl">
+      <div class="c-related-posts__intro">
+        {% include "@organisms/sections/headers/section-header.twig" with {
+          "section_header": {
+            "heading": related_posts.title ? related_posts.title : "Related " ~ post.post_type|title ~ "s"
+          },
+          "section_header_classes": "c-related-posts__header"
+        } %}
+        {% if posts|length > 4 %}
+          <div class="c-related-posts__actions">
+            {% include "@molecules/components/glide-arrows/glide-arrows.twig" with {
+              "glide_arrows": {
+                "classes": "c-related-posts__arrows"
+              }
+            } %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="c-related-posts__posts" data-glide-el="track">
+        {% if posts %}
+          <div class="c-posts">
+            {% for block in posts %}
+              {% include [
+                '@molecules/blocks/block-' ~ block.post_type|replace({'_': '-'}) ~ '.twig',
+                '@molecules/blocks/block.twig'
+              ] %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endif %}

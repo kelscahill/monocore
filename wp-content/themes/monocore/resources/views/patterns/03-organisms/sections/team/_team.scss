@@ -1,0 +1,55 @@
+/* ------------------------------------ *\
+  $TEAM
+\* ------------------------------------ */
+
+.c-team {
+  &__container[data-grid~="grid"] {
+    row-gap: var(--mc-space-xxl);
+  }
+
+  &--top {
+    .c-team__grid {
+      > *::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: var(--mc-color-border-default-strong);
+        position: absolute;
+        bottom: calc(var(--mc-space) * -1);
+        right: 0;
+
+        @include media(">medium") {
+          width: 1px;
+          height: 100%;
+          bottom: 0;
+          right: calc(var(--mc-space) * -1);
+        }
+      }
+
+      > *:last-child::after {
+        display: none;
+      }
+
+      > *:nth-child(3n)::after {
+        @include media(">medium") {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &--next {
+    .c-team__grid {
+      gap: var(--mc-space);
+
+      @include media(">medium") {
+        gap: var(--mc-space-md);
+      }
+
+      @include media(">large") {
+        gap: var(--mc-space-lg);
+      }
+    }
+  }
+}

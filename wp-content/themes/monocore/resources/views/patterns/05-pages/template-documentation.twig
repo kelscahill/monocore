@@ -1,0 +1,112 @@
+{% extends "@templates/layout.twig" %}
+
+{% block content %}
+  <article class="c-content-page{{ content.classes ? ' ' ~ content.classes }} u-spacing--xxl">
+    {% if not is_frontpage %}
+      {% include "@organisms/sections/headers/page-header.twig" with {
+        "page_header": {
+          "kicker": post.post_parent ? function('get_the_title', post.post_parent),
+          "title": post.title,
+          "classes": "c-content-page__header"
+        }
+      } %}
+    {% endif %}
+    {% if password_protected %}
+      {% include "@molecules/forms/password-protected/password-protected.twig" %}
+    {% else %}
+      <div class="c-documentation">
+        <div class="c-documentation__sidebar">
+          <div class="c-documentation__sidebar-header">
+            {% include "@atoms/text/kicker/kicker.twig" with {
+              "kicker": {
+                "text": "Custom Blocks",
+                "variant": "alt"
+              }
+            } %}
+            {% include "@atoms/text/heading/heading.twig" with {
+              "heading": {
+                "level": "2",
+                "size": "md",
+                "text": "Documentation"
+              }
+            } %}
+          </div>
+          <ul class="c-documentation__sidebar-list">
+            {% for block_type, blocks in grouped_blocks %}
+              <li class="c-documentation__sidebar-list-item">
+                <a
+                  href="?tab={{ block_title[block_type]|replace([' ', '-'])|lower }}"
+                  class="c-documentation__sidebar-list-link js-tab-link {{ block_type == current_block ? 'this-is-active' : '' }}"
+                  data-tab="{{ block_title[block_type]|replace([' ', '-'])|lower }}">
+                  {{ block_title[block_type] }}
+                  <span class="c-documentation__sidebar-list-count">{{ blocks|length }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="c-documentation__content">
+          {% for block_type, blocks in grouped_blocks %}
+            <div id="{{ block_title[block_type]|replace([' ', '-'])|lower }}" class="c-documentation__content-body u-spacing--lg js-tab-content" style="display: {{ block_type == current_block ? 'block' : 'none' }}">
+              <div class="c-documentation__header">
+                {% include "@atoms/text/heading/heading.twig" with {
+                  "heading": {
+                    "level": "3",
+                    "size": "sm",
+                    "text": block_title[block_type]
+                  }
+                } %}
+                <hr />
+                {% include "@atoms/text/dek/dek.twig" with {
+                  "dek": {
+                    "text": block_description[block_type],
+                    "variant": "alt",
+                    "classes": "l-container--md"
+                  }
+                } %}
+              </div>
+              {% for block_data in blocks %}
+                <div class="c-documentation__block">
+                  {{ fn('render_block', block_data.block)|raw }}
+                  {% set filtered_data = {} %}
+                  {% for key, value in block_data.block.attrs.data %}
+                    {% if key|first != '_' and value is not iterable %}
+                      {% set filtered_data = filtered_data|merge({(key): value}) %}
+                    {% endif %}
+                  {% endfor %}
+                  <div class="c-documentation__data">
+                    <button class="c-documentation__data-toggle js-toggle-parent">Block Data</button>
+                    <div class="c-documentation__data-content u-spacing">
+                      {% include "@atoms/text/heading/heading.twig" with {
+                        "heading": {
+                          "level": "4",
+                          "size": "xs",
+                          "text": "Block Data"
+                        }
+                      } %}
+                      <table class="c-documentation__data-table">
+                        <tr>
+                          <th>Field Label</th>
+                          <th>Value</th>
+                        </tr>
+                        {% for key, value in filtered_data %}
+                          {% if value %}
+                            <tr>
+                              <td>{{ key }}</td>
+                              <td>{{ value }}</td>
+                            </tr>
+                          {% endif %}
+                        {% endfor %}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif  %}
+  </article>
+{% endblock %}
+

@@ -1,0 +1,117 @@
+/* ------------------------------------ *\
+  $FEEDS
+\* ------------------------------------ */
+
+.c-card-grid {
+  margin-top: 0;
+}
+
+.c-post-grid {
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mc-space-lg);
+  }
+
+  &__content {
+    .c-posts {
+      display: grid;
+      gap: var(--mc-space-lg);
+      grid-template-columns: repeat(1, 1fr);
+
+      @include media(">small") {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include media(">medium") {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include media(">large") {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+
+  .has-sidebar {
+    .c-post-grid__content {
+      .c-posts {
+        @include media(">large") {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
+}
+
+.c-filter {
+  background-color: var(--mc-color-body-background);
+
+  &__header {
+    cursor: pointer;
+    padding-bottom: var(--mc-space);
+    border-bottom: var(--mc-border-width) solid var(--mc-color-border-default-weak);
+    position: relative;
+
+    &::after {
+      @include o-typography-body--sm;
+
+      display: block;
+      width: auto;
+      height: auto ;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      color: var(--mc-color-content-default-weak);
+      content: "+ Expand";
+
+      @include media(">large") {
+        content: "- Collapse";
+      }
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all var(--mc-animation-duration) ease-in-out;
+    padding-top: var(--mc-space);
+
+    @include media(">large") {
+      max-height: 100vh;
+      opacity: 1;
+      overflow: unset;
+    }
+
+    > *:not(:first-child) {
+      margin-top: var(--mc-space-sm);
+      padding-top: var(--mc-space-sm);
+      border-top: var(--mc-border-width) solid var(--mc-color-border-default-weak);
+    }
+  }
+
+  &.this-is-active {
+    .c-filter__header::after {
+      content: "- Collapse";
+
+      @include media(">large") {
+        content: "+ Expand";
+      }
+    }
+
+    .c-filter__content {
+      max-height: 100vh;
+      opacity: 1;
+      overflow: unset;
+      transition: all var(--mc-animation-duration) ease-in-out;
+
+      @include media(">large") {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+    }
+  }
+}

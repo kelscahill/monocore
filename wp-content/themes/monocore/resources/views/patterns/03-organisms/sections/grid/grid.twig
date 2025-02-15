@@ -1,0 +1,96 @@
+{% if grid.posts_type == "latest" %}
+  {% if grid.layout == 'vertical_stack_offset_left' or grid.layout == 'vertical_stack_full_width' %}
+    {% set posts_per_page = 3 %}
+  {% elseif grid.layout == 'grid' %}
+    {% set posts_per_page = 6 %}
+  {% else %}
+    {% set posts_per_page = 8 %}
+  {% endif %}
+  {% set posts = function([
+    "Timber", "get_posts"
+  ], {
+    "post_type": grid.posts_post_type ? grid.posts_post_type|lower : "post",
+    "orderby": "date",
+    "order": "DESC",
+    "posts_per_page": posts_per_page
+  }) %}
+{% elseif grid.posts_type == "custom" %}
+  {% set posts = get_posts(grid.posts_custom) %}
+{% elseif grid.posts_type == "manual" %}
+  {% set posts = grid.posts_manual %}
+{% elseif grid.posts_type == "shortcode" %}
+  {% set posts = null %}
+{% endif %}
+
+<section{{ grid.anchor ? ' id="' ~ grid.anchor ~ '"'}} class="c-grid{{ grid.classes ? ' ' ~ grid.classes }} c-grid--{{ grid.layout|replace({"_": "-"}) }} l-container--full l-wrap{{ grid.background.background_color ? ' u-background--' ~ grid.background.background_color }}">
+  {% include "@atoms/images/image/background.twig" with {
+    "background": grid.background
+  } %}
+  <div class="c-grid__container l-container u-spacing--xxl">
+    <div class="c-grid__intro">
+      {% include "@organisms/sections/headers/section-header.twig" with {
+        "section_header_classes": "c-grid__header",
+        "section_header_alignment": grid.layout == 'horizontal_carousel_3up' or grid.layout == 'masonry' ? 'center': null
+      } %}
+      {% if
+        (grid.layout == "horizontal_carousel_4up" and posts|length > 4) or
+        (grid.posts_filter_shortcode and grid.layout == "masonry") or
+        (grid.posts_filter_shortcode and grid.layout == "vertical_stack_full_width") or
+        (grid.layout == "slider" and posts|length > 4)
+      %}
+        <div class="c-grid__actions">
+          {% if grid.layout == "horizontal_carousel_4up" or grid.layout == "slider" %}
+            {% include "@molecules/components/glide-arrows/glide-arrows.twig" with {
+              "glide_arrows": {
+                "classes": "c-grid__arrows"
+              }
+            } %}
+          {% endif %}
+          {% if
+            (grid.posts_filter_shortcode and grid.layout == "masonry") or
+            (grid.posts_filter_shortcode and grid.layout == "vertical_stack_full_width")
+          %}
+            {% apply shortcodes %}
+              {{ grid.posts_filter_shortcode }}
+            {% endapply %}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="c-grid__posts" data-glide-el="track">
+      {% if
+        (grid.posts_filter_shortcode and grid.layout == "grid") or
+        (grid.layout == "vertical_stack_offset_left")
+      %}
+        <div class="c-grid__sidebar">
+          {% apply shortcodes %}
+            {{ grid.posts_filter_shortcode }}
+          {% endapply %}
+        </div>
+      {% endif %}
+      {% if posts %}
+        <div class="c-posts">
+          {% for block in posts %}
+            {% if block.post_type != 'post' and (grid.layout == 'grid' or grid.layout == 'horizontal_carousel_3up' or grid.layout == 'horizontal_carousel_4up') %}
+              {% include "@molecules/blocks/block-" ~ block.post_type ~ ".twig" %}
+            {% else %}
+              {% include "@molecules/blocks/block.twig" %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% elseif grid.posts_results_shortcode %}
+        {% apply shortcodes %}
+          {{ grid.posts_results_shortcode }}
+        {% endapply %}
+      {% endif %}
+    </div>
+    {% if grid.layout == "horizontal_carousel_3up" and posts|length > 3 %}
+      {% include "@molecules/components/glide-arrows/glide-arrows.twig" with {
+        "glide_arrows": {
+          "classes": "c-grid__arrows"
+        }
+      } %}
+    {% endif %}
+  </div>
+</section>
+

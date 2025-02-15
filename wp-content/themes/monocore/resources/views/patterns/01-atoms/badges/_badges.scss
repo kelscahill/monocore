@@ -1,0 +1,34 @@
+.o-badge {
+  width: fit-content;
+  display: inline-block;
+  border-radius: var(--mc-border-radius-sm);
+  padding: var(--mc-space-xxs) var(--mc-space-xs);
+  color: var(--mc-color-content-default-weak);
+  background: var(--mc-color-background-default-weak);
+  @include o-typography-body--sm;
+
+  &--secondary {
+    color: var(--mc-color-content-secondary-strong);
+    background: var(--mc-color-background-secondary-default);
+  }
+
+  &--success {
+    color: black;
+    background: var(--mc-color-background-success-default);
+  }
+
+  &--danger {
+    color: black;
+    background: var(--mc-color-background-danger-default);
+  }
+
+  &--warning {
+    color: black;
+    background: var(--mc-color-background-warning-default);
+  }
+
+  &--info {
+    color: black;
+    background: var(--mc-color-background-info-default);
+  }
+}

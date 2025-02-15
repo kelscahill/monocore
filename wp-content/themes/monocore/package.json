@@ -1,0 +1,38 @@
+{
+  "name": "monocore",
+  "private": true,
+  "browserslist": [
+    "extends @roots/browserslist-config"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "setup": "composer install; yarn; yarn build;",
+    "start": "bud dev --clean",
+    "build": "yarn build:tokens; bud build --clean;",
+    "build:tokens": "node ./resources/tokens/tokens-config.js",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint resources/scripts",
+    "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
+    "test": "npm run lint"
+  },
+  "devDependencies": {
+    "@roots/bud": "6.20.0",
+    "@roots/bud-eslint": "6.20.0",
+    "@roots/bud-prettier": "6.20.0",
+    "@roots/bud-sass": "6.20.0",
+    "@roots/bud-stylelint": "6.20.0",
+    "@roots/eslint-config": "6.20.0",
+    "@roots/sage": "6.20.0"
+  },
+  "dependencies": {
+    "@glidejs/glide": "^3.6.0",
+    "@lottiefiles/lottie-js": "^0.4.2",
+    "fast-glob": "^3.2.12",
+    "gsap": "^3.12.4",
+    "style-dictionary": "^3.9.2",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-scss": "^5.0.0"
+  }
+}

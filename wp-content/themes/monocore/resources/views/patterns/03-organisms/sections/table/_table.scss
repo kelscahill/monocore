@@ -1,0 +1,32 @@
+.c-table {
+  @include media("<=medium") {
+    padding-left: var(--mc-space-lg);
+    padding-right: var(--mc-space-lg);
+  }
+
+  &__header {
+    margin-bottom: var(--mc-space-super);
+    margin-left: 0;
+  }
+
+  &__rich-text,
+  &__title {
+    margin-bottom: var(--mc-space-lg);
+  }
+
+  @include media(">medium") {
+    &--column-striping {
+      th:nth-child(even),
+      td:nth-child(even) {
+        background-color: var(--mc-color-background-default-weak);
+      }
+    }
+
+    &--row-striping {
+      thead tr th,
+      tr:nth-child(even) td {
+        background-color: var(--mc-color-background-default-weak);
+      }
+    }
+  }
+}

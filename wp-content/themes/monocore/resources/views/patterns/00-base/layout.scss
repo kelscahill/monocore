@@ -1,0 +1,88 @@
+/* ------------------------------------ *\
+  $LAYOUT
+\* ------------------------------------ */
+
+/**
+ * Wrapping element to keep content contained and centered.
+ */
+.l-wrap {
+  @include l-wrap;
+}
+
+.l-main {
+  padding-bottom: var(--mc-space-super);
+}
+
+/**
+ * Layout containers - keep content centered and within a maximum width. Also
+ * adjusts left and right padding as the viewport widens.
+ */
+.l-container {
+  @include u-align--center;
+
+  max-width: var(--mc-layout-max-width);
+
+  &--sm {
+    @include u-align--center;
+
+    max-width: var(--mc-layout-max-width-sm);
+  }
+
+  &--md {
+    @include u-align--center;
+
+    max-width: var(--mc-layout-max-width-md);
+  }
+
+  &--lg {
+    @include u-align--center;
+
+    max-width: var(--mc-layout-max-width-lg);
+  }
+
+  &--xl {
+    @include u-align--center;
+
+    max-width: var(--mc-layout-max-width);
+  }
+
+  &--xxl {
+    @include u-align--center;
+
+    max-width: var(--mc-layout-max-width-xxl);
+  }
+}
+
+.l-container--full {
+  @include l-container--full;
+}
+
+.has-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: var(--mc-space-lg);
+
+  @include media(">large") {
+    flex-wrap: nowrap;
+  }
+
+  > article {
+    width: 100%;
+    flex: 1;
+    z-index: 1;
+    position: relative;
+  }
+
+  > aside {
+    width: 100%;
+    z-index: 2;
+    position: relative;
+
+    @include media(">large") {
+      min-width: var(--mc-layout-width-sidebar);
+      max-width: var(--mc-layout-width-sidebar);
+    }
+  }
+}

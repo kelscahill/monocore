@@ -1,0 +1,55 @@
+{% if post.category and post.category != "Uncategorized" %}
+  {% set kicker = post.category %}
+{% elseif post.post_type != 'post' %}
+  {% set kicker = post.post_type|title %}
+{% endif %}
+<article class="c-content-single{{ content.classes ? ' ' ~ content.classes }} u-spacing--super">
+  {% include "@organisms/sections/headers/page-header.twig" with {
+    "page_header": {
+      "kicker": kicker,
+      "title": post.title,
+      "classes": "c-content-single__header"
+    }
+  } %}
+  {% if password_protected %}
+    {% include "@molecules/forms/password-protected/password-protected.twig" %}
+  {% else %}
+    {% if post.hide_featured_image != "yes" %}
+      <div class="c-content-single__image l-container--lg js-gsap-trigger">
+        <div class="js-gsap-scale-down">
+          {% include "@atoms/images/image/responsive-image.twig" with {
+            "image": {
+              "sources": [
+                {
+                  "media": "(min-width: 1260)",
+                  "srcset": get_image(post.thumbnail).src|resize(1600, 800, 'center')
+                },
+                {
+                  "media": "(min-width: 1024px)",
+                  "srcset": get_image(post.thumbnail).src|resize(1260, 709, 'center')
+                },
+                {
+                  "media": "(min-width: 768px)",
+                  "srcset": get_image(post.thumbnail).src|resize(1024, 576, 'center')
+                },
+                {
+                  "media": "(min-width: 480px)",
+                  "srcset": get_image(post.thumbnail).src|resize(768, 432, 'center')
+                },
+              ],
+              "src": get_image(post.thumbnail).src|resize(480, 270, 'center'),
+              "alt": get_image(post.thumbnail).alt
+            }
+          } %}
+        </div>
+      </div>
+    {% endif %}
+    {% include "@atoms/text/rich-text/rich-text.twig" with {
+      "rich_text": {
+        "text": post.content,
+        "classes": "c-content-single__body l-container--md"
+      }
+    } %}
+    {% include "@organisms/sections/related-posts/related-posts.twig" %}
+  {% endif %}
+</article>

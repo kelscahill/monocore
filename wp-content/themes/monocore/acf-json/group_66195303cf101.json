@@ -1,0 +1,91 @@
+{
+    "key": "group_66195303cf101",
+    "title": "Button",
+    "fields": [
+        {
+            "key": "field_6619530402edf",
+            "label": "Link",
+            "name": "link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_6619532d02ee0",
+            "label": "Icon",
+            "name": "icon",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Find an icon <a href=\"https:\/\/fontawesome.com\/search\" target=\"_blank\">here<\/a>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "fa-solid fa-arrow-right",
+            "prepend": "class=\"",
+            "append": "\""
+        },
+        {
+            "key": "field_66196311c2329",
+            "label": "Icon Placement",
+            "name": "icon_placement",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Select if you would like the icon to appear before the button text or after.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6619532d02ee0",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "before": "Before",
+                "after": "After"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1713540771
+}

@@ -1,0 +1,20 @@
+{% if table %}
+  <table class="o-table o-table--responsive{{ table.classes ? ' ' ~ table.classes }} js-gsap-slide-in-up">
+    <thead>
+      <tr>
+        {% for header in table.headers %}
+          <th>{{ header.text }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in table.rows %}
+        <tr>
+          {% for cell in row.row %}
+            <td data-label="{{ table.headers[(loop.index - 1)].text }}">{{ cell.text|wpautop }}</th>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}

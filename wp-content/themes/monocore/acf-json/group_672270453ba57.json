@@ -1,0 +1,338 @@
+{
+    "key": "group_672270453ba57",
+    "title": "Post Grid",
+    "fields": [
+        {
+            "key": "field_6722745e97c09",
+            "label": "Post Grid",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_672280aa1be5b",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_672280821be5a",
+            "label": "Background",
+            "name": "post_grid_background",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_66e1db3e46a7d"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_67250cc523dcb",
+            "label": "Section Header",
+            "name": "post_grid_section_header",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_66194d7e20c9b"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_672280b11be5c",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_6722747da3fe1",
+            "label": "Post Grid Display",
+            "name": "post_grid_display",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "posts": "Posts",
+                "shortcodes": "Shortcodes"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_672270467de6b",
+            "label": "Shortcodes",
+            "name": "post_grid_shortcodes",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "Displays posts with a shortcode.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6722747da3fe1",
+                        "operator": "==",
+                        "value": "shortcodes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6722790f35d9d",
+                    "label": "Sidebar",
+                    "name": "sidebar",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "field_6722791e35d9e",
+                    "button_label": "Add Shortcode",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_6722791e35d9e",
+                            "label": "Shortcode",
+                            "name": "shortcode",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_6722790f35d9d"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_672270907de6e",
+                    "label": "Sidebar Button Group",
+                    "name": "sidebar_button_group",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "field_672270a07de6f",
+                    "button_label": "Add Shortcode",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_672270a07de6f",
+                            "label": "Shortcode",
+                            "name": "shortcode",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_672270907de6e"
+                        }
+                    ]
+                },
+                {
+                    "key": "field_672270c87de70",
+                    "label": "Content",
+                    "name": "content",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "field_672270d27de71",
+                    "button_label": "Add Shortcode",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_672270d27de71",
+                            "label": "Shortcode",
+                            "name": "shortcode",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_672270c87de70"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_67227b2c288ba",
+            "label": "Post Type",
+            "name": "post_grid_post_type",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter a specific post type. Defaults to `posts` if left empty.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6722747da3fe1",
+                        "operator": "==",
+                        "value": "posts"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/post-grid"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1730481386
+}

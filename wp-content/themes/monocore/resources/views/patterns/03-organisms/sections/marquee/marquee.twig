@@ -1,0 +1,8 @@
+<section class="c-marquee c-marquee--{{ marquee.text_size }} {% if marquee.width == 'full' %}l-container--full{% else %}l-container{% endif %}{{ marquee.background.background_color ? ' u-background--' ~ marquee.background.background_color }}">
+  {% include "@atoms/images/image/background.twig" with {
+    "background": marquee.background
+  } %}
+  <div class="c-marquee__container js-gsap-marquee">
+     {{ marquee.text }} {{ marquee.text }} {{ marquee.text }} {{ marquee.text }}
+  </div>
+</section>

@@ -1,0 +1,225 @@
+/* ------------------------------------ *\
+  $CARDS
+\* ------------------------------------ */
+
+.c-card {
+  display: flex;
+  border-radius: var(--mc-border-radius-card);
+  background-color: var(--mc-color-background-default-weak);
+  padding: var(--mc-space-lg);
+  gap: var(--mc-space-lg);
+  flex-direction: column;
+
+  &.u-background-card--subtle {
+    background-color: var(--mc-color-background-default-strong);
+
+    .u-background--default & {
+      background-color: var(--mc-color-background-default);
+    }
+  }
+
+  > .o-rich-text {
+    color: var(--mc-color-content-default);
+  }
+}
+
+.c-card-media {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .c-card__image {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: var(--mc-icon-xxl);
+    max-width: var(--mc-icon-xxl);
+  }
+
+  .c-card__icon {
+    transition: all var(--mc-animation-duration) var(--mc-animation-timing);
+    opacity: 0;
+    align-items: flex-start;
+    margin-top: 3px;
+  }
+
+  &--bare {
+    background-color: transparent;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+    padding: 0;
+    justify-content: flex-start;
+
+    &.is-active {
+      .c-card__icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.has-hover {
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      .c-card__icon {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+a.c-card-media {
+  transition: all var(--mc-animation-duration-long) var(--mc-animation-timing);
+  transform: scale(1);
+
+  &:hover,
+  &:focus {
+    color: var(--mc-color-content-default);
+    transform: scale(1.05);
+    box-shadow: var(--mc-box-shadow);
+  }
+}
+
+.c-card-team {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: var(--mc-space) 0;
+
+  &__image {
+    margin: auto;
+    min-width: 123px;
+    width: 123px;
+    height: 123px;
+
+    --mc-border-radius-image: 50%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+  }
+
+  &__title {
+    margin-top: 0;
+  }
+
+  &__biography {
+    flex: 1;
+  }
+
+  &__social-media {
+    margin-top: var(--mc-space-md);
+  }
+}
+
+.c-card-team--next {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  padding: 0;
+  justify-content: center;
+  border-radius: var(--mc-border-radius-card);
+  overflow: hidden;
+
+  &:hover,
+  &:focus {
+    .c-card-team__content {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .c-card-team__image {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+
+    --mc-border-radius-image: 0;
+  }
+
+  .c-card-team__content {
+    flex: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: var(--mc-space);
+    color: var(--mc-color-content-primary-strong);
+    background-color: var(--mc-color-background-primary-default);
+    transition: all var(--mc-animation-duration-long) var(--mc-animation-timing);
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .c-card-team__biography {
+    flex: none;
+  }
+
+  .o-heading,
+  .o-dek {
+    color: var(--mc-color-content-primary-strong);
+  }
+
+  .c-social-links {
+    .o-link {
+      @include o-link(var(--mc-color-content-primary-strong), var(--mc-color-content-primary-strong));
+    }
+  }
+}
+
+.c-card-testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: none;
+
+  &__icon {
+    color: var(--mc-color-content-secondary-weak);
+  }
+
+  &__image.o-picture {
+    display: block;
+    margin: auto;
+    width: var(--mc-icon-xl);
+    height: var(--mc-icon-xl);
+    border-radius: var(--mc-icon-xl);
+    overflow: hidden;
+    margin-bottom: var(--mc-space);
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__quote {
+    flex: 1;
+  }
+
+  &--alt {
+    padding: 0;
+    gap: 0;
+
+    .c-card-testimonial__quote {
+      padding: var(--mc-space-lg);
+    }
+
+    .c-card-testimonial__content {
+      padding: var(--mc-space-lg);
+      border-top: 1px solid var(--mc-color-border-default);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{% if blockquote %}
+  <blockquote class="o-blockquote{{ blockquote.classes ? ' ' ~ blockquote.classes }}" >
+    {% if blockquote.text %}
+      <p>{{ blockquote.text }}</p>
+    {% endif %}
+    {% if blockquote.cite %}
+      <cite>{{ blockquote.cite }}</cite>
+    {% endif %}
+  </blockquote>
+{% endif %}

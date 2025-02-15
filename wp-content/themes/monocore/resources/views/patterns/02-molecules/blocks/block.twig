@@ -1,0 +1,83 @@
+{% if block.image %}
+  {% set block_image = block.image %}
+{% else %}
+  {% set block_image = block.thumbnail %}
+{% endif %}
+<div class="c-block{{ block.classes ? ' ' ~ block.classes }}">
+  {% include "@atoms/images/image/figure.twig" with {
+    "figure": {
+      "link": {
+        "url": block.link
+      },
+      "image": {
+        "src": get_image(block_image).src|resize(800, auto, 'center'),
+        "alt": get_image(block_image).alt
+      },
+      "classes": "c-block__image js-custom-hover-cursor"
+    }
+  } %}
+  <div class="c-block__content">
+    {% if block.category %}
+      {% include "@atoms/text/tag/tag.twig" with {
+        "tag": {
+          "text": block.category.name,
+          "link": block.category.link,
+          "classes": "c-block__category"
+        }
+      } %}
+    {% endif %}
+    {% if block.title or block.description or block.tags or block.excerpt or block.content %}
+      <div class="c-block__body u-spacing">
+        <div class="c-block__title u-spacing--sm">
+          {% include "@atoms/text/heading/heading.twig" with {
+            "heading": {
+              "level": "3",
+              "size": "sm",
+              "text": block.title,
+              "link": {
+                "url": block.link
+              },
+              "classes": "c-block__heading"
+            }
+          } %}
+          {% include "@atoms/text/dek/dek.twig" with {
+            "dek": {
+              "text": block.description ? block.description : block.tags|join(', '),
+              "classes": "c-block__tags"
+            }
+          } %}
+        </div>
+        {% include "@atoms/text/rich-text/rich-text.twig" with {
+          "rich_text": {
+            "text": block.excerpt ? block.excerpt.end('...').chars(200).read_more('').force : block.content,
+            "classes": "c-block__excerpt"
+          }
+        } %}
+      </div>
+    {% endif %}
+    {% include "@atoms/text/meta/meta.twig" with {
+      "meta": {
+        "date": block.date,
+        "author": {
+          "link": block.author.link,
+          "name": block.author.name,
+        },
+        "image": {
+          "src": function('get_avatar_url', block.author.id),
+          "alt": block.author.name
+        },
+        "classes": "c-block__meta u-space--top"
+      }
+    } %}
+    {% include "@atoms/links/link.twig" with {
+      "link": {
+        "url": block.link,
+        "icon": {
+          "name": "arrow",
+          "classes": "o-icon--sm"
+        },
+        "classes": "c-block__arrow"
+      }
+    } %}
+  </div>
+</div>

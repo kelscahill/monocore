@@ -1,0 +1,829 @@
+{
+    "key": "group_63c165e6cdc90",
+    "title": "Value Points",
+    "fields": [
+        {
+            "key": "field_642f0b9695b9a",
+            "label": "Value Points",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_63c165eb703dc",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_66e2f33882f20",
+            "label": "Background",
+            "name": "value_points_background",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "Choose a background style for the value points section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_66e1db3e46a7d"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_63c16601703dd",
+            "label": "Layout",
+            "name": "value_points_layout",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Select between Columns or Cards layout.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "columns": "Columns",
+                "cards": "Cards"
+            },
+            "default_value": "grid",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_63daa8655bfca",
+            "label": "Columns",
+            "name": "value_points_columns",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose to display 3 or 4 columns.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "3": "Three",
+                "4": "Four"
+            },
+            "default_value": 3,
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_63e54d88c13f9",
+            "label": "Text Align",
+            "name": "value_points_text_align",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Select center or left alignment for the text.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "center": "Center",
+                "left": "Left"
+            },
+            "default_value": "center",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_645e6321964c1",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c16601703dd",
+                        "operator": "==",
+                        "value": "columns"
+                    },
+                    {
+                        "field": "field_63daa8655bfca",
+                        "operator": "==",
+                        "value": "3"
+                    },
+                    {
+                        "field": "field_63e54d88c13f9",
+                        "operator": "==",
+                        "value": "center"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/value-points-columns-3-center.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_645e634a964c2",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c16601703dd",
+                        "operator": "==",
+                        "value": "columns"
+                    },
+                    {
+                        "field": "field_63daa8655bfca",
+                        "operator": "==",
+                        "value": "3"
+                    },
+                    {
+                        "field": "field_63e54d88c13f9",
+                        "operator": "==",
+                        "value": "left"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/value-points-columns-3-left.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_645e6448964c4",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c16601703dd",
+                        "operator": "==",
+                        "value": "columns"
+                    },
+                    {
+                        "field": "field_63daa8655bfca",
+                        "operator": "==",
+                        "value": "4"
+                    },
+                    {
+                        "field": "field_63e54d88c13f9",
+                        "operator": "==",
+                        "value": "center"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/value-points-columns-4-center.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_645e644c964c5",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c16601703dd",
+                        "operator": "==",
+                        "value": "columns"
+                    },
+                    {
+                        "field": "field_63daa8655bfca",
+                        "operator": "==",
+                        "value": "4"
+                    },
+                    {
+                        "field": "field_63e54d88c13f9",
+                        "operator": "==",
+                        "value": "left"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/value-points-columns-4-left.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_6621096dee125",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c16601703dd",
+                        "operator": "==",
+                        "value": "cards"
+                    },
+                    {
+                        "field": "field_63e54d88c13f9",
+                        "operator": "==",
+                        "value": "left"
+                    },
+                    {
+                        "field": "field_63daa8655bfca",
+                        "operator": "==",
+                        "value": "3"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/value-points-cards-3-left.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_662a888411892",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c16601703dd",
+                        "operator": "==",
+                        "value": "cards"
+                    },
+                    {
+                        "field": "field_63e54d88c13f9",
+                        "operator": "==",
+                        "value": "left"
+                    },
+                    {
+                        "field": "field_63daa8655bfca",
+                        "operator": "==",
+                        "value": "4"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/value-points-cards-4-left.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_66279d468e6d4",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c16601703dd",
+                        "operator": "==",
+                        "value": "cards"
+                    },
+                    {
+                        "field": "field_63e54d88c13f9",
+                        "operator": "==",
+                        "value": "center"
+                    },
+                    {
+                        "field": "field_63daa8655bfca",
+                        "operator": "==",
+                        "value": "3"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/value-points-cards-3-center.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_662a889711893",
+            "label": "Preview",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c16601703dd",
+                        "operator": "==",
+                        "value": "cards"
+                    },
+                    {
+                        "field": "field_63e54d88c13f9",
+                        "operator": "==",
+                        "value": "center"
+                    },
+                    {
+                        "field": "field_63daa8655bfca",
+                        "operator": "==",
+                        "value": "4"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<img src=\"\/wp-content\/themes\/monocore\/resources\/screenshots\/value-points-cards-4-center.jpg\" \/>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_66194e415f92b",
+            "label": "Section Header",
+            "name": "value_points_section_header",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_66194d7e20c9b"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_63c1670f703e5",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_63c1687e703e9",
+            "label": "Point Type",
+            "name": "value_points_point_type",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Choose between Numeric, Image/Icon, or Text Only for the points.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "numeric": "Numeric",
+                "image": "Image\/Icon",
+                "none": "Text Only"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_63c16720703e6",
+            "label": "Points",
+            "name": "value_points_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add individual value points.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_63c1675e703e8",
+            "button_label": "Add Point",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_643d873d864d3",
+                    "label": "Image or icon?",
+                    "name": "image_icon",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "If Image/Icon is selected, choose between uploading an image or using an icon.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63c1687e703e9",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "image": "Image",
+                        "icon": "Icon"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "layout": "horizontal",
+                    "parent_repeater": "field_63c16720703e6"
+                },
+                {
+                    "key": "field_63c1674c703e7",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "You can upload your own image or SVG here",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_643d873d864d3",
+                                "operator": "==",
+                                "value": "image"
+                            },
+                            {
+                                "field": "field_63c1687e703e9",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_63c16720703e6"
+                },
+                {
+                    "key": "field_643d8809864d4",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Find an icon <a href=\"https:\/\/fontawesome.com\/search\" target=\"_blank\">here<\/a>.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_643d873d864d3",
+                                "operator": "==",
+                                "value": "icon"
+                            },
+                            {
+                                "field": "field_63c1687e703e9",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "fa-solid fa-arrow-right",
+                    "prepend": "class=\"",
+                    "append": "\"",
+                    "parent_repeater": "field_63c16720703e6"
+                },
+                {
+                    "key": "field_63c1675e703e8",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the title for this value point.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_63c16720703e6"
+                },
+                {
+                    "key": "field_63c16904703eb",
+                    "label": "Badge",
+                    "name": "badge",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "(Optional) Add a short text badge.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_63c16720703e6"
+                },
+                {
+                    "key": "field_63c16945703ec",
+                    "label": "Badge Variant",
+                    "name": "badge_variant",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "If a badge is added, select its style.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63c16904703eb",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "default": "Default",
+                        "info": "Info",
+                        "success": "Success",
+                        "warning": "Warning",
+                        "danger": "Danger"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_63c16720703e6"
+                },
+                {
+                    "key": "field_63c168d6703ea",
+                    "label": "Description",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "Add detailed content for this value point.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_63c16720703e6"
+                },
+                {
+                    "key": "field_64c3b1abbc0a5",
+                    "label": "Button",
+                    "name": "button",
+                    "aria-label": "",
+                    "type": "clone",
+                    "instructions": "(Optional) Add a call-to-action button for this point.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_63c16601703dd",
+                                "operator": "==",
+                                "value": "columns"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_63c16601703dd",
+                                "operator": "==",
+                                "value": "cards"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_66195303cf101"
+                    ],
+                    "display": "group",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 1,
+                    "parent_repeater": "field_63c16720703e6"
+                }
+            ]
+        },
+        {
+            "key": "field_63c169a9703ee",
+            "label": "Button",
+            "name": "value_points_button",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "(Optional) Add a general call-to-action button for the entire value points section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_66195303cf101"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_63c166f4703e4",
+            "label": "Image",
+            "name": "value_points_split_media_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_63c16601703dd",
+                        "operator": "==",
+                        "value": "split_media"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/value-points"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1726150623
+}

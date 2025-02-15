@@ -1,0 +1,27 @@
+{% set button_url = button.link.url ? button.link.url : button.url %}
+{% set button_text = button.link.title ? button.link.title : button.text %}
+{% set button_target = button.link.target ? button.link.target : button.target %}
+{% set button_classes = button_classes ? button_classes : button.classes %}
+{% set button_tag = button_url ? 'a' : 'button' %}
+
+{% if button_url or button_text or button.icon %}
+  <{{ button_tag }} role="button" class="o-button{{ button_classes ? ' ' ~ button_classes }}" {{ button_url ? 'href="' ~ button_url ~ '"' }}{{ button_target == '_blank' ? ' target="_blank" rel="noreferrer"' }}{{ button.aria_label ? ' aria-label="' ~ button.aria_label ~ '"' }}{{ button.attributes ? " " ~ button.attributes }}>
+    {% if (button.icon or button.icon.name) and ((button.icon.name and button.icon.placement != 'after') or button.icon_placement == 'before') %}
+      {% if button.icon.mime_type == 'image/svg+xml' or button.icon.name %}
+        {% include "@atoms/images/icons/icon.twig" with button %}
+      {% else %}
+        <i class="{{ button.icon }}"></i>
+      {% endif %}
+    {% endif %}
+    {% if button_text %}
+      <span>{{ button_text }}</span>
+    {% endif %}
+    {% if (button.icon or button.icon.name) and (button.icon.placement == 'after' or button.icon_placement == 'after') %}
+      {% if button.icon.mime_type == 'image/svg+xml' or button.icon.name %}
+        {% include "@atoms/images/icons/icon.twig" with button %}
+      {% else %}
+        <i class="{{ button.icon }}"></i>
+      {% endif %}
+    {% endif %}
+  </{{ button_tag }}>
+{% endif %}

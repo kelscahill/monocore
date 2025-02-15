@@ -1,0 +1,46 @@
+{% if statistics.items %}
+  <section {{ statistics.anchor?'id="'~statistics.anchor~'"' }} class="c-statistics{{ statistics.classes ? ' ' ~ statistics.classes }} l-container--full l-wrap{{ statistics.background.background_color ? ' u-background--' ~ statistics.background.background_color }}">
+    {% include "@atoms/images/image/background.twig" with {
+      "background": statistics.background
+    } %}
+    <div class="c-statistics__container l-container">
+      <div class="c-statistics__columns" data-grid="grid">
+        {% if statistics.heading %}
+          <div class="c-statistics__heading" data-grid="3@lg">
+            {% include "@atoms/text/heading/heading.twig" with {
+              "heading": {
+                "level": "2",
+                "size": "md",
+                "text": statistics.heading,
+              }
+            } %}
+          </div>
+        {% endif %}
+        <div class="c-statistics__items" data-grid="9@lg">
+          <div class="c-statistics__items-container">
+            {% for item in statistics.items %}
+              <div class="c-statistics__stats-item u-spacing--sm">
+                {% include "@atoms/text/heading/heading.twig" with {
+                  "heading": {
+                    "level": "3",
+                    "size": "xxl",
+                    "text": item.value,
+                    "classes": "c-statistics__stats-value js-gsap-number-counter"
+                  }
+                } %}
+                {% if item.label %}
+                  {% include "@atoms/text/rich-text/rich-text.twig" with {
+                    "rich_text": {
+                      "text": item.label,
+                      "classes": "c-statistics__stats-label"
+                    }
+                  } %}
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

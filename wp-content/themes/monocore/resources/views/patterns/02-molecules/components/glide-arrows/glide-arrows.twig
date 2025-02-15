@@ -1,0 +1,22 @@
+<div class="c-glide-arrows{{ glide_arrows.classes ? ' ' ~ glide_arrows.classes }}" data-glide-el="controls">
+  {% include "@atoms/buttons/button.twig" with {
+    "button": {
+      "icon": {
+        "name": "arrow"
+      },
+      "attributes": 'data-glide-dir=<'|escape,
+      "aria_label": "Prev",
+      "classes": "c-glide-arrows__button c-glide-arrows__button--prev o-button--icon"
+    }
+  } %}
+  {% include "@atoms/buttons/button.twig" with {
+    "button": {
+      "icon": {
+        "name": "arrow"
+      },
+      "attributes": 'data-glide-dir=>'|escape,
+      "aria_label": "Next",
+      "classes": "c-glide-arrows__button c-glide-arrows__button--next o-button--icon"
+    }
+  } %}
+</div>

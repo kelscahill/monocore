@@ -1,0 +1,22 @@
+/* ------------------------------------ *\
+  $TAG
+\* ------------------------------------ */
+
+.o-tag {
+  width: fit-content;
+  display: inline-block;
+  border-radius: var(--mc-border-radius-button);
+  padding: var(--mc-space-xxs) var(--mc-space-xs);
+  color: var(--mc-color-content-secondary-strong);
+  background: var(--mc-color-background-secondary-default);
+  transition: all var(--mc-animation-duration) var(--mc-animation-timing);
+  transform: translateY(0);
+  @include o-typography-body--sm;
+
+  &:hover,
+  &:focus {
+    color: var(--mc-color-content-secondary-strong);
+    background-color: var(--mc-color-background-secondary-weak);
+    transform: translateY(-3px);
+  }
+}

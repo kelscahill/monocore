@@ -1,0 +1,35 @@
+{% if options.newsletter_signup_url %}
+  <div class="c-newsletter-signup{{ newsletter_signup.classes ? " " ~ newsletter_signup.classes }}">
+    {% if options.newsletter_signup_title or options.newsletter_signup_description %}
+      <div class="c-newsletter-signup__header">
+        {% include "@atoms/text/heading/heading.twig" with {
+          "heading": {
+            "level": "3",
+            "size": "xs",
+            "text": options.newsletter_signup_title,
+            "classes": "c-newsletter-signup__title"
+          }
+        } %}
+        {% include "@atoms/text/dek/dek.twig" with {
+          "dek": {
+            "text": options.newsletter_signup_description,
+            "classes": "c-newsletter-signup__description"
+          }
+        } %}
+      </div>
+    {% endif %}
+    <form class="c-newsletter-signup__form" action="{{ options.newsletter_signup_url }}" method="post">
+      <input type="email" placeholder="Enter email address" name="email" />
+      {% include "@atoms/buttons/button.twig" with {
+        "button" : {
+          "icon": {
+            "name": "arrow"
+          },
+          "aria_label": "Submit",
+          "attributes": 'type="submit"',
+          "classes": "c-newsletter-signup__button"
+        }
+      } %}
+    </form>
+  </div>
+{% endif %}

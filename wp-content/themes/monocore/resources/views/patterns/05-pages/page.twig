@@ -1,0 +1,9 @@
+{% extends "@templates/layout.twig" %}
+
+{% block content %}
+  {% include [
+    '@organisms/content/content-page-' ~ post.slug ~ '.twig',
+    '@organisms/content/content-page.twig'
+  ] %}
+{% endblock %}
+

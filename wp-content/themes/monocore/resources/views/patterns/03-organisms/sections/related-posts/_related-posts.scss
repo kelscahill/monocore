@@ -1,0 +1,60 @@
+/* ------------------------------------ *\
+  $RELATED-POSTS
+\* ------------------------------------ */
+
+.c-related-posts {
+  position: relative;
+  overflow: hidden;
+
+  &__intro {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--mc-space);
+    flex-direction: column;
+
+    @include media(">medium") {
+      flex-direction: row;
+    }
+  }
+
+  &__container {
+    @include media(">small") {
+      overflow: hidden;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: flex-end;
+
+    @include media("<=medium") {
+      margin-top: var(--mc-space-lg);
+    }
+  }
+
+  .c-posts {
+    display: flex;
+  }
+
+  .c-block {
+    text-align: center;
+
+    &__heading {
+      @include o-typography-heading--sm('bold');
+    }
+
+    &__tags {
+      justify-content: center;
+    }
+
+    .c-pagination,
+    &__category,
+    &__meta,
+    &__excerpt,
+    &__arrow {
+      display: none;
+    }
+  }
+}
+
