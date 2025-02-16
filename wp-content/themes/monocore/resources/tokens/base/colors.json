@@ -358,7 +358,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "rgba(0, 0, 0, 0.6)",
+        "value": "rgba(0, 0, 0, 0.05)",
         "type": "color"
       }
     }

@@ -1,11 +1,13 @@
 {
-  "app.css": "css/app.9d729e.css",
-  "app.js": "js/app.0486fc.js",
-  "editor.css": "css/editor.17c6bf.css",
+  "app.css": "css/app.8161e6.css",
+  "app.js": "js/app.054da0.js",
+  "editor.css": "css/editor.224adb.css",
   "editor.js": "js/editor.d02d6f.js",
   "runtime.js": "js/runtime.fed613.js",
-  "fonts/arquitectablack-webfont.woff": "fonts/arquitectablack-webfont.996f69.woff",
-  "fonts/arquitectablack-webfont.woff2": "fonts/arquitectablack-webfont.4ded81.woff2",
+  "fonts/ArquitectaHeavy.woff": "fonts/ArquitectaHeavy.9f516c.woff",
+  "fonts/ArquitectaHeavy.woff2": "fonts/ArquitectaHeavy.e85889.woff2",
+  "fonts/ArquitectaBlack.woff": "fonts/ArquitectaBlack.996f69.woff",
+  "fonts/ArquitectaBlack.woff2": "fonts/ArquitectaBlack.4ded81.woff2",
   "images/logo.svg": "images/logo.8af8c1.svg",
   "entrypoints.json": "entrypoints.json"
 }

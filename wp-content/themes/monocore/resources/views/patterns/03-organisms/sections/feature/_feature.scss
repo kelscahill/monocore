@@ -142,7 +142,6 @@
 
 .c-feature--fixed,
 .c-feature--full-width {
-  background-color: transparent !important;
   padding-top: 0;
   padding-bottom: 0;
 
@@ -192,6 +191,8 @@
 }
 
 .c-feature--fixed {
+  background-color: transparent !important;
+
   .c-feature__header,
   .c-feature__footer {
     @include u-align--center;

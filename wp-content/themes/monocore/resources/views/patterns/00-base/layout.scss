@@ -10,7 +10,7 @@
 }
 
 .l-main {
-  padding-bottom: var(--mc-space-super);
+  //padding-bottom: var(--mc-space-super);
 }
 
 /**
@@ -55,6 +55,12 @@
 
 .l-container--full {
   @include l-container--full;
+}
+
+article > .o-rich-text {
+  > :last-child:not(section) {
+    padding-bottom: var(--mc-space-super);
+  }
 }
 
 .has-sidebar {

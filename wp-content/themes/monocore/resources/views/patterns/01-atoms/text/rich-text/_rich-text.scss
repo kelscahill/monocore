@@ -36,10 +36,6 @@
     padding-top: 0;
   }
 
-  > section:last-child {
-    margin-bottom: calc(-1 * var(--mc-space-super));
-  }
-
   > p + p {
     margin-top: var(--mc-space-md) !important;
   }

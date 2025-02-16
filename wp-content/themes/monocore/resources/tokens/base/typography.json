@@ -22,6 +22,10 @@
       "value": "Black",
       "type": "fontWeights"
     },
+    "heavy": {
+      "value": "Heavy",
+      "type": "fontWeights"
+    },
     "italic": {
       "value": "Italic",
       "type": "fontWeights"
@@ -262,7 +266,7 @@
         "bold": {
           "value": {
             "fontFamily": "{font-family.secondary}",
-            "fontWeight": "{font-weight.black}",
+            "fontWeight": "{font-weight.heavy}",
             "lineHeight": "28px",
             "fontSize": "20px",
             "letterSpacing": "{letter-spacing.1}",
@@ -308,7 +312,7 @@
         "bold": {
           "value": {
             "fontFamily": "{font-family.secondary}",
-            "fontWeight": "{font-weight.black}",
+            "fontWeight": "{font-weight.heavy}",
             "lineHeight": "32px",
             "fontSize": "24px",
             "letterSpacing": "{letter-spacing.1}",
@@ -354,7 +358,7 @@
         "bold": {
           "value": {
             "fontFamily": "{font-family.secondary}",
-            "fontWeight": "{font-weight.black}",
+            "fontWeight": "{font-weight.heavy}",
             "lineHeight": "40px",
             "fontSize": "32px",
             "letterSpacing": "{letter-spacing.1}",
@@ -402,7 +406,7 @@
         "bold": {
           "value": {
             "fontFamily": "{font-family.secondary}",
-            "fontWeight": "{font-weight.black}",
+            "fontWeight": "{font-weight.heavy}",
             "lineHeight": "44px",
             "fontSize": "36px",
             "letterSpacing": "{letter-spacing.1}",
@@ -448,7 +452,7 @@
         "bold": {
           "value": {
             "fontFamily": "{font-family.secondary}",
-            "fontWeight": "{font-weight.black}",
+            "fontWeight": "{font-weight.heavy}",
             "lineHeight": "52px",
             "fontSize": "48px",
             "letterSpacing": "{letter-spacing.1}",
@@ -494,7 +498,7 @@
         "bold": {
           "value": {
             "fontFamily": "{font-family.secondary}",
-            "fontWeight": "{font-weight.black}",
+            "fontWeight": "{font-weight.heavy}",
             "lineHeight": "68px",
             "fontSize": "64px",
             "letterSpacing": "{letter-spacing.1}",

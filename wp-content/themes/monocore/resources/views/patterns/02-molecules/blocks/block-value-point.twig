@@ -88,5 +88,5 @@
       } %}
     {% endif %}
   </div>
-  {% if block_variant == "cards" and block.button.link.url %}<a class="c-block-value-point__link-block" href="{{ block.button.link.url }}"></a>{% endif %}
+  {% if block_variant == "cards" and block.button.link.url %}<a class="c-block-value-point__link-block" href="{{ block.button.link.url }}" aria-label="{{ block.button.link.title }}"></a>{% endif %}
 </div>

@@ -356,6 +356,10 @@ body .gform_wrapper.gravity-theme {
       @include o-input;
     }
 
+    .ginput_container_time {
+      min-width: 80px;
+    }
+
     .gchoice:not(:first-of-type) {
       margin-top: var(--mc-space-sm);
     }
@@ -441,6 +445,7 @@ body .gform_wrapper.gravity-theme {
 
     select {
       background-image: none;
+      min-width: 80px;
     }
 
     &::after {

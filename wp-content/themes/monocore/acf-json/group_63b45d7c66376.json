@@ -57,6 +57,7 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
+            "allow_in_bindings": 1,
             "preview_size": "medium"
         },
         {
@@ -88,6 +89,7 @@
             "default_value": "",
             "return_format": "value",
             "allow_null": 0,
+            "allow_in_bindings": 1,
             "layout": "horizontal"
         },
         {
@@ -197,5 +199,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1713551089
+    "modified": 1739722939
 }

@@ -7,7 +7,8 @@ const themePrefix = 'mc';
 const themeFontWeightRegular = '400';
 const themeFontWeightMedium = '500';
 const themeFontWeightBold = '700';
-const themeFontWeightBlack = '800';
+const themeFontWeightHeavy = '800';
+const themeFontWeightBlack = '900';
 const themeFontBaseSize = 16;
 const themeSpaceBaseSize = 16;
 const themeFontFamilyFallback = 'sans-serif';
@@ -147,6 +148,8 @@ function formatFontWeightValue(value) {
   let fontWeight = '';
   if (value === 'Black') {
     fontWeight = themeFontWeightBlack;
+  } else if (value === 'Heavy') {
+    fontWeight = themeFontWeightHeavy;
   } else if (value === 'Bold') {
     fontWeight = themeFontWeightBold;
   } else if (value === 'Medium') {

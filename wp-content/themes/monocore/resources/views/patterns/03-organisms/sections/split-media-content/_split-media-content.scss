@@ -29,6 +29,7 @@
   &__media {
     border-radius: var(--mc-border-radius-image);
     overflow: hidden;
+    box-shadow: var(--mc-box-shadow);
 
     picture {
       height: 100%;
@@ -79,6 +80,8 @@
 
   .c-split-media-content__image,
   .c-split-media-content__media {
+    box-shadow: none;
+
     @include media(">medium") {
       border-radius: 0;
     }

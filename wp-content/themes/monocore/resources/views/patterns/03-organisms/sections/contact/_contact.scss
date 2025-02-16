@@ -36,7 +36,7 @@
 
   &__content--inner {
     .c-contact--next & {
-      background-color: var(--mc-color-body-background);
+      background-color: var(--mc-color-background-default-strong);
       padding: var(--mc-space-lg);
 
       @include media(">medium") {
