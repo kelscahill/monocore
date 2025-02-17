@@ -9,7 +9,7 @@
   {% if background.background_image.type != 'video' %}
     <style>
       {{ '.o-background-image--' ~ background.background_image.id }} {
-        background-image: url('{{ background.background_image.url|resize(800, 600) }}');
+        background-image: url('{{ background.background_image.url|resize(auto, 800) }}');
       }
       @media(min-width: 700px) {
         {{ '.o-background-image--' ~ background.background_image.id }} {

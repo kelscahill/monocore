@@ -167,7 +167,6 @@
 
     &-link.o-link {
       @include o-link--tertiary;
-      @include o-typography-body--sm;
       text-align: center;
       text-shadow: 0 0 1px transparent;
       height: 100%;
@@ -230,7 +229,6 @@
 
     &-link.o-link {
       @include o-link--tertiary;
-      @include o-typography-body--sm;
       width: 100%;
       padding: var(--mc-space);
       border-top: var(--mc-border-width) solid var(--mc-color-border-default-strong);
