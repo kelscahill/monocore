@@ -16,4 +16,11 @@
     flex-direction: row;
     gap: var(--mc-space);
   }
+
+  &__link.o-link {
+    &:hover:not(:disabled),
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 }

@@ -80,8 +80,6 @@
 
   .c-split-media-content__image,
   .c-split-media-content__media {
-    box-shadow: none;
-
     @include media(">medium") {
       border-radius: 0;
     }

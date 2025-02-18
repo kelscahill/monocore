@@ -108,6 +108,10 @@
       "default-weak": {
         "value": "{color.neutral.light.900}",
         "type": "color"
+      },
+      "focus-ring": {
+        "value": "{color.brand.primary.300}",
+        "type": "color"
       }
     },
     "shadow": {

@@ -2,6 +2,7 @@
   $BLOCKQUOTE
 \* ------------------------------------ */
 
-.o-blockquote {
+.o-blockquote,
+blockquote {
   @include o-blockquote;
 }

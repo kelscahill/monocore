@@ -332,7 +332,7 @@ body .search-filter {
 }
 
 /* stylelint-disable */
-body .gform_wrapper.gravity-theme {
+body .gform_wrapper {
   display: flex;
   flex-direction: column;
   gap: var(--mc-space);
@@ -354,10 +354,6 @@ body .gform_wrapper.gravity-theme {
     select,
     textarea {
       @include o-input;
-    }
-
-    .ginput_container_time {
-      min-width: 80px;
     }
 
     .gchoice:not(:first-of-type) {
@@ -397,6 +393,11 @@ body .gform_wrapper.gravity-theme {
     flex-direction: row;
     align-items: center;
     gap: var(--mc-space);
+  }
+
+  .ginput_container_time {
+    max-width: 75px;
+    min-width: 75px;
   }
 
   .gfield_required,
@@ -445,7 +446,6 @@ body .gform_wrapper.gravity-theme {
 
     select {
       background-image: none;
-      min-width: 80px;
     }
 
     &::after {

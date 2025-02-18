@@ -121,11 +121,11 @@
               "items": [
                 {
                   "title": options.phone,
-                  "url": "tel:+1" ~ options.phone
+                  "url": options.phone ? "tel:+1" ~ options.phone
                 },
                 {
                   "title": options.email,
-                  "url": "mailto:" ~ options.email
+                  "url": options.email ? "mailto:" ~ options.email
                 }
               ]
             }

@@ -9,16 +9,16 @@
   {% if background.background_image.type != 'video' %}
     <style>
       {{ '.o-background-image--' ~ background.background_image.id }} {
-        background-image: url('{{ background.background_image.url|resize(auto, 800) }}');
+        background-image: url('{{ background.background_image.url|resize(800, auto) }}');
       }
       @media(min-width: 700px) {
         {{ '.o-background-image--' ~ background.background_image.id }} {
-          background-image: url('{{ background.background_image.url|resize(1200) }}');
+          background-image: url('{{ background.background_image.url|resize(1200, auto) }}');
         }
       }
       @media(min-width: 1200px) {
         {{ '.o-background-image--' ~ background.background_image.id }} {
-          background-image: url('{{ background.background_image.url|resize(1600) }}');
+          background-image: url('{{ background.background_image.url|resize(1600, auto) }}');
         }
       }
     </style>

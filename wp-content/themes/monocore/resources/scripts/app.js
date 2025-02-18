@@ -342,7 +342,10 @@ domReady(async () => {
             clipPath: "inset(0 0% 0 0)",
             duration: 0.8,
             ease: "Quint.easeIn",
-            scrollTrigger: element,
+            scrollTrigger: {
+              trigger: element,
+              start: "top top",
+            },
           }
         );
       });
@@ -351,18 +354,58 @@ domReady(async () => {
     /**
      * GSAP Image reveal animation right
      */
-    const gsapImageRevealRight = gsap.utils.toArray('.js-gsap-image-reveal-right');
+    const gsapImageRevealRight = document.querySelectorAll('.js-gsap-image-reveal-right');
     if (gsapImageRevealRight.length > 0) {
-      gsapImageRevealRight.forEach((element) => {
-        gsap.to(
-          element,
-          {
-            clipPath: "inset(0 0 0 0%)",
-            duration: 0.8,
-            ease: "Quint.easeIn",
-            scrollTrigger: element,
-          }
-        );
+      // Function to handle animations
+      const handleAnimations = () => {
+        requestAnimationFrame(() => {
+          gsapImageRevealRight.forEach((element) => {
+            // Set initial state
+            gsap.set(element, {
+              clipPath: "inset(0 100% 0 0)",
+            });
+
+            // Create animation
+            const animation = gsap.to(element, {
+              clipPath: "inset(0 0 0 0%)",
+              duration: 0.8,
+              ease: "Quint.easeIn",
+              paused: true,
+            });
+
+            // Force check after a small delay
+            setTimeout(() => {
+              const elementBounds = element.getBoundingClientRect();
+              const isInView = elementBounds.top < window.innerHeight;
+
+              if (isInView) {
+                animation.restart();
+              }
+            }, 100);
+
+            // Set up ScrollTrigger for scrolling cases
+            ScrollTrigger.create({
+              trigger: element,
+              start: "top bottom",
+              onEnter: () => animation.play(),
+              onEnterBack: () => animation.restart(),
+              markers: true, // Remove in production
+            });
+          });
+        });
+      };
+
+      // Initial load
+      document.addEventListener('DOMContentLoaded', handleAnimations);
+
+      // Handle browser back/forward navigation
+      window.addEventListener('popstate', handleAnimations);
+
+      // Handle page visibility changes
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          handleAnimations();
+        }
       });
     }
 

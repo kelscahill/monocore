@@ -212,6 +212,12 @@
     max-height: 0;
     position: relative;
 
+    &.has-columns {
+      @include media(">large") {
+        columns: 2;
+      }
+    }
+
     @include media(">large") {
       width: max-content;
       position: absolute;
@@ -224,7 +230,6 @@
       overflow: hidden;
       box-shadow: var(--mc-box-shadow);
       padding: var(--mc-space);
-      columns: 2;
     }
 
     &-link.o-link {

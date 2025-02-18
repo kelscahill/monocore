@@ -48,7 +48,7 @@
                   }
                 } %}
               </div>
-              <ul class="c-primary-nav__child-list">
+              <ul class="c-primary-nav__child-list{{ item.children|length > 6 ? ' has-columns' }}">
                 {% for item in item.children %}
                   <li class="c-primary-nav__child-list-item">
                     {% include "@atoms/links/link.twig" with {

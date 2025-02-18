@@ -108,6 +108,10 @@
       "default-strong": {
         "value": "{color.neutral.dark.300}",
         "type": "color"
+      },
+      "focus-ring": {
+        "value": "{color.brand.primary.300}",
+        "type": "color"
       }
     },
     "shadow": {
