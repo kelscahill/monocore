@@ -1,5 +1,5 @@
 {% if primary_nav.items %}
-  <nav role="navigation" class="c-primary-nav{{ primary_nav.classes ? ' ' ~ primary_nav.classes }}">
+  <nav class="c-primary-nav{{ primary_nav.classes ? ' ' ~ primary_nav.classes }}">
     <div class="c-primary-nav__menu-toggle js-toggle" data-toggled="body" data-prefix="primary-nav" aria-label="Menu" role="button">
       <span></span>
       <span></span>
@@ -47,7 +47,9 @@
                     "attributes": "data-toggled='this' data-prefix='this'"
                   }
                 } %}
-              </div>
+              {% endif %}
+            </div>
+            {% if item.children %}
               <ul class="c-primary-nav__child-list{{ item.children|length > 6 ? ' has-columns' }}">
                 {% for item in item.children %}
                   <li class="c-primary-nav__child-list-item">

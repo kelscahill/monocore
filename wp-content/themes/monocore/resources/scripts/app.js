@@ -8,6 +8,37 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
  */
 domReady(async () => {
   /**
+   * Remove GSAP animation classes for first sections
+   * 1. Get the content body
+   * 2. Check if the first child is a section
+   * 3. Find all divs within the section
+   * 4. Remove the classes from any div that has them
+   */
+  function removeClassesFromFirstSection() {
+    /* 1 */
+    const contentBody = document.querySelector('.c-content-page__body');
+    if (contentBody) {
+      /* 2 */
+      const firstChild = contentBody.firstElementChild;
+      if (firstChild && firstChild.tagName.toLowerCase() === 'section') {
+        /* 3 */
+        const allDivs = firstChild.querySelectorAll('div');
+        /* 4 */
+        allDivs.forEach(div => {
+
+          if (div.classList.contains('js-gsap-image-reveal-right')) {
+            div.classList.remove('js-gsap-image-reveal-right');
+          }
+          if (div.classList.contains('js-gsap-image-reveal-left')) {
+            div.classList.remove('js-gsap-image-reveal-left');
+          }
+        });
+      }
+    }
+  }
+  removeClassesFromFirstSection();
+
+  /**
    * Tabs
    * 1. Check if tab links or tab content exist
    * 2. Add a click event listener to each tab link
@@ -344,7 +375,7 @@ domReady(async () => {
             ease: "Quint.easeIn",
             scrollTrigger: {
               trigger: element,
-              start: "top top",
+              start: "top bottom",
             },
           }
         );
@@ -354,58 +385,21 @@ domReady(async () => {
     /**
      * GSAP Image reveal animation right
      */
-    const gsapImageRevealRight = document.querySelectorAll('.js-gsap-image-reveal-right');
+    const gsapImageRevealRight = gsap.utils.toArray('.js-gsap-image-reveal-right');
     if (gsapImageRevealRight.length > 0) {
-      // Function to handle animations
-      const handleAnimations = () => {
-        requestAnimationFrame(() => {
-          gsapImageRevealRight.forEach((element) => {
-            // Set initial state
-            gsap.set(element, {
-              clipPath: "inset(0 100% 0 0)",
-            });
-
-            // Create animation
-            const animation = gsap.to(element, {
-              clipPath: "inset(0 0 0 0%)",
-              duration: 0.8,
-              ease: "Quint.easeIn",
-              paused: true,
-            });
-
-            // Force check after a small delay
-            setTimeout(() => {
-              const elementBounds = element.getBoundingClientRect();
-              const isInView = elementBounds.top < window.innerHeight;
-
-              if (isInView) {
-                animation.restart();
-              }
-            }, 100);
-
-            // Set up ScrollTrigger for scrolling cases
-            ScrollTrigger.create({
+      gsapImageRevealRight.forEach((element) => {
+        gsap.to(
+          element,
+          {
+            clipPath: "inset(0 0 0 0%)",
+            duration: 0.8,
+            ease: "Quint.easeIn",
+            scrollTrigger: {
               trigger: element,
               start: "top bottom",
-              onEnter: () => animation.play(),
-              onEnterBack: () => animation.restart(),
-              markers: true, // Remove in production
-            });
-          });
-        });
-      };
-
-      // Initial load
-      document.addEventListener('DOMContentLoaded', handleAnimations);
-
-      // Handle browser back/forward navigation
-      window.addEventListener('popstate', handleAnimations);
-
-      // Handle page visibility changes
-      document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') {
-          handleAnimations();
-        }
+            },
+          }
+        );
       });
     }
 
@@ -699,4 +693,3 @@ domReady(async () => {
  * @see {@link https://webpack.js.org/api/hot-module-replacement/}
  */
 if (import.meta.webpackHot) import.meta.webpackHot.accept(console.error);
-

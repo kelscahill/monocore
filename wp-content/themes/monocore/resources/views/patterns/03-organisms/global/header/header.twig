@@ -7,7 +7,7 @@
   {% endif %}
 {% endif %}
 
-<header role="banner" class="c-header{{ header.classes ? " " ~ header.classes }} u-background--{{ options.header_background }} l-wrap c-{{ options.header_type }}">
+<header class="c-header{{ header.classes ? " " ~ header.classes }} u-background--{{ options.header_background }} l-wrap c-{{ options.header_type }}">
   {% if options.header_type == "header-3" %}
     {% include "@organisms/global/header/top-nav.twig" %}
   {% endif %}
