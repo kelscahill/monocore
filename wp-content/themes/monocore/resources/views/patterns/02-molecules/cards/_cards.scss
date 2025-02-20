@@ -118,6 +118,18 @@ a.c-card-media {
   &__social-media {
     margin-top: var(--mc-space-md);
   }
+
+  .c-social-links {
+    gap: var(--nr-space-sm);
+
+    .o-link {
+      svg {
+        min-width: var(--nr-icon);
+        width: var(--nr-icon);
+        height: var(--nr-icon);
+      }
+    }
+  }
 }
 
 .c-card-team--next {

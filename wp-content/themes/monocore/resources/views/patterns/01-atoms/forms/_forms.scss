@@ -321,6 +321,10 @@ body .search-filter {
     color: var(--mc-color-content-default-weak);
   }
 
+  &-input-checkbox__control {
+    top: -3px;
+  }
+
   &-component-combobox__selection-item {
     background-color: var(--mc-color-background-secondary-default) !important;
     color: var(--mc-color-content-secondary-strong) !important;

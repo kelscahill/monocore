@@ -11,7 +11,7 @@
             "section_header_variant": contact.layout != 'top' ? 'sm': null,
             "section_header_alignment": contact.layout == 'top' ? 'center': null
           } %}
-          {% if contact.address or contact.phone or contact.email %}
+          {% if contact.address.street_address_1 or contact.phone or contact.email %}
             <div class="c-contact__details">
               {% if contact.email %}
                 {% include "@atoms/links/link.twig" with {

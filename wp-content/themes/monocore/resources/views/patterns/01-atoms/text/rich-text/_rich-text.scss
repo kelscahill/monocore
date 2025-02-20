@@ -36,7 +36,7 @@
     padding-top: 0;
   }
 
-  > section:last-child {
+  > *:last-child:is(section) {
     margin-bottom: calc(-1 * var(--mc-space-super));
   }
 
