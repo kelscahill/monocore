@@ -4,37 +4,36 @@
   {% set feature_container = ' l-container--xxl l-wrap' %}
 {% endif %}
 
-{% if (feature.layout == 'fixed' or feature.layout == 'full-width') and get_image(feature.media.image).src %}
-  <style>
-    .o-background-image--{{ get_image(feature.media.image).id }} {
-      background-image: url('{{ get_image(feature.media.image).src|towebp|resize(768, 432, 'center') }}');
-    }
-    @media(min-width: 768px) {
+<section {{ feature.anchor ? 'id="' ~ feature.anchor ~ '"' }} class="c-feature{{ feature.classes ? ' ' ~ feature.classes }} l-container--full l-wrap c-feature--{{ feature.layout|replace({"_":"-"}) }}{{ feature.text_position ? " c-feature--align-content-" ~ feature.text_position|replace({"_":"-"}) }}{{ feature.background.background_color ? ' u-background--' ~ feature.background.background_color }}">
+  {% if (feature.layout == 'fixed' or feature.layout == 'full-width') and get_image(feature.media.image).src %}
+    <style>
       .o-background-image--{{ get_image(feature.media.image).id }} {
-        background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1024, 576, 'center') }}');
+        background-image: url('{{ get_image(feature.media.image).src|towebp|resize(768, 432, 'center') }}');
       }
-    }
-    @media(min-width: 1024px) {
-      .o-background-image--{{ get_image(feature.media.image).id }} {
-        background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1260, 709, 'center') }}');
+      @media(min-width: 768px) {
+        .o-background-image--{{ get_image(feature.media.image).id }} {
+          background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1024, 576, 'center') }}');
+        }
       }
-    }
-    {% if feature.layout == 'full-width' %}
-      @media(min-width: 1260px) {
+      @media(min-width: 1024px) {
         .o-background-image--{{ get_image(feature.media.image).id }} {
           background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1260, 709, 'center') }}');
         }
       }
-      @media(min-width: 1440px) {
-        .o-background-image--{{ get_image(feature.media.image).id }} {
-          background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1440, 810, 'center') }}');
+      {% if feature.layout == 'full-width' %}
+        @media(min-width: 1260px) {
+          .o-background-image--{{ get_image(feature.media.image).id }} {
+            background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1260, 709, 'center') }}');
+          }
         }
-      }
-    {% endif %}
-  </style>
-{% endif %}
-
-<section {{ feature.anchor ? 'id="' ~ feature.anchor ~ '"' }} class="c-feature{{ feature.classes ? ' ' ~ feature.classes }} l-container--full l-wrap c-feature--{{ feature.layout|replace({"_":"-"}) }}{{ feature.text_position ? " c-feature--align-content-" ~ feature.text_position|replace({"_":"-"}) }}{{ feature.background.background_color ? ' u-background--' ~ feature.background.background_color }}">
+        @media(min-width: 1440px) {
+          .o-background-image--{{ get_image(feature.media.image).id }} {
+            background-image: url('{{ get_image(feature.media.image).src|towebp|resize(1440, 810, 'center') }}');
+          }
+        }
+      {% endif %}
+    </style>
+  {% endif %}
   {% include "@atoms/images/image/background.twig" with {
     "background": feature.background
   } %}
