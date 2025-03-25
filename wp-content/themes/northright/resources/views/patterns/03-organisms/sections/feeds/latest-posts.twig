@@ -1,0 +1,38 @@
+{% if latest_posts.posts|length > 0 %}
+  <section class="c-latest-posts{{ latest_posts.classes ? ' ' ~ latest_posts.classes }} {{ 'c-latest-posts--' ~ latest_posts.layout }} l-container--full l-wrap{{ latest_posts.background.background_color ? ' u-background--' ~ latest_posts.background.background_color }}">
+    {% include "@atoms/images/image/background.twig" with {
+      "background": latest_posts.background
+    } %}
+    <div class="c-latest-posts__container l-container u-spacing--xxl">
+      {% include "@organisms/sections/headers/section-header.twig" with {
+        "section_header_classes": "c-latest-posts__header"
+      } %}
+      <article class="c-latest-posts__content{{ latest_posts.layout == 'feed' ? ' has-sidebar' }}">
+        <div class="c-latest-posts__posts">
+          {% for block in latest_posts.posts %}
+            {% include "@molecules/blocks/block.twig" %}
+          {% endfor %}
+          {% if latest_posts.sidebar != '' and latest_posts.layout == 'grid' %}
+            <aside class="c-latest-posts__sidebar">
+              {{ latest_posts.sidebar }}
+            </aside>
+          {% endif %}
+        </div>
+        {% if latest_posts.sidebar != '' and latest_posts.layout == 'feed' %}
+          <aside class="c-latest-posts__sidebar">
+            {{ latest_posts.sidebar }}
+          </aside>
+        {% endif %}
+      </article>
+      {% if latest_posts.button %}
+        <div class="c-latest-posts__footer">
+          {% include "@atoms/buttons/button.twig" with {
+            "button": latest_posts.button,
+            "button_classes": "c-latest-posts__button"
+          } %}
+          </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
+

@@ -1,21 +1,31 @@
 {
-  "app": {
+  "parent": {
     "js": [
-      "js/runtime.fed613.js",
-      "js/app.ff1962.js"
+      "js/runtime.5f74de.js",
+      "js/parent.b03ae2.js"
     ],
     "css": [
-      "css/app.0a451a.css"
+      "css/parent.ca3d1e.css"
+    ],
+    "dependencies": []
+  },
+  "child": {
+    "js": [
+      "js/runtime.5f74de.js",
+      "js/child.289ea4.js"
+    ],
+    "css": [
+      "css/child.067428.css"
     ],
     "dependencies": []
   },
   "editor": {
     "js": [
-      "js/runtime.fed613.js",
-      "js/editor.d02d6f.js"
+      "js/runtime.5f74de.js",
+      "js/editor.242986.js"
     ],
     "css": [
-      "css/editor.4de036.css"
+      "css/editor.ee6ed9.css"
     ],
     "dependencies": [
       "wp-blocks"

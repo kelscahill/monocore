@@ -1,0 +1,12 @@
+/* ------------------------------------ *\
+  $CAPTION
+\* ------------------------------------ */
+
+.o-caption,
+figcaption {
+  @include o-typography-body--sm;
+  display: block;
+  margin-top: var(--nr-space-sm);
+  font-style: italic !important;
+  color: var(--nr-color-content-default-weak);
+}

@@ -1,0 +1,79 @@
+
+{% if options.header_type == "header-3" %}
+  <div class="c-header-top-nav l-wrap">
+    <div class="c-header-top-nav__container l-container">
+      <div class="c-header-top-nav__contact">
+        {% include "@molecules/navigation/secondary/secondary-nav.twig" %}
+        {% if options.email %}
+          {% include "@atoms/links/link.twig" with {
+            "link" : {
+              "icon" : {
+                "name" : "email",
+              },
+              "url" : "mailto:" ~ options.email,
+              "text" : options.email
+            }
+          } %}
+        {% endif %}
+        {% if options.phone %}
+          {% include "@atoms/links/link.twig" with {
+            "link" : {
+              "icon" : {
+                "name" : "phone",
+              },
+              "url" : "mailto:" ~ options.phone,
+              "text" : options.phone
+            }
+          } %}
+        {% endif %}
+      </div>
+      {% include "@molecules/components/social-links/social-links.twig" with {
+        "social_links": {
+          "classes": "c-header-top-nav__social-links",
+          "items": [
+            {
+              "name": "facebook",
+              "url": options.facebook_url
+            },
+            {
+              "name": "instagram",
+              "url": options.instagram_url
+            },
+            {
+              "name": "twitter",
+              "url": options.twitter_url
+            },
+            {
+              "name": "linkedin",
+              "url": options.linkedin_url
+            },
+            {
+              "name": "tiktok",
+              "url": options.tiktok_url
+            },
+            {
+              "name": "pinterest",
+              "url": options.pinterest_url
+            },
+            {
+              "name": "youtube",
+              "url": options.youtube_url
+            },
+            {
+              "name": "spotify",
+              "url": options.spotify_url
+            },
+            {
+              "name": "soundcloud",
+              "url": options.soundcloud_url
+            },
+            {
+              "name": "blog",
+              "url": options.blog_url
+            }
+          ]
+        }
+      } %}
+    </div>
+  </div>
+{% endif %}

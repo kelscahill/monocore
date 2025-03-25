@@ -1,0 +1,66 @@
+{
+    "key": "group_65ac2d01ee8b5",
+    "title": "Menu Item",
+    "fields": [
+        {
+            "key": "field_65ac2d078c955",
+            "label": "Icon",
+            "name": "icon",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Find an icon <a href=\"https:\/\/fontawesome.com\/search\" target=\"_blank\">here<\/a>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "fa-solid fa-arrow-right",
+            "prepend": "class=\"",
+            "append": "\""
+        },
+        {
+            "key": "field_67e194b1b842d",
+            "label": "Header Bottom Nav Bar",
+            "name": "header_bottom_nav_bar",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Check to display the link in the header bottom nav bar on large screens.",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1742841254
+}

@@ -1,0 +1,54 @@
+/* ------------------------------------ *\
+  $WIDGETS
+\* ------------------------------------ */
+
+.c-widget {
+  &__title {
+    @include o-typography-heading--sm;
+  }
+
+  > ul {
+    margin-left: var(--nr-space);
+  }
+
+  > ul ul {
+    margin-left: var(--nr-space);
+    margin-top: var(--nr-space);
+  }
+
+  & > * + * {
+    margin-top: var(--nr-space);
+  }
+
+  .wp-block-group {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 100%;
+
+    .wp-block-group__inner-container {
+      & > * + * {
+        margin-top: var(--nr-space);
+      }
+    }
+  }
+
+  h2 {
+    @include o-typography-heading--sm;
+  }
+}
+
+/* stylelint-disable */
+.widget_tag_cloud {
+  .tagcloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nr-space-xs);
+
+    a {
+      font: var(--nr-typography-body-sm) !important;
+    }
+  }
+}

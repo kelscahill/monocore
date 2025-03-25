@@ -1,11 +1,13 @@
 {
-  "app.css": "css/app.0a451a.css",
-  "app.js": "js/app.ff1962.js",
-  "editor.css": "css/editor.4de036.css",
-  "editor.js": "js/editor.d02d6f.js",
-  "runtime.js": "js/runtime.fed613.js",
+  "parent.css": "css/parent.ca3d1e.css",
+  "parent.js": "js/parent.b03ae2.js",
+  "child.css": "css/child.067428.css",
+  "child.js": "js/child.289ea4.js",
+  "editor.css": "css/editor.ee6ed9.css",
+  "editor.js": "js/editor.242986.js",
+  "runtime.js": "js/runtime.5f74de.js",
+  "../../northright/resources/fonts/Agrandir-Variable.ttf": "../../northright/resources/fonts/Agrandir-Variable.11fd08.ttf",
   "fonts/ArquitectaHeavy.woff": "fonts/ArquitectaHeavy.9f516c.woff",
   "fonts/ArquitectaHeavy.woff2": "fonts/ArquitectaHeavy.e85889.woff2",
-  "images/logo.svg": "images/logo.8af8c1.svg",
   "entrypoints.json": "entrypoints.json"
 }

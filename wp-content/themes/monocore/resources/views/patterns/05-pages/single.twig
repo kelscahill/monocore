@@ -1,8 +1,0 @@
-{% extends "@templates/layout.twig" %}
-
-{% block content %}
-  {% include [
-    '@organisms/content/content-single-' ~ post.post_type|replace({'_': '-'}) ~ '.twig',
-    '@organisms/content/content-single.twig'
-  ] %}
-{% endblock %}

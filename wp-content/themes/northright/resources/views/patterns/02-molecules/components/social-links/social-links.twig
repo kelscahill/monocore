@@ -1,0 +1,18 @@
+{% if social_links.items %}
+  <div class="c-social-links{{ social_links.classes ? ' ' ~ social_links.classes }}">
+    {% for link in social_links.items %}
+      {% include "@atoms/links/link.twig" with {
+        "link": {
+          "url": link.url,
+          "target": "_blank",
+          "classes": "c-social-links__item",
+          "icon": {
+            "name": link.name,
+            "classes": "o-icon--sm"
+          },
+          "aria_label": link.name
+        }
+      } %}
+    {% endfor %}
+  </div>
+{% endif %}

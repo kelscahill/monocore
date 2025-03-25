@@ -7,8 +7,11 @@
     "resources/styles/**/*.scss"
   ],
   "rules": {
+    "indentation": [2],
     "color-no-invalid-hex": true,
+    "function-no-unknown": null,
     "no-empty-source": null,
+    "max-empty-lines": 2,
     "length-zero-no-unit": null,
     "no-descending-specificity": null,
     "no-duplicate-selectors": null,

@@ -9,14 +9,25 @@ namespace App;
 use function Roots\bundle;
 
 /**
+ * Get script from manifest.json.
+ */
+function get_file_from_manifest($dir, $script_name) {
+    $manifest_path = $dir . '/public/manifest.json';
+    $manifest_content = file_get_contents($manifest_path);
+    $manifest = json_decode($manifest_content, true);
+    return $manifest[$script_name] ?? '';
+}
+
+/**
  * Register the theme assets.
  *
  * @return void
  */
 add_action('wp_enqueue_scripts', function () {
-    bundle('app')->enqueue();
-    wp_deregister_script('jquery');
-}, 10);
+    wp_enqueue_style('parent-styles', get_template_directory_uri() . '/public/' . get_file_from_manifest(get_template_directory_uri(), 'app.css'));
+    bundle('parent')->enqueue();
+    bundle('child')->enqueue();
+}, 100);
 
 /**
  * Register the theme assets with the block editor.
@@ -46,9 +57,9 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-      'primary_navigation' => __('Primary Navigation', 'monocore'),
-      'secondary_navigation' => __('Secondary Navigation', 'monocore'),
-      'footer_navigation' => __('Footer Navigation', 'monocore')
+      'primary_navigation' => __('Primary Navigation', 'northright'),
+      'secondary_navigation' => __('Secondary Navigation', 'northright'),
+      'footer_navigation' => __('Footer Navigation', 'northright')
     ]);
 
     /**

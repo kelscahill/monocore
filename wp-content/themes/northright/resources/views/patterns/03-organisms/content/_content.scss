@@ -1,0 +1,16 @@
+/* ------------------------------------ *\
+  $CONTENT
+\* ------------------------------------ */
+
+.c-content-single {
+  &__image {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .has-sidebar > article {
+    @include media(">large") {
+      max-width: var(--nr-layout-max-width-md);
+    }
+  }
+}

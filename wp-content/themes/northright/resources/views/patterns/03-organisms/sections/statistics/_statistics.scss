@@ -1,0 +1,49 @@
+/* ------------------------------------ *\
+  $STATISTICS
+\* ------------------------------------ */
+
+.c-statistics {
+  &__stats {
+    align-items: center;
+  }
+
+  &__columns {
+    text-align: center;
+    align-items: center;
+  }
+
+  &__items-container {
+    display: flex;
+    align-items: center;
+    margin-top: var(--nr-space-lg);
+    flex-direction: column;
+    gap: var(--nr-space-lg);
+
+    @include media(">medium") {
+      gap: var(--nr-space-super);
+      margin-top: var(--nr-space-xl);
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    @include media(">large") {
+      margin-left: var(--nr-space-super);
+      margin-top: auto;
+      margin-bottom: auto;
+      justify-content: space-between;
+    }
+  }
+
+  &__stats-item {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  &__stats-value {
+    color: var(--nr-color-content-primary-default);
+  }
+}

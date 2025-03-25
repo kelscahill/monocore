@@ -1,0 +1,22 @@
+/* ------------------------------------ *\
+  $SECONDARY NAV
+\* ------------------------------------ */
+
+.c-secondary-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--nr-space-md);
+  padding: var(--nr-space-sm) 0;
+
+  &__label {
+    @include o-typography-body--sm('bold');
+    display: block;
+    color: var(--nr-color-content-default-weak);
+    padding-right: var(--nr-space);
+    border-right: var(--nr-border-width) solid var(--nr-color-border-default-weak);
+  }
+
+  &__link {
+    white-space: nowrap;
+  }
+}

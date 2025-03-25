@@ -1,0 +1,34 @@
+/* ------------------------------------ *\
+  $SOCIAL-SHARE
+\* ------------------------------------ */
+
+.c-social-share {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--nr-space-lg);
+  padding-bottom: var(--nr-space);
+  border-bottom: var(--nr-border-width) solid var(--nr-color-border-default);
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--nr-space);
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transform: scale(1);
+    @include o-link;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.2);
+    }
+  }
+}

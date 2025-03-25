@@ -1,0 +1,26 @@
+/* ------------------------------------ *\
+  $LOGOS
+\* ------------------------------------ */
+
+.o-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  img,
+  svg {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+
+    --nr-border-radius-image: 0;
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &--inverted {
+    filter: invert(1);
+  }
+}

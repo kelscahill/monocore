@@ -1,34 +1,19 @@
 {
-  "extends": [
-    "@roots/bud/config/jsconfig.json",
-    "@roots/sage/config/jsconfig.json"
-  ],
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "resources",
-    /**
-     * Resolve aliases
-     */
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
     "paths": {
       "@fonts/*": ["fonts/*"],
       "@images/*": ["images/*"],
       "@scripts/*": ["scripts/*"],
       "@styles/*": ["styles/*"]
     },
-    /**
-     * Type definitions
-     */
-    "types": [
-      "@roots/bud",
-      "@roots/bud-react",
-      "@roots/bud-postcss",
-      "@roots/bud-preset-recommend",
-      "@roots/bud-preset-wordpress",
-      "@roots/bud-tailwindcss",
-      "@roots/bud-wordpress-theme-json",
-      "@roots/sage"
-    ]
+    "target": "es5"
   },
-  "files": ["bud.config.js"],
-  "include": ["resources"],
-  "exclude": ["node_modules", "public"]
+  "include": ["bud.config.mjs", "resources"],
+  "exclude": ["public"]
 }

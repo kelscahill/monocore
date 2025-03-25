@@ -1,5 +1,5 @@
 {
-  "name": "monocore",
+  "name": "northright",
   "private": true,
   "browserslist": [
     "extends @roots/browserslist-config"
@@ -8,9 +8,11 @@
     "node": ">=20.0.0"
   },
   "scripts": {
+    "setup-parent": "cd ../northright; yarn setup;",
     "setup": "composer install; yarn; yarn build;",
-    "start": "bud dev --clean",
+    "start": "yarn build:parent; bud dev --clean;",
     "build": "yarn build:tokens; bud build --clean;",
+    "build:parent": "cd ../northright; yarn build;",
     "build:tokens": "node ./resources/tokens/tokens-config.js",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint resources/scripts",

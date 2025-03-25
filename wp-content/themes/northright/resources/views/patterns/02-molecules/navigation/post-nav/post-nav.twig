@@ -1,0 +1,50 @@
+{% if post_nav.prev or post_nav.next %}
+  <div class="c-post-nav{{ post_nav.classes ? ' ' ~ post_nav.classes }}">
+    {% if post_nav.prev.link and post_nav.prev.title %}
+      <a href="{{ post_nav.prev.link }}" class="c-post-nav__item c-post-nav__item--prev">
+        {% include "@atoms/buttons/button.twig" with {
+          "button": {
+            "icon": {
+              "name": "arrow"
+            },
+            "classes": "c-post-nav__button o-button--icon",
+            "aria_label": "Previous"
+          }
+        } %}
+        <div class="c-post-nav__content">
+          {% include "@atoms/text/kicker/kicker.twig" with {
+            "kicker": {
+              "text": "Previous",
+              "variant": "alt",
+              "classes": "c-post-nav__kicker"
+            }
+          } %}
+          <span class="c-post-nav__label">{{ post_nav.prev.title }}</span>
+        </div>
+      </a>
+    {% endif %}
+    {% if post_nav.next.link and post_nav.next.title %}
+      <a href="{{ post_nav.next.link }}" class="c-post-nav__item c-post-nav__item--next">
+        {% include "@atoms/buttons/button.twig" with {
+          "button": {
+            "icon": {
+              "name": "arrow"
+            },
+            "classes": "c-post-nav__button o-button--icon",
+            "aria_label": "Next"
+          }
+        } %}
+        <div class="c-post-nav__content">
+          {% include "@atoms/text/kicker/kicker.twig" with {
+            "kicker": {
+              "text": "Next",
+              "variant": "alt",
+              "classes": "c-post-nav__kicker"
+            }
+          } %}
+          <span class="c-post-nav__label">{{ post_nav.next.title }}</span>
+        </div>
+      </a>
+    {% endif %}
+  </div>
+{% endif %}

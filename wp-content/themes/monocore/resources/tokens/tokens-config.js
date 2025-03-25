@@ -3,7 +3,7 @@ const StyleDictionary = require('style-dictionary');
 /**
  * Define theme customizations
  */
-const themePrefix = 'mc';
+const themePrefix = 'nr';
 const themeFontWeightRegular = '400';
 const themeFontWeightMedium = '500';
 const themeFontWeightBold = '700';

@@ -23,7 +23,15 @@ export default async (app) => {
    */
   app
     .entry(
-      "app",
+      "parent",
+      await app.glob([
+        "../northright/resources/scripts/app.js",
+        "../northright/resources/styles/app.scss",
+        "../northright/resources/patterns/**/*.{scss, css}",
+      ]),
+    )
+    .entry(
+      "child",
       await app.glob([
         "@scripts/app.js",
         "@styles/app.scss",
@@ -32,6 +40,11 @@ export default async (app) => {
     )
     .entry("editor", ["@scripts/editor", "@styles/editor"])
     .assets(["images"]);
+
+  app.alias({
+    '@fonts': app.path('../northright/resources/fonts'),
+    '@fonts-child': app.path('resources/fonts'),
+  });
 
   /**
    * Set public path
@@ -55,13 +68,11 @@ export default async (app) => {
   /**
    * Set global styles
    */
-  app.sass.importGlobal([
-    "@styles/_tokens",
-    "@styles/_variables",
-    "@styles/_breakpoints",
-    "@styles/_mixins",
-    "@styles/_grid",
-  ]);
+  app.sass.importGlobal(["@styles/_tokens"]);
+  app.sass.importGlobal(["../northright/resources/styles/_variables"]);
+  app.sass.importGlobal(["../northright/resources/styles/_breakpoints"]);
+  app.sass.importGlobal(["../northright/resources/styles/_mixins"]);
+  app.sass.importGlobal(["../northright/resources/styles/_grid"]);
 
   /**
    * Prevent code splitting

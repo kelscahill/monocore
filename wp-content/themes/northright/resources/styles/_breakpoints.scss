@@ -1,0 +1,15 @@
+/* ------------------------------------ *\
+  $BREAKPOINTS
+\* ------------------------------------ */
+
+$tests: false;
+$breakpoints: (
+  "xsmall": $nr-breakpoint-xs,
+  "small": $nr-breakpoint-sm,
+  "medium": $nr-breakpoint-md,
+  "large": $nr-breakpoint-lg,
+  "xlarge": $nr-breakpoint-xl,
+  "xxlarge": $nr-breakpoint-xxl
+);
+
+@import "./breakpoints/breakpoints";

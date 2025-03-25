@@ -1,0 +1,51 @@
+{% set social_share_links = [
+  {
+    "name": "facebook",
+    "url": "https://facebook.com/sharer/sharer.php?u=" ~ post.link|url_encode
+  },
+  {
+    "name": "twitter",
+    "url": "https://twitter.com/intent/tweet/?text=" ~ post.title ~ "&amp;url=" ~ post.link|url_encode
+  },
+  {
+    "name": "pinterest",
+    "url": "http://pinterest.com/pin/create/button/?url=" ~ post.link|url_encode ~ "&description=" ~ post.title ~ "&media=" ~ get_image(post.thumbnail).src|towebp|resize(1200, auto)
+  },
+  {
+    "name": "sms",
+    "url": "https://www.addtoany.com/add_to/sms?linkurl=" ~ post.link|url_encode ~ "&linkname=" ~ post.title
+  },
+  {
+    "name": "email",
+    "url": "mailto:?subject=" ~ post.title ~ "&amp;body=" ~ post.link|url_encode
+  }
+] %}
+
+<div class="c-social-share{{ social_share.classes ? ' ' ~ social_share.classes }}">
+  {% include "@atoms/text/heading/heading.twig" with {
+    "heading": {
+      "level": "6",
+      "size": "xs",
+      "text": "Share",
+      "extra": "c-social-share__heading"
+    }
+  } %}
+  <div class="c-social-share__links">
+    {% for link in social_share_links %}
+      {% if link.url %}
+        {% include "@atoms/links/link.twig" with {
+          "link": {
+            "url": link.url,
+            "target": "_blank",
+            "classes": "c-social-share__item c-social-share__item--" ~ link.name,
+            "icon": {
+              "name": link.name,
+              "modifiers": "sm"
+            },
+            "aria_label": link.name|capitalize
+          }
+        } %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

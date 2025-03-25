@@ -101,12 +101,6 @@ if ( ! class_exists( 'StarterSite' ) ) {
     public function add_to_context( $context ) {
       $context['foo']  = 'bar';
       $context['site'] = $this;
-
-      /* Menus */
-      $context['primary_nav'] = Timber::get_menu('Primary Navigation');
-      $context['secondary_nav'] = Timber::get_menu('Secondary Navigation');
-      $context['footer_nav']  = Timber::get_menu('Footer Navigation');
-
       return $context;
     }
 
@@ -139,11 +133,11 @@ try {
   \Roots\bootloader();
 } catch (Throwable $e) {
   wp_die(
-    __('You need to install Acorn to use this theme.', 'monocore'),
+    __('You need to install Acorn to use this theme.', 'northright'),
     '',
     [
       'link_url' => 'https://docs.roots.io/acorn/2.x/installation/',
-      'link_text' => __('Acorn Docs: Installation', 'monocore'),
+      'link_text' => __('Acorn Docs: Installation', 'northright'),
     ]
   );
 }
@@ -165,7 +159,7 @@ collect(['setup', 'filters'])
     if (! locate_template($file = "app/{$file}.php", true, true)) {
       wp_die(
         /* translators: %s is replaced with the relative file path */
-        sprintf(__('Error locating <code>%s</code> for inclusion.', 'monocore'), $file)
+        sprintf(__('Error locating <code>%s</code> for inclusion.', 'northright'), $file)
       );
     }
   });
@@ -182,7 +176,7 @@ collect(['setup', 'filters'])
 |
 */
 
-add_theme_support('monocore');
+add_theme_support('northright');
 
 /*
 |--------------------------------------------------------------------------
@@ -197,13 +191,13 @@ if (file_exists($register_theme_functions)) {
   require_once $register_theme_functions;
 }
 
-/**
- * Register Custom Blocks.
- */
-$register_custom_blocks = __DIR__ . '/resources/functions/custom-blocks.php';
-if (file_exists($register_custom_blocks)) {
-  require_once $register_custom_blocks;
-}
+// /**
+//  * Register Custom Blocks.
+//  */
+// $register_custom_blocks = __DIR__ . '/resources/functions/custom-blocks.php';
+// if (file_exists($register_custom_blocks)) {
+//   require_once $register_custom_blocks;
+// }
 
 // /**
 //  * Register Custom Post Types.
@@ -220,6 +214,3 @@ if (file_exists($register_custom_blocks)) {
 // if (file_exists($register_custom_taxonomy)) {
 //   require_once $register_custom_taxonomy;
 // }
-
-
-// Increase maximum upload file size

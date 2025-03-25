@@ -1,0 +1,26 @@
+/* ------------------------------------ *\
+  $FOOTER NAV
+\* ------------------------------------ */
+
+.c-footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nr-space-sm);
+  align-items: center;
+
+  @include media(">large") {
+    align-items: flex-start;
+  }
+
+  &--inline {
+    flex-direction: row;
+    gap: var(--nr-space);
+  }
+
+  &__link.o-link {
+    &:hover:not(:disabled),
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+/* ------------------------------------ *\
+  $KICKER
+\* ------------------------------------ */
+
+.o-kicker {
+  @include o-typography-body--lg('bold');
+  align-items: center;
+  display: flex;
+  color: var(--nr-color-content-default);
+
+  &::before {
+    background-color: var(--nr-color-background-primary-default);
+    content: "";
+    width: 72px;
+    height: 4px;
+    margin-right: var(--nr-space);
+  }
+
+  &--alt {
+    display: block;
+    text-transform: none;
+    color: var(--nr-color-content-secondary-default);
+
+    &::before {
+      display: none;
+    }
+  }
+}

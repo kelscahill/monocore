@@ -1,0 +1,51 @@
+
+{% if header_bottom_nav.items|length > 0 %}
+  <nav class="c-header-bottom-nav l-wrap">
+    <ul class="c-header-bottom-nav__parent-list l-container">
+      {% for item in header_bottom_nav.items %}
+        <li class="c-header-bottom-nav__parent-list-item js-this">
+          <div class="c-header-bottom-nav__link-wrap">
+            {% include "@atoms/links/link.twig" with {
+              "link": {
+                "text": item.title,
+                "url": item.url,
+                "target": item.target,
+                "icon": item.icon,
+                "icon_placement": "before",
+                "classes": "c-header-bottom-nav__parent-list-link c-header-bottom-nav__link " ~ item.classes|join(' ')
+              }
+            } %}
+            {% if item.children %}
+              {% include "@atoms/images/icons/icon.twig" with {
+                "icon": {
+                  "title": "chevron-down",
+                  "name": "chevron-down",
+                  "classes": "c-header-bottom-nav__link-toggle js-toggle o-icon--xs",
+                  "attributes": "data-toggled='this' data-prefix='this'"
+                }
+              } %}
+            {% endif %}
+          </div>
+          {% if item.children %}
+            <ul class="c-header-bottom-nav__child-list{{ item.children|length > 6 ? ' has-columns' }}">
+              {% for item in item.children %}
+                <li class="c-header-bottom-nav__child-list-item">
+                  {% include "@atoms/links/link.twig" with {
+                    "link": {
+                      "text": item.title,
+                      "url": item.url,
+                      "target": item.target,
+                      "icon": item.icon,
+                      "icon_placement": "before",
+                      "classes": "c-header-bottom-nav__child-list-link c-header-bottom-nav__link " ~ item.classes|join(' '),
+                    }
+                  } %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

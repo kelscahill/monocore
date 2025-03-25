@@ -1,0 +1,273 @@
+/* ------------------------------------ *\
+  $HEADER
+\* ------------------------------------ */
+
+.c-header {
+  background-color: var(--nr-color-body-background);
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: var(--nr-layout-height-header);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  z-index: 9999;
+
+  &.has-bottom-nav {
+    @include media(">large") {
+      height: 130px;
+    }
+  }
+
+  &.c-header-3 {
+    @include media(">large") {
+      height: 120px;
+    }
+
+    &.has-bottom-nav {
+      @include media(">large") {
+        height: 170px;
+      }
+    }
+  }
+
+  &__logo {
+    padding: var(--nr-space-sm) 0;
+
+    img,
+    svg {
+      max-height: calc(var(--nr-layout-height-header) - (var(--nr-space-sm) * 2));
+    }
+  }
+
+  &__main-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: var(--nr-space-xl);
+  }
+}
+
+/* ------------------------------------ *\
+  $HEADER-TOP-NAV
+\* ------------------------------------ */
+
+.c-header-top-nav {
+  &__container {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    border-bottom: var(--nr-border-width) solid var(--nr-color-border-default-strong);
+    display: none;
+
+    @include media(">large") {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    gap: var(--nr-space-md);
+
+    .o-link {
+      @include o-typography-body--sm;
+    }
+  }
+}
+
+/* ------------------------------------ *\
+  $HEADER-BOTTOM-NAV
+\* ------------------------------------ */
+
+.c-header-bottom-nav {
+  --nr-color-background-default: var(--nr-color-background-primary-default);
+  --nr-color-background-default-weak: var(--nr-color-background-primary-weak);
+  --nr-color-content-default: var(--nr-color-content-primary-strong);
+  --nr-color-content-default-weak: var(--nr-color-content-primary-strong);
+  --nr-color-border-default-strong: var(--nr-color-content-primary-strong);
+
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  height: 50px;
+  min-height: 50px;
+  background-color: var(--nr-color-background-default);
+  display: none;
+
+  @include media(">large") {
+    display: flex;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  &__parent-list {
+    flex: 1;
+    display: flex;
+    gap: var(--nr-space-lg);
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+    height: 100%;
+    overflow: visible;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: auto;
+      padding: 0;
+      border: none;
+
+      &.this-is-active,
+      &:hover,
+      &:focus {
+        > .c-header-bottom-nav__child-list {
+          opacity: 1;
+          visibility: visible;
+          max-height: fit-content;
+        }
+
+        .c-header-bottom-nav__parent-list-link {
+          text-shadow: 0 0 1px var(--nr-color-content-default);
+
+          span::after {
+            width: 100%;
+          }
+        }
+
+        .c-header-bottom-nav__link-toggle svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &-link.o-link {
+      @include o-link--tertiary;
+      text-align: center;
+      text-shadow: 0 0 1px transparent;
+      height: 100%;
+
+      span {
+        position: relative;
+      }
+
+      span::after {
+        content: "";
+        display: block;
+        background: var(--nr-color-content-default);
+        width: 0;
+        height: 2px;
+        position: absolute;
+        bottom: -2px;
+        transition: all var(--nr-animation-duration) var(--nr-animation-timing);
+      }
+
+      &.current-menu-item,
+      &.current-menu-parent {
+        text-shadow: 0 0 1px var(--nr-color-content-default);
+
+        span::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__child-list {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--nr-animation-duration) var(--nr-animation-timing);
+    width: max-content;
+    position: absolute;
+    left: calc(#{var(--nr-space-lg)} * -1);
+    top: 100%;
+    background-color: var(--nr-color-background-default-weak);
+    z-index: 9999;
+    max-height: 100vh;
+    border-radius: var(--nr-border-radius);
+    overflow: hidden;
+    box-shadow: var(--nr-box-shadow);
+    padding: var(--nr-space);
+
+    &.has-columns {
+      columns: 2;
+    }
+
+    &-link.o-link {
+      @include o-link--tertiary;
+      width: 100%;
+      justify-content: flex-start;
+      text-shadow: 0 0 1px transparent;
+      position: relative;
+      border-top: none;
+      border-left: var(--nr-border-width) solid var(--nr-color-border-default-strong);
+      padding: var(--nr-space-xxs) var(--nr-space);
+
+      &::before {
+        content: "";
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+        position: absolute;
+        top: 0;
+        left: -4.5px;
+        bottom: 0;
+        margin: auto;
+        opacity: 0;
+        background-color: var(--nr-color-border-default-strong);
+        transition: all var(--nr-animation-duration) var(--nr-animation-timing);
+      }
+
+      &:hover,
+      &:focus {
+        background-color: var(--nr-color-background-default-weak);
+        text-shadow: 0 0 1px var(--nr-color-content-default);
+
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      &.current-menu-item {
+        text-shadow: 0 0 1px var(--nr-color-content-default);
+      }
+    }
+  }
+
+  &__link-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    justify-content: center;
+  }
+
+  &__link-toggle {
+    display: flex;
+    cursor: pointer;
+    color: var(--nr-color-content-default);
+    padding: var(--nr-space);
+    background-color: transparent;
+    margin-right: calc(var(--nr-space-sm) * -1);
+
+    svg {
+      transition: all var(--nr-animation-duration) var(--nr-animation-timing);
+      transform: rotate(0);
+    }
+
+    &.this-is-active svg {
+      transform: rotate(180deg);
+    }
+  }
+}

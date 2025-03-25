@@ -1,0 +1,83 @@
+{% if post.category and post.category != "Uncategorized" %}
+  {% set kicker = post.category %}
+{% elseif post.post_type != 'post' %}
+  {% set kicker = post.post_type|title %}
+{% endif %}
+<div class="c-content c-content-single{{ content.classes ? ' ' ~ content.classes }} u-spacing--super">
+  {% include "@organisms/sections/headers/page-header.twig" with {
+    "page_header": {
+      "kicker": kicker,
+      "title": post.title,
+      "sub_title": post.sub_title,
+      "dek": single.page_header.dek,
+      "classes": "c-content-single__header"
+    }
+  } %}
+  {% if password_protected %}
+    {% include "@molecules/forms/password-protected/password-protected.twig" %}
+  {% else %}
+    {% if post.hide_featured_image != "yes" %}
+      <div class="c-content-single__image js-gsap-trigger {{ sidebar ? 'l-container' : 'l-container--lg' }}">
+        <div class="js-gsap-scale-down">
+          {% include "@atoms/images/image/figure.twig" with {
+            "figure": {
+              "image": {
+                "sources": [
+                  {
+                    "media": "(min-width: 1260)",
+                    "srcset": get_image(post.thumbnail).src|resize(1600, 800, 'center')
+                  },
+                  {
+                    "media": "(min-width: 1024px)",
+                    "srcset": get_image(post.thumbnail).src|resize(1260, 709, 'center')
+                  },
+                  {
+                    "media": "(min-width: 768px)",
+                    "srcset": get_image(post.thumbnail).src|resize(1024, 576, 'center')
+                  },
+                  {
+                    "media": "(min-width: 480px)",
+                    "srcset": get_image(post.thumbnail).src|resize(768, 432, 'center')
+                  },
+                ],
+                "src": get_image(post.thumbnail).src|resize(480, 270, 'center'),
+                "alt": get_image(post.thumbnail).alt,
+                "caption": get_image(post.thumbnail).caption
+              }
+            }
+          } %}
+        </div>
+      </div>
+    {% endif %}
+    <div class="{{ sidebar ? 'l-container has-sidebar' : 'l-container--md' }}">
+      <article class="c-content-single__article u-spacing--lg">
+        {% include "@molecules/components/social-share/social-share.twig" %}
+        {% include "@atoms/text/rich-text/rich-text.twig" with {
+          "rich_text": {
+            "text": post.content,
+            "classes": "c-content-single__body"
+          }
+        } %}
+        {% include "@molecules/navigation/post-nav/post-nav.twig" with {
+          "post_nav": {
+            "prev": {
+              "link": prev_post.guid,
+              "title": prev_post.post_title
+            },
+            "next": {
+              "link": next_post.guid,
+              "title": next_post.post_title
+            }
+          }
+        } %}
+      </article>
+      {% include "@molecules/sidebar/sidebar.twig" %}
+    </div>
+    {% include "@organisms/sections/related-posts/related-posts.twig" with {
+      "related_posts": {
+        "title": options.related_posts_title,
+        "background": options.related_posts_background
+      }
+    } %}
+  {% endif %}
+</div>

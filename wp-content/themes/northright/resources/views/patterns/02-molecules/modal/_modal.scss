@@ -1,0 +1,67 @@
+/* ------------------------------------ *\
+  $MODAL
+\* ------------------------------------ */
+
+.c-modal {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--nr-color-overlay-default);
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity var(--nr-animation-duration) var(--nr-animation-timing), visibility var(--nr-animation-duration) var(--nr-animation-timing);
+  padding-top: var(--nr-space-lg);
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &:focus,
+    &:hover:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  &__content {
+    padding: var(--nr-space);
+    flex: 1;
+  }
+
+  &__body {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: var(--nr-space-lg);
+    width: 100%;
+    max-width: var(--nr-layout-max-width);
+    max-height: calc(100vh - (var(--nr-space-xl) * 2));
+    overflow: auto;
+    background-color: var(--nr-color-background-default);
+
+    @include u-align--center;
+  }
+
+  &.is-active {
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+    z-index: 99999;
+  }
+}
+
+body.modal-is-active {
+  overflow: hidden;
+
+  .c-modal {
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+    z-index: 999999;
+  }
+}

@@ -1,9 +1,0 @@
-/* ------------------------------------ *\
-  $GRID
-\* ------------------------------------ */
-
-$grid-prefix: "data-grid";
-$grid-columns: 12;
-$grid-gutter: var(--mc-space-lg);
-
-@import "./grid/grid";

@@ -1,0 +1,57 @@
+/* ------------------------------------ *\
+  $ACCORDION
+\* ------------------------------------ */
+
+.c-accordion {
+  &__item {
+    background-color: var(--nr-color-background-default-weak);
+    border-radius: var(--nr-border-radius-card);
+    overflow: hidden;
+
+    &.this-is-active {
+      .c-accordion__panel {
+        max-height: 100vh;
+        overflow: auto;
+        transition: max-height var(--nr-animation-duration) ease-in-out;
+      }
+
+      .c-accordion__icon {
+        transform: rotate(45deg);
+      }
+    }
+
+    .c-accordion--outlined & {
+      background-color: transparent;
+      border: var(--nr-border-width) solid var(--nr-color-border-default-weak);
+    }
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: var(--nr-space-md);
+    width: 100%;
+  }
+
+  &__title {
+    flex: 1;
+    text-align: left;
+  }
+
+  &__icon {
+    transform: rotate(0);
+    transition: transform var(--nr-animation-duration) var(--nr-animation-timing);
+  }
+
+  &__panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--nr-animation-duration) ease-in-out;
+
+    &-container {
+      padding: var(--nr-space-md);
+      padding-top: 0;
+    }
+  }
+}

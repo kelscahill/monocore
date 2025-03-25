@@ -1,0 +1,23 @@
+/* ------------------------------------ *\
+  $TAG
+\* ------------------------------------ */
+
+.o-tag,
+.tag-cloud-link {
+  width: fit-content;
+  display: inline-block;
+  border-radius: var(--nr-border-radius-button);
+  padding: var(--nr-space-xxs) var(--nr-space-xs);
+  color: var(--nr-color-content-default-weak);
+  background: var(--nr-color-background-default-weak);
+  transition: all var(--nr-animation-duration) var(--nr-animation-timing);
+  transform: translateY(0);
+  @include o-typography-body--sm;
+
+  &:hover,
+  &:focus {
+    color: var(--nr-color-content-secondary-strong);
+    background-color: var(--nr-color-background-secondary-weak);
+    transform: translateY(-3px);
+  }
+}
