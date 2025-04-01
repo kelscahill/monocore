@@ -3,14 +3,15 @@ namespace Perfmatters;
 
 class Buffer
 {
-    //initialize buffer
+    //initialize buffer class
     public static function init()
     {
-        //inital checks
-        if(is_admin() || perfmatters_is_dynamic_request() || perfmatters_is_page_builder() || isset($_GET['perfmatters']) || isset($_GET['perfmattersoff'])) {
-            return;
-        }
+        add_action('perfmatters_queue', array('Perfmatters\Buffer', 'queue'));
+    }
 
+    //queue functions
+    public static function queue() 
+    {
         //buffer is allowed
         if(!apply_filters('perfmatters_allow_buffer', true)) {
             return;
@@ -27,11 +28,6 @@ class Buffer
 
             //exclude certain requests
             if(is_embed() || is_feed() || is_preview() || is_customize_preview()) {
-                return;
-            }
-
-            //exclude specific woocommerce pages
-            if(function_exists('is_woocommerce') && (is_cart() || is_checkout() || is_account_page())) {
                 return;
             }
 
