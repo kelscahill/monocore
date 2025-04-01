@@ -93,6 +93,31 @@
     margin-top: var(--nr-space-md);
   }
 
+  > .wp-block-group {
+    margin-top: 0;
+    padding-top: var(--nr-space-super);
+    padding-bottom: var(--nr-space-super);
+    @include l-container--full;
+    @include l-wrap;
+
+    > * {
+      max-width: var(--nr-layout-max-width);
+      @include u-align--center;
+    }
+  }
+
+  .wp-block-group__inner-container {
+    & > * + * {
+      margin-top: var(--nr-space-lg);
+    }
+  }
+
+  .wp-block-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   pre {
     background-color: var(--nr-color-background-default-weak);
     padding: var(--nr-space);

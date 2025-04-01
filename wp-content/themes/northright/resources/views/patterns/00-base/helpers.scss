@@ -2,50 +2,9 @@
   $HELPERS
 \* ------------------------------------ */
 
-section,
-.wp-block-group {
+section {
   padding-top: var(--nr-space-super);
   padding-bottom: var(--nr-space-super);
-}
-
-.wp-block-group {
-  gap: var(--nr-space-lg);
-}
-
-.wp-block-column {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.wp-block-group:not(.is-layout-flex) {
-  @include l-container--full;
-  @include l-wrap;
-
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-left: 0 !important;
-    max-width: var(--nr-layout-max-width-sm);
-  }
-
-  img {
-    margin: auto;
-  }
-}
-
-.wp-block-group-is-layout-constrained {
-  gap: var(--nr-space-lg);
-  max-width: var(--nr-layout-max-width);
-  @include u-align--center;
-
-  & > * + * {
-    margin-top: var(--nr-space-lg);
-  }
 }
 
 section + section {
