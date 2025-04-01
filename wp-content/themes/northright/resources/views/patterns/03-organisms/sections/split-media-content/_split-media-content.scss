@@ -39,7 +39,8 @@
       height: 100%;
     }
 
-    picture img {
+    picture img,
+    .o-video {
       height: 100%;
       width: 100%;
       object-fit: cover;

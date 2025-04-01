@@ -3,6 +3,7 @@
 {% else %}
   {% set block_image = block.thumbnail %}
 {% endif %}
+
 <div class="c-block{{ block.classes ? ' ' ~ block.classes }}">
   {% include "@atoms/images/image/figure.twig" with {
     "figure": {

@@ -392,6 +392,10 @@ body.primary-nav-search-form-is-active {
       min-width: 320px;
       pointer-events: auto;
     }
+
+    .c-header__logo {
+      z-index: 1;
+    }
   }
 }
 

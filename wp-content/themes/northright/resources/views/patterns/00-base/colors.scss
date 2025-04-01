@@ -9,6 +9,34 @@
   color: var(--nr-color-content-default);
 }
 
+.u-color--content-default-weak {
+  color: var(--nr-color-content-default-weak);
+}
+
+.u-color--content-primary-weak {
+  color: var(--nr-color-content-primary-weak);
+}
+
+.u-color--content-primary-default {
+  color: var(--nr-color-content-primary-default);
+}
+
+.u-color--content-primary-strong {
+  color: var(--nr-color-content-primary-strong);
+}
+
+.u-color--content-secondary-weak {
+  color: var(--nr-color-content-secondary-weak);
+}
+
+.u-color--content-secondary-default {
+  color: var(--nr-color-content-secondary-default);
+}
+
+.u-color--content-secondary-strong {
+  color: var(--nr-color-content-secondary-strong);
+}
+
 body .search-filter-base,
 body .search-filter-component-popup {
   --search-filter-description-background-color: transparent !important;

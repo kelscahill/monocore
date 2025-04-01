@@ -133,11 +133,17 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     flex: 1;
   }
 
   &__dek {
     flex: 1;
+
+    .c-block-value-point--none & {
+      padding-top: var(--nr-space);
+      border-top: var(--nr-border-width) solid var(--nr-color-border-default-weak);
+    }
   }
 }
 

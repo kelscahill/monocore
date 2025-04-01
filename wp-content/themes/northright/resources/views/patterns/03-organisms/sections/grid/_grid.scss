@@ -66,10 +66,6 @@
     &__arrow {
       display: none;
     }
-
-    &__image picture img {
-      aspect-ratio: 1/1;
-    }
   }
 }
 
@@ -212,9 +208,7 @@
       flex: 1;
     }
 
-    &__category,
     &__meta,
-    &__excerpt,
     &__arrow {
       display: none;
     }
@@ -392,7 +386,6 @@
       justify-content: flex-end;
     }
 
-    &__category,
     &__meta,
     &__arrow,
     &__image::after,
@@ -474,7 +467,6 @@
       flex: 1;
     }
 
-    &__excerpt,
     &__arrow {
       display: none;
     }

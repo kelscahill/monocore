@@ -47,6 +47,7 @@
   }
 
   > ul li a,
+  > ol li a,
   > p a,
   > a {
     @include o-link--secondary;
@@ -62,11 +63,13 @@
     }
   }
 
-  > ul {
+  > ul,
+  > ol {
     margin-left: var(--nr-space-lg);
   }
 
-  > ul ul {
+  > ul ul,
+  > ol ol {
     margin-left: var(--nr-space-xl);
     margin-top: var(--nr-space);
   }
@@ -83,6 +86,11 @@
 
   .wp-block-separator {
     border-top: none;
+  }
+
+  .wp-block-heading + .wp-block-heading {
+    padding-top: 0;
+    margin-top: var(--nr-space-md);
   }
 
   pre {

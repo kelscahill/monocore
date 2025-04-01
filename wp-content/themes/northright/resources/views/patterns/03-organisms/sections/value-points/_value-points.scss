@@ -17,9 +17,37 @@
       }
     }
   }
+
+  &--count {
+    @include media(">medium") {
+      &-1 .c-value-points__items {
+        grid-template-columns: repeat(1, 1fr) !important;
+      }
+
+      &-2 .c-value-points__items {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      &-3 .c-value-points__items {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+  }
 }
 
 .c-value-points--cards.c-value-points--left.c-value-points--columns-3 {
+  &.c-value-points--count {
+    @include media(">medium") {
+      &-1 .c-value-points__content {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      &-2 .c-value-points__content {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+  }
+
   .c-value-points__header {
     align-content: center;
   }

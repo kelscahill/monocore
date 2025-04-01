@@ -1,4 +1,4 @@
-<div class="c-block-value-point{{ block.classes ? ' ' ~ block.classes }} c-block-value-point--{{ block_variant }}{{ block_variant != "split-media" ? " u-spacing--lg" }}{{ block_align ? " c-block-value-point--" ~ block_align }}{{ block.button.link.url and block_variant == "cards" ? " js-custom-hover-cursor" }} js-gsap-scale-in">
+<div class="c-block-value-point{{ block.classes ? ' ' ~ block.classes }} c-block-value-point--{{ block_variant }} c-block-value-point--{{ block_type }}{{ block_variant != "split-media" ? " u-spacing--lg" }}{{ block_align ? " c-block-value-point--" ~ block_align }}{{ block.button.link.url and block_variant == "cards" ? " js-custom-hover-cursor" }} js-gsap-scale-in">
   {% if block.image_icon %}
     {% if block_type == 'image' and (block.image or block.icon) %}
       <div class="c-block-value-point__media">

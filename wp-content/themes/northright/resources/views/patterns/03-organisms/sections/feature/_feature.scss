@@ -17,10 +17,11 @@
   &__logo {
     max-width: 50%;
     max-height: var(--nr-icon-xxl);
+    border-radius: inherit !important;
 
-    img {
+    > img {
       width: 100%;
-      height: 100%;
+      height: 100% !important;
       object-fit: contain;
       object-position: top left;
     }

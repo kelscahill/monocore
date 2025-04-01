@@ -4,7 +4,7 @@
   {% set value_points_grid = false %}
 {% endif %}
 
-<section{{ value_points.anchor ? ' id="' ~ value_points.anchor ~ '"'}} class="c-value-points{{ value_points.classes ? " " ~ value_points.classes }} l-container--full l-wrap c-value-points--{{ value_points.layout|replace({"_": "-"}) }}{{ value_points.text_align ? " c-value-points--" ~ value_points.text_align }}{{ value_points.columns ? " c-value-points--columns-" ~ value_points.columns }}{{ value_points.background.background_color ? ' u-background--' ~ value_points.background.background_color }}">
+<section{{ value_points.anchor ? ' id="' ~ value_points.anchor ~ '"'}} class="c-value-points{{ value_points.classes ? " " ~ value_points.classes }} l-container--full l-wrap c-value-points--{{ value_points.layout|replace({"_": "-"}) }}{{ value_points.text_align ? " c-value-points--" ~ value_points.text_align }}{{ value_points.columns ? " c-value-points--columns-" ~ value_points.columns }}{{ value_points.background.background_color ? ' u-background--' ~ value_points.background.background_color }} c-value-points--count-{{ value_points.items|length }}">
   {% include "@atoms/images/image/background.twig" with {
     "background": value_points.background
   } %}
@@ -29,10 +29,12 @@
         </div>
       {% endif %}
     </div>
-    <div class="c-value-points__footer">
-      {% include "@atoms/buttons/button.twig" with {
-        "button": value_points.button
-      } %}
-    </div>
+    {% if value_points.button.link.url and value_points.button.link.title %}
+      <div class="c-value-points__footer">
+        {% include "@atoms/buttons/button.twig" with {
+          "button": value_points.button
+        } %}
+      </div>
+    {% endif %}
   </div>
 </section>

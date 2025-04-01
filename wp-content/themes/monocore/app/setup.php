@@ -35,6 +35,7 @@ add_action('wp_enqueue_scripts', function () {
  * @return void
  */
 add_action('enqueue_block_editor_assets', function () {
+    wp_enqueue_style('parent-editor-styles', get_template_directory_uri() . '/public/' . get_file_from_manifest(get_template_directory_uri(), 'editor.css'));
     bundle('editor')->enqueue();
 }, 100);
 
