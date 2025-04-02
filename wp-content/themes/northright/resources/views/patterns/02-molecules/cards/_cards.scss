@@ -130,6 +130,11 @@ a.c-card-media {
     .c-card-team__social-media .o-link {
       @include o-link(var(--nr-color-content-primary-strong), var(--nr-color-content-primary-strong));
     }
+
+    .o-heading__link:hover,
+    .o-heading__link:focus {
+      color: var(--nr-color-content-primary-strong);
+    }
   }
 }
 

@@ -831,6 +831,24 @@
             "placeholder": ""
         },
         {
+            "key": "field_67ec42a1decfc",
+            "label": "BlueSky Url",
+            "name": "bluesky_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_646b99b711862",
             "label": "Newsletter Signup",
             "name": "",
@@ -1025,5 +1043,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1742832384
+    "modified": 1743536844
 }
